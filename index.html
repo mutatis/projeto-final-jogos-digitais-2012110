@@ -1,0 +1,381 @@
+<! DOCTYPE HTML>
+
+<html>
+
+	<head>
+	
+		<title>
+		
+			JOGOxzgf vbcxv
+		
+		</title>
+		
+		<script src = "js/fundo.js"></script>
+		<script src = "js/intro.js"></script>
+		<script src = "js/personagem.js"></script>
+		<script src = "js/creditos.js"></script>
+		<script src = "js/TUTORIAL.js"></script>
+		<script src = "js/point.js"></script>
+		<script src = "js/inicio.js"></script>
+		<script src = "js/fundo_i.js"></script>
+		<script src = "js/botao.js"></script>
+		
+	</head>
+	
+	<body>
+	
+	<div style = "display:none">
+	<video id="video1" nocontrols>
+  	<source src="2.mp4" type='video/mp4'>
+  	<source src="1.ogg" type='video/ogg'>
+   	</video>	
+  	</div>
+	<canvas width="800" height="600" id="main" style="border:3px solid #000000;"></canvas>
+	
+	
+	
+	<script>
+	
+		var canvas = document.getElementById("main");
+		var screen = canvas.getContext("2d");
+		
+		var playingVideo = false;
+				
+		var video1 = document.getElementsByTagName("video1");
+		
+		function EndVideo()
+		{
+			
+			playingVideo = false;
+			currentScene = SCENES.INTRO;
+				
+		}
+		
+		SCREEN_WIDTH = 800;
+
+		SCREEN_HEIGHT = 600;
+		
+		var intro = new SCENEIntro();
+		
+		var credito = new SCENECreditos();
+		
+		var tutorial = new SCENETutorial();
+		
+		var point = new SCENEPoint();
+		
+		var play = new Inicio(); 
+		
+		var SCENES = { INTRO: 0, CREDITOS: 1, TUTORIAL: 2, POINT: 3, VIDEO: 4, PLAY: 5}
+		
+		var currentScene = SCENES.PLAY;
+		
+		var video1 = document.getElementById("video1");
+		
+		 	var efeito_sonoro_fundo = new Audio();
+			efeito_sonoro_fundo.src = "1.mp3";
+			efeito_sonoro_fundo.load();
+			efeito_sonoro_fundo.loop = true;
+			efeito_sonoro_fundo.volume = 1;
+
+		
+		Load();
+		function Load()
+		{//abre Load
+			
+			Loop();
+			
+		}//fecha Load
+	
+		function Clear()
+		{//abre Clear
+		
+			screen.clearRect(0, 0, 800, 600);
+		
+		}//fecha Clear
+		
+		function Update()
+		{//abre Update
+			
+			switch(currentScene)
+			{//abre switch
+						
+				case SCENES.INTRO:
+
+				{//abre case SCENES.INTRO
+					
+					intro.update();	
+
+				}//fecha case SCENES.INTRO
+				break;
+				
+				case SCENES.CREDITOS:
+				{//abre case SCENES.CREDITOS 
+					
+					credito.update();
+
+				}//fecha case SCENES.CREDITOS
+				break;
+			
+				case SCENES.POINT:
+				{//abre case SCENES.POINT
+
+					point.update();
+					
+				}//fecha case SCENES.LEVEL01
+				break;
+
+				case SCENES.TUTORIAL:
+				{//abre case SCENES.TUTORIAL
+
+					tutorial.update();
+					
+				}//fecha case SCENES.TUTORIAL
+				break;
+			
+			}//fecha switch
+		
+		}//fecha Update
+		
+		function Draw()
+		{//abre draw
+		
+			if(playingVideo)
+			{
+				screen.drawImage(video1,0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
+				return;
+			}
+			
+			Clear();
+			
+			switch(currentScene)
+			{//abre switch
+			
+				case SCENES.PLAY:
+				{					
+					play.draw();
+				}
+				break;
+				case SCENES.VIDEO:
+				{	
+					video1.play();
+					playingVideo = true;
+					document.getElementById('video1').addEventListener('ended',EndVideo,false);
+				}
+				break;
+				case SCENES.INTRO:
+				{//abre case SCENES.INTRO
+					
+					intro.draw();
+				
+				}//fecha case SCENES.INTRO
+				break;
+
+				case SCENES.CREDITOS:
+				{//abre case SCENES.CREDITOS
+
+					credito.draw();
+				
+				}//fecha case SCENES.CREDITOS
+				break;
+
+				case SCENES.POINT:
+				{//abre case SCENES.POINT
+					
+					point.draw();
+
+				}//fecha case SCENES.POINT
+				break;
+
+				case SCENES.TUTORIAL:
+				{//abre case SCENES.TUTORIAL
+					
+					tutorial.draw();
+
+				}//fecha case SCENES.TUTORIAL
+				break;
+
+			}//fecha switch
+			
+		}//fecha draw
+		
+		function Loop()
+		{//abre Loop
+
+			Update();
+
+			Draw();
+
+			setTimeout(Loop, 20);
+
+		}//fecha Loop
+		
+		function key_down(key)
+		{//abre keydown
+
+			switch(currentScene)
+			{//abre switch
+
+				case SCENES.INTRO:
+				{//abre case SCENES.INTRO
+					
+					intro.key_down(key);
+	
+				}//fecha case SCENES.INTRO
+				break;
+
+				case SCENES.CREDITOS:
+				{//abre case SCENES.CREDITOS
+
+					credito.key_down(key);
+				}//fecha SCENES.CREDITOS
+				break;
+
+				case SCENES.POINT:
+				{//abre case SCENES.POINT
+					
+					point.key_down(key);
+
+				}//fecha case SCENES.POINT
+				break;
+
+				case SCENES.TUTORIAL:
+				{//abre case SCENES.TUTORIAL
+
+					tutorial.key_down(key);
+
+				}//fecha case SCENES.TUTORIAL
+				break;
+
+			}//fecha switch
+		}//fecha key down
+
+		function key_up(key)
+		{//abre key up
+
+			switch(currentScene)
+			{//abre switch
+				
+				case SCENES.INTRO:
+				{//abre case SCENES.INTRO
+
+					intro.key_up(key);
+
+				}//fecha case SCENES.INTRO
+				break;
+		
+				case SCENES.CREDITOS:
+				{//abre case SCENES.CREDITOS
+
+					credito.key_up(key);
+		
+				}//fecha case SCENES.CREDITOS
+				break;
+
+				case SCENES.POINT:
+				{//abre case SCENES.POINT
+
+					point.key_up(key);
+
+				}//fecha case SCENES.POINT
+				break;
+
+				case SCENES.TUTORIAL:
+				{//abre case SCENES.TUTORIAL
+
+					tutorial.key_up(key);
+				
+				}//fecha case SCENES.TUTORIAL
+				break;
+
+			}//fecha switch	
+		}//fecha key up
+
+		function mouse_move(mouse)
+		{//abre mouse move	
+
+		}//fecha mouse move
+
+		function mouse_up(mouse)
+		{//abre mouse up
+
+		}//fecha mouse up
+
+		function mouse_down(mouse)
+		{//abre mouse down
+
+			console.log("mous x " + mouse.x, "mouse y " + mouse.y)	
+
+			switch(currentScene)
+			{//abre switch
+			
+				case SCENES.PLAY:
+				{
+					play.mouse_down(mouse);	
+				}
+
+				case SCENES.INTRO:
+				{//abre case SCENES.INTRO
+					
+					intro.mouse_down(mouse);
+				
+				}//fecha case SCENES.INTRO
+				break;
+				
+				case SCENES.CREDITOS:
+				{//abre case SCENES.CREDITOS
+
+					credito.mouse_down(mouse);
+				
+				}//fecha case SCENES.CREDITOS
+				break;
+
+				case SCENES.POINT:
+				{//abre case SCENES.POINT
+
+					point.mouse_down(mouse);
+				
+				}
+				break;
+
+				case SCENES.TUTORIAL:
+				{//abre case SCENES.TUTORIAL
+					
+					tutorial.mouse_down(mouse);
+
+				}//fecha case SCENES.TUTORIAL
+				break;
+
+			}//fecha switch
+		}//fecha mouse down
+
+
+		function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
+		{//abre Collide
+			if((x1+w1<x2)//se rect1 esquerda rect2
+			||(x1>x2+w2)//se rect1 direita rect2
+			||(y1+h1<y2)//se rect1 acima rect2
+			||(y1>y2+h2))//se rect1 abaixo rect2
+			{//abre if
+
+				return false;//nao colidiu
+
+			}//fecha if
+			else
+			{//abre else
+
+				return true;//colidiu
+
+			}//fecha else
+		}//fecha Collide
+
+window.addEventListener('keydown', key_down, true);
+window.addEventListener('keyup', key_up, true);
+window.addEventListener('mousemove', mouse_move, true);
+window.addEventListener('mouseup', mouse_up, true);
+window.addEventListener('mousedown', mouse_down, true);
+	
+	</script>
+		
+	</body>
+
+</html>
