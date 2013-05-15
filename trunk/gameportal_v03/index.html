@@ -1,0 +1,514 @@
+<!DOCTYPE HTML>
+
+<html> 
+
+	<head>
+		<title>
+                
+        Mini Game Portal
+                
+        </title>        
+                
+		<script src="js/scene_menu.js"></script>
+		<script src="js/scene_credit.js"></script>
+		<script src="js/core/sprite.js"></script>
+		<script src="js/core/background.js"></script>
+		<script src="js/button.js"></script>
+		
+		
+		<script src="js/fundo_cena.js"></script>
+		
+		<script src="js/game1/game1.js"></script>
+		<script src="js/game2/game2.js"></script>
+		<script src="js/game3/game3.js"></script>
+		<script src="js/game4/game4.js"></script>
+		<script src="js/game5/game5.js"></script>
+		<script src="js/game6/game6.js"></script>
+		<script src="js/game7/game7.js"></script>
+		<script src="js/game8/game8.js"></script>
+		<script src="js/game9/game9.js"></script>
+		<script src="js/game10/game10.js"></script>
+		
+		<script src="js/game1/game_1_ball.js"></script>
+		<script src="js/game1/game_1_pallete.js"></script>
+		<script src="js/game1/game_1_scene_game_over.js"></script>
+		<script src="js/game1/game_1_scene_intro.js"></script>
+		<script src="js/game1/game_1_scene_level_1.js"></script>
+		<script src="js/game1/game_1_scene_the_end.js"></script>
+		
+   </head>
+        
+   <body>
+   <canvas width="800" height="600" id="main" style="border:1px solid #000000;"></canvas>
+   </body>
+        
+   	<script> 
+        
+   	var canvas = document.getElementById("main");
+   	var screen = canvas.getContext("2d");
+   	
+   	var SCREENWIDTH = 800;
+   	var SCREENHEIGHT = 600;
+        
+    var paused = false;
+    
+    var menu = new SceneMenu();
+	
+	var credit = new SceneCredit();
+	
+	var game1 = new SceneGame1();
+	
+	var game2 = new SceneGame2();
+	
+	var game3 = new SceneGame3();
+	
+	var game4 = new SceneGame4();
+	
+	var game5 = new SceneGame5();
+	
+	var game6 = new SceneGame6();
+
+	var game7 = new SceneGame7();
+	
+	var game8 = new SceneGame8();
+	
+	var game9 = new SceneGame9();
+	
+	var game10 = new SceneGame10();
+	
+	var SCENE = { MENU: 0, GAME1: 1, GAME2: 2, GAME3: 3, GAME4: 4, GAME5: 5, GAME6: 6, GAME7: 7, GAME8: 8, GAME9: 9, GAME10: 10, CREDIT: 11}
+	
+	var currentScene = SCENE.MENU;
+	
+	load();
+
+	function load()
+	{	
+		console.log("load");
+
+		if((true))//to do...
+		{
+			console.log("carreguei");
+
+			loop();
+		}
+		else
+		{
+			console.log("nao carreguei");
+
+			setTimeout(load, 30 );
+		}
+	}
+
+	
+	function loop()
+	{
+		update();
+
+		draw();
+
+		setTimeout(loop, 30 );
+	}
+
+
+	function update()
+	{	
+		if(paused)
+		{
+			return;
+		}
+			
+		switch(currentScene)
+		{	
+			case SCENE.MENU:
+			{
+				menu.update();	
+			}
+			break;
+			case SCENE.CREDIT:
+			{
+				credit.update();
+			}
+			break;
+			case SCENE.GAME1:
+			{
+				game1.update();
+			}
+			break;
+			case SCENE.GAME2:
+			{
+				game2.update();
+			}
+			break;
+			case SCENE.GAME3:
+			{
+				game3.update();
+			}
+			break;
+			case SCENE.GAME4:
+			{
+				game4.update();
+			}
+			break;
+			case SCENE.GAME5:
+			{
+				game5.update();
+			}
+			break;
+			case SCENE.GAME6:
+			{
+				game6.update();
+			}
+			break;
+			case SCENE.GAME7:
+			{
+				game7.update();
+			}
+			break;
+			case SCENE.GAME8:
+			{
+				game8.update();
+			}
+			break;
+			case SCENE.GAME9:
+			{
+				game9.update();
+			}
+			break;
+			case SCENE.GAME10:
+			{
+				game10.update();
+			}
+			break;
+	
+			
+		}
+		
+	}
+
+
+	function draw()
+	{
+		clear();
+		
+		if(paused)
+		{
+			screen.font = "20px Comic Sans MS";
+			screen.fillStyle="#000000";
+			screen.fillText("PAUSED", (SCREENWIDTH/2), (SCREENHEIGHT/2));
+		}
+
+		switch(currentScene)
+		{	
+			case SCENE.MENU:
+			{
+				menu.draw();	
+			}
+			break;
+			case SCENE.CREDIT:
+			{
+				credit.draw();
+			}
+			break;
+			case SCENE.GAME1:
+			{
+				game1.draw();
+			}
+			break;
+			case SCENE.GAME2:
+			{
+				game2.draw();
+			}
+			break;
+			case SCENE.GAME3:
+			{
+				game3.draw();
+			}
+			break;
+			case SCENE.GAME4:
+			{
+				game4.draw();
+			}
+			break;
+			case SCENE.GAME5:
+			{
+				game5.draw();
+			}
+			break;
+			case SCENE.GAME6:
+			{
+				game6.draw();
+			}
+			break;
+			case SCENE.GAME7:
+			{
+				game7.draw();
+			}
+			break;
+			case SCENE.GAME8:
+			{
+				game8.draw();
+			}
+			break;
+			case SCENE.GAME9:
+			{
+				game9.draw();
+			}
+			break;
+			case SCENE.GAME10:
+			{
+				game10.draw();
+			}
+			break;
+
+		}
+
+	}
+
+	function clear()
+	{
+		screen.clearRect(0,0,SCREENWIDTH,SCREENHEIGHT);
+	}
+
+	window.addEventListener('keydown', key_down, true);
+	window.addEventListener('keyup', key_up, true);
+	window.addEventListener('mousemove', mouse_move, true);
+	window.addEventListener('mouseup', mouse_up, true);
+	window.addEventListener('mousedown', mouse_down, true);
+
+	function key_down(key)
+	{
+		switch(currentScene)
+		{
+			case SCENE.MENU:
+			{
+				menu.key_down(key);	
+			}
+			break;
+			case SCENE.CREDIT:
+			{
+				credit.key_down(key);
+			}
+			break;
+			case SCENE.GAME1:
+			{
+				game1.key_down(key);
+			}
+			break;
+			case SCENE.GAME2:
+			{
+				game2.key_down(key);
+			}
+			break;
+			case SCENE.GAME3:
+			{
+				game3.key_down(key);
+			}
+			break;
+			case SCENE.GAME4:
+			{
+				game4.key_down(key);
+			}
+			break;
+			case SCENE.GAME5:
+			{
+				game5.key_down(key);
+			}
+			break;
+			case SCENE.GAME6:
+			{
+				game6.key_down(key);
+			}
+			break;
+			case SCENE.GAME7:
+			{
+				game7.key_down(key);
+			}
+			break;
+			case SCENE.GAME8:
+			{
+				game8.key_down(key);
+			}
+			break;
+			case SCENE.GAME9:
+			{
+				game9.key_down(key);
+			}
+			break;
+			case SCENE.GAME10:
+			{
+				game10.key_down(key);
+			}
+			break;
+
+		}
+	}
+
+	function key_up(key)
+	{
+		switch(currentScene)
+		{			
+			case SCENE.MENU:
+			{
+				menu.key_up(key);	
+			}
+			break;
+			case SCENE.CREDIT:
+			{
+				credit.key_up(key);
+			}
+			break;
+			case SCENE.GAME1:
+			{
+				game1.key_up(key);
+			}
+			break;
+			case SCENE.GAME2:
+			{
+				game2.key_up(key);
+			}
+			break;
+			case SCENE.GAME3:
+			{
+				game3.key_up(key);
+			}
+			break;
+			case SCENE.GAME4:
+			{
+				game4.key_up(key);
+			}
+			break;
+			case SCENE.GAME5:
+			{
+				game5.key_up(key);
+			}
+			break;
+			case SCENE.GAME6:
+			{
+				game6.key_up(key);
+			}
+			break;
+			case SCENE.GAME7:
+			{
+				game7.key_up(key);
+			}
+			break;
+			case SCENE.GAME8:
+			{
+				game8.key_up(key);
+			}
+			break;
+			case SCENE.GAME9:
+			{
+				game9.key_up(key);
+			}
+			break;
+			case SCENE.GAME10:
+			{
+				game10.key_up(key);
+			}
+			break;
+		}
+	}
+	function mouse_move(mouse)
+	{
+
+	}
+
+	function mouse_up(mouse)
+	{
+
+	}
+
+
+	function mouse_down(mouse)
+	{
+		switch(currentScene)
+		{
+			case SCENE.MENU:
+			{
+				menu.mouse_down(mouse);	
+			}
+			break;
+			case SCENE.CREDIT:
+			{
+				credit.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME1:
+			{
+				game1.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME2:
+			{
+				game2.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME3:
+			{
+				game3.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME4:
+			{
+				game4.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME5:
+			{
+				game5.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME6:
+			{
+				game6.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME7:
+			{
+				game7.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME8:
+			{
+				game8.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME9:
+			{
+				game9.mouse_down(mouse);
+			}
+			break;
+			case SCENE.GAME10:
+			{
+				game10.mouse_down(mouse);
+			}
+			break;
+
+
+		}
+	}
+
+
+	function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
+	{	
+		if((x1+w1<x2)//se rect1 esquerda rect2
+		||(x1>x2+w2)//se rect1 direita rect2
+		||(y1+h1<y2)//se rect1 acima rect2
+		||(y1>y2+h2))//se rect1 abaixo rect2
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+
+</script>
+
+</body>
+
+</html>
