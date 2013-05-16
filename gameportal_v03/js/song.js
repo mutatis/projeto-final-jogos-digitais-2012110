@@ -1,21 +1,21 @@
-function song_m (file, vol, loop_true_false, songPlay_true_false)
+function song_m (file, vol, loop_true_false, songPlay_true_false )
 {
 	this.song = new Audio();
 	this.song.src = file;
 	this.song.volume = vol;
 	this.song.loop = loop_true_false;
 
-	
-	this.song_play_stop = songPlay_true_false;
-	if ( this.song_play_stop == true )
+	// PLAY
+	this.song_play = songPlay_true_false;
+	if ( this.song_play == true )
 	{
 	this.song.play();
 	}
 	else
 	{
-
 	}
 	
+
 	
 	
 	//this.visible = true;

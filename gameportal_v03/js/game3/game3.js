@@ -163,7 +163,11 @@ function SceneGame3()
 				{
 					// vai para o menu inicial do portal
 					currentScene = SCENE.MENU;
+					
+					musica.volume = 0.09;
+					
 				}
+				
 				
 	
 			break;
