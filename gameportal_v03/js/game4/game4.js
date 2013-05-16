@@ -1,16 +1,20 @@
 function SceneGame4()
-{		
-	this.intro = new Game1SceneIntro();
-	this.leve1 = new Game1SceneLevel1();
-	this.theEnd = new Game1SceneTheEnd();
-	this.gameOver = new Game1SceneGameOver();
+{	
 	
+	this.intro = new Game4SceneIntro();
+	this.leve1 = new Game4SceneLevel1();
+	this.theEnd = new Game4SceneTheEnd();
+	this.gameOver = new Game4SceneGameOver();
+	this.Instruct = new Game4SceneInstruction();
+    	
 	this.GAMESCENE = { INTRO: 0, LEVEL1: 1, THEEND: 2, GAMEOVER: 3};
 	
 	this.currentGameScene = this.GAMESCENE.INTRO; 
 	
 	this.update=function()
-	{			
+	{	
+				
+				
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
@@ -26,10 +30,12 @@ function SceneGame4()
 				//gameOver.update();
 			break;
 		}
+		
+	
 	}
 
 	this.draw=function()
-	{			
+	{	
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
@@ -37,13 +43,13 @@ function SceneGame4()
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME4 INTRO", 20, 20);
-			break;
+						break;
 			case this.GAMESCENE.LEVEL1:
 				//level1.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME4 LEVEL1", 20, 20);
-			break;
+							break;
 			case this.GAMESCENE.THEEND:
 				//theEnd.draw();
 				screen.font = "20px Comic Sans MS";
@@ -56,6 +62,8 @@ function SceneGame4()
 				screen.fillStyle="#000000";
 				screen.fillText("GAME4 GAMEOVER", 20, 20);
 			break;
+			
+      
 		}
 	}
 	
@@ -76,7 +84,7 @@ function SceneGame4()
 				this.currentGameScene = this.GAMESCENE.INTRO;
 				currentScene = SCENE.MENU;
 			break;
-		}	
-	}
-
+			
+		}
+   	};	
 }
