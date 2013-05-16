@@ -41,6 +41,9 @@ function SceneGame3()
 		{
 			case this.GAMESCENE.INTRO:
 				//intro.update();
+				
+
+				
 			break;
 			
 			case this.GAMESCENE.GAMEINSTRUCTION:

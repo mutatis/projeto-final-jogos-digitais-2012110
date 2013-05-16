@@ -12,6 +12,7 @@
 		 <!-- Js add por Jefferson Reis -->
 		<script src="js/button_2.js"></script>
 		<script src="js/fundo_cena.js"></script>
+		<script src="js/song.js"></script>
 		<script src="js/game1/game_1_scene_instruction.js"></script>
 		 <!-- Js add por Jefferson Reis -->
 		 
@@ -58,6 +59,11 @@
    	var canvas = document.getElementById("main");
    	var screen = canvas.getContext("2d");
    	
+	//--musica--------------(file, vol, loop_true_false, songPlay_true_false) 
+	var musica1 = new song_m ("sounds/Kg-song.mp3",0.09,true,true)
+	
+	
+	
    	var SCREENWIDTH = 800;
    	var SCREENHEIGHT = 600;
         
