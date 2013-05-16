@@ -1,9 +1,29 @@
+
+
+	// --------------------------------variavel global--------------------------- 
+	//-----------musica----------
+	var musica = new Audio();
+		musica.src = "sounds/Kg-song.mp3";
+		musica.load();
+		musica.loop = true;
+
+
+
+
+
 function SceneMenu()
 {
 	//file, size_x, size_y, pos_x, pos_y
 	this.fundo_level1 = new img_cenario("imgs/capa-do-jogo2.jpg",800, 600, 0, 0);
-
-
+	
+	
+	
+	//--PLAY MUSICA--
+	musica.volume = 0.09;
+	musica.play();
+	
+	
+	
 	this.background = new Image();
 	this.background.src="imgs/background.png";
 	this.loaded = false;		
@@ -75,6 +95,9 @@ function SceneMenu()
     	
     	if(this.button_game_3.clicked(mouse))
     	{
+			// volume da musica em 0 "stop"
+			musica.volume =0;
+			
     		currentScene = SCENE.GAME3;		
     	}
     	
