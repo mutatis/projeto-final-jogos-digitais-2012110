@@ -1,13 +1,12 @@
 function SceneGame4()
 {	
 	
-	this.intro = new Game4SceneIntro();
-	this.leve1 = new Game4SceneLevel1();
-	this.theEnd = new Game4SceneTheEnd();
-	this.gameOver = new Game4SceneGameOver();
-	this.Instruct = new Game4SceneInstruction();
-    	
-	this.GAMESCENE = { INTRO: 0, LEVEL1: 1, THEEND: 2, GAMEOVER: 3};
+	this.intro = new Game1SceneIntro();
+	this.leve1 = new Game1SceneLevel1();
+	this.theEnd = new Game1SceneTheEnd();
+	this.gameOver = new Game1SceneGameOver();
+	    	
+	this.GAMESCENE = { INTRO: 0, LEVEL1: 1, , THEEND: 2, GAMEOVER: 3};
 	
 	this.currentGameScene = this.GAMESCENE.INTRO; 
 	
@@ -23,7 +22,7 @@ function SceneGame4()
 			case this.GAMESCENE.LEVEL1:
 				//level1.update();
 			break;
-			case this.GAMESCENE.THEEND:
+					case this.GAMESCENE.THEEND:
 				//theEnd.update();
 			break;
 			case this.GAMESCENE.GAMEOVER:
@@ -43,13 +42,13 @@ function SceneGame4()
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME4 INTRO", 20, 20);
-						break;
+			break;
 			case this.GAMESCENE.LEVEL1:
 				//level1.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME4 LEVEL1", 20, 20);
-							break;
+			break;	
 			case this.GAMESCENE.THEEND:
 				//theEnd.draw();
 				screen.font = "20px Comic Sans MS";
