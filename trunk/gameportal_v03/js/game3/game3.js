@@ -9,6 +9,19 @@ function SceneGame3()
 	
 	this.currentGameScene = this.GAMESCENE.INTRO; 
 	
+	
+	//file, size_x, size_y, pos_x, pos_y
+	this.button_start = new Button_2("imgs/game3/but_play.jpg", 178, 64, 311, 150);
+	this.button_voltar = new Button_2("imgs/game3/but_voltar.jpg", 178, 64, 311,220);
+	this.button_instrucao = new Button_2("imgs/game3/but_instru.jpg", 178, 64, 311, 290);
+	
+	
+	
+	//file, size_x, size_y, pos_x, pos_y
+	this.fundo_intro = new img_cenario("imgs/game3/tela_inicial.jpg",800, 600, 0, 0);
+	this.fundo_level1 = new img_cenario("imgs/game3/fundo.jpg",800, 600, 0, 0);
+		
+		
 	this.update=function()
 	{			
 		switch(this.currentGameScene)
@@ -34,12 +47,23 @@ function SceneGame3()
 		{
 			case this.GAMESCENE.INTRO:
 				//intro.draw();
+				
+				// img de fundo
+				this.fundo_intro.draw();
+				
+				this.button_voltar.draw();
+				this.button_instrucao.draw();
+				this.button_start.draw();
+				
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME3 INTRO", 20, 20);
 			break;
 			case this.GAMESCENE.LEVEL1:
 				//level1.draw();
+				
+				this.fundo_level1.draw();
+				
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME3 LEVEL1", 20, 20);
@@ -64,10 +88,27 @@ function SceneGame3()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				this.currentGameScene = this.GAMESCENE.LEVEL1;
+			
+			if(this.button_start.clicked(mouse))
+				{
+					this.currentGameScene = this.GAMESCENE.LEVEL1;	
+				}
+			
+			if(this.button_instrucao.clicked(mouse))
+				{
+					//currentScene = SCENES.INSRUCAO;	
+				}
+				
+				if(this.button_voltar.clicked(mouse))
+				{
+					currentScene = SCENE.MENU;
+				}
+				
+	
 			break;
+			
 			case this.GAMESCENE.LEVEL1:
-				this.currentGameScene = this.GAMESCENE.THEEND;
+				//this.currentGameScene = this.GAMESCENE.THEEND;
 			break;
 			case this.GAMESCENE.THEEND:
 				this.currentGameScene = this.GAMESCENE.GAMEOVER;
