@@ -1,4 +1,0 @@
-function Game1SceneInstruction()
-{
-	
-}
