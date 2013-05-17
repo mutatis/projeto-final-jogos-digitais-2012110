@@ -14,7 +14,7 @@ function SceneGame1()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				//intro.update();
+				this.intro.update();
 			break;
 			case this.GAMESCENE.LEVEL1:
 				//level1.update();
@@ -33,25 +33,27 @@ function SceneGame1()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				//intro.draw();
+				this.intro.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME1 INTRO", 20, 20);
 			break;
 			case this.GAMESCENE.LEVEL1:
-				//level1.draw();
+				
+				this.leve1.draw();
+			
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME1 LEVEL1", 20, 20);
 			break;
 			case this.GAMESCENE.THEEND:
-				//theEnd.draw();
+				this.theEnd.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME1 THEEND", 20, 20);
 			break;
 			case this.GAMESCENE.GAMEOVER:
-				//gameOver.draw();
+				this.gameOver.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
 				screen.fillText("GAME1 GAMEOVER", 20, 20);
