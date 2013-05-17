@@ -1,4 +1,4 @@
-function QuimicalElement(file, size_x, size_y)
+function QuimicalElement(file, size_x, size_y, points, life)
 {
 	this.img = new Image();
 	this.img.src = file;
@@ -10,9 +10,18 @@ function QuimicalElement(file, size_x, size_y)
     this.position_x = Math.floor((Math.random()*SCREENWIDTH));
     this.position_y = -this.size_y;
     this.velocity_x =  0;//Math.floor((Math.random()*10)+1);
-    this.velocity_y =  Math.floor((Math.random()*10)+1)
+    this.velocity_y =  Math.floor((Math.random()*10)+1);
     this.velocity_MAX = 15;
     
+    
+    
+    // pontos do char
+	this.points = points;
+	// vidas do char 
+	this.life  = life;
+    
+   
+   
     this.update=function()
     {    	
     	this.position_x += this.velocity_x;	
@@ -25,6 +34,14 @@ function QuimicalElement(file, size_x, size_y)
 		}
 		
 		
+		// quando ultrapasar o limite da tela chama "function voltar"
+		if(this.position_y > SCREENHEIGHT)
+    	{
+    		this.voltar();
+    	}
+		
+		
+		
     };
     
     this.draw=function()
@@ -32,6 +49,17 @@ function QuimicalElement(file, size_x, size_y)
     	if(this.visible)
     	screen.drawImage(this.img, this.position_x, this.position_y);
     };
+
+
+
+
+	this.voltar=function()
+    {   	
+		this.position_y = -this.size_y;
+		this.position_x = Math.floor((Math.random()*(SCREENWIDTH - this.size_x))); 
+		this.velocity_y = Math.floor((Math.random()*10)+1);
+    }
+
 
 
  

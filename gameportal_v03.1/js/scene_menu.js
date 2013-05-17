@@ -1,28 +1,24 @@
 
 
-	// --------------------------------variavel global--------------------------- 
-	//-----------musica----------
-	var musica = new Audio();
-		musica.src = "sounds/Kg-song.mp3";
-		musica.load();
-		musica.loop = true;
-
-
-
+// --------------------------------variavel global--------------------------- 
+//-----------musica----------
+var musica = new Audio();
+	musica.src = "sounds/Kg-song.mp3";
+	musica.load();
+	musica.loop = true;
 
 
 function SceneMenu()
 {
+
 	//file, size_x, size_y, pos_x, pos_y
 	this.fundo_level1 = new img_cenario("imgs/capa-do-jogo2.jpg",800, 600, 0, 0);
-	
 	
 	
 	//--PLAY MUSICA--
 	musica.volume = 0.09;
 	musica.play();
-	
-	
+
 	
 	this.background = new Image();
 	this.background.src="imgs/background.png";
@@ -59,9 +55,10 @@ function SceneMenu()
    
    	this.draw=function()
 	{
-		this.fundo_level1.draw();
-			
 		//screen.drawImage(this.background, 0, 0);
+		
+		// img de fundo
+		this.fundo_level1.draw();
 		
 		screen.font = "20px Comic Sans MS";
 		screen.fillStyle="#000000";

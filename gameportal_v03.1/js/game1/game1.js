@@ -64,7 +64,7 @@ function SceneGame1()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				//this.currentGameScene = this.GAMESCENE.LEVEL1;
+				this.currentGameScene = this.GAMESCENE.LEVEL1;
 			break;
 			case this.GAMESCENE.LEVEL1:
 				this.currentGameScene = this.GAMESCENE.THEEND;

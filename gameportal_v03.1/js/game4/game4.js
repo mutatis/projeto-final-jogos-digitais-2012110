@@ -36,25 +36,25 @@ function SceneGame4()
 				//intro.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
-				screen.fillText("GAME5 INTRO", 20, 20);
+				screen.fillText("GAME4 INTRO", 20, 20);
 			break;
 			case this.GAMESCENE.LEVEL1:
 				//level1.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
-				screen.fillText("GAME5 LEVEL1", 20, 20);
+				screen.fillText("GAME4 LEVEL1", 20, 20);
 			break;
 			case this.GAMESCENE.THEEND:
 				//theEnd.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
-				screen.fillText("GAME5 THEEND", 20, 20);
+				screen.fillText("GAME4 THEEND", 20, 20);
 			break;
 			case this.GAMESCENE.GAMEOVER:
 				//gameOver.draw();
 				screen.font = "20px Comic Sans MS";
 				screen.fillStyle="#000000";
-				screen.fillText("GAME5 GAMEOVER", 20, 20);
+				screen.fillText("GAME4 GAMEOVER", 20, 20);
 			break;
 		}
 	}
