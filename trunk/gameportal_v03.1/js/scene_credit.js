@@ -1,5 +1,10 @@
 function SceneCredit()
 {
+
+	//--img de fundo----------------file, size_x, size_y, pos_x, pos_y
+	this.fundo = new img_cenario("imgs/credits.jpg",800, 600, 0, 0);
+	
+	
 	this.background = new Image();
 	this.background.src="imgs/background.png";
 	this.loaded = false;		
@@ -16,7 +21,10 @@ function SceneCredit()
    	this.draw=function()
    	{
    		//screen.drawImage(this.background, 0, 0);
-   		
+		
+		// desenha img
+   		this.fundo.draw();
+		
    		screen.font = "20px Comic Sans MS";
 		screen.fillStyle="#000000";
 		screen.fillText("CREDIT", 20, 20);

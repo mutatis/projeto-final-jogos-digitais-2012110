@@ -15,7 +15,7 @@ function Game3SceneLevel1()
 	this.criarObjetos=function()
 	{			
 		// Elmentos caindo------------------(file, size_x, size_y,pontos,vida)
-		this.element1 = new QuimicalElement("imgs/game3/H.png", 47, 48,+5, +1);
+		this.element1 = new QuimicalElement("imgs/game3/He.png", 47, 48,+5, +1);
 		this.element2 = new QuimicalElement("imgs/game3/Fe.png", 47, 48,-10,-1);
 	
 		this.Lista_coisas_caindo.push(this.element1);
