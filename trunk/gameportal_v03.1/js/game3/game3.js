@@ -12,9 +12,9 @@ function SceneGame3()
 	
 	
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
-	this.button_start = new Button_2("imgs/game3/but_play.jpg", 178, 64, 311, 150);
-	this.button_voltar = new Button_2("imgs/game3/but_voltar.jpg", 178, 64, 311,290);
-	this.button_instrucao = new Button_2("imgs/game3/but_instru.jpg", 178, 64, 311, 220);
+	this.button_start = new Button_2("imgs/game3/but_play.png", 178, 64, 323, 326);
+	this.button_instrucao = new Button_2("imgs/game3/but_instru.png", 178, 64, 323, 399);
+	this.button_voltar = new Button_2("imgs/game3/but_voltar.png", 178, 64, 323,474);
 	
 	
 	//----------- intro musica----------
@@ -32,16 +32,17 @@ function SceneGame3()
 	this.level1_musica.volume = 0.6;
 
 	
-	
 	this.update=function()
 	{			
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
 				this.intro.update();
+
 			break;
 			case this.GAMESCENE.LEVEL1:
 				this.leve1.update();
+				
 				
 			break;
 			case this.GAMESCENE.THEEND:
@@ -63,12 +64,12 @@ function SceneGame3()
 			case this.GAMESCENE.INTRO:
 			
 				this.intro.draw();
-				
+								
 				// desenha botão 
 				this.button_voltar.draw();
 				this.button_instrucao.draw();
 				this.button_start.draw();
-						
+		
 				//-----------musica----------
 				// play na musica quando ela esta na tela de intro
 				this.intro_musica.play();
@@ -115,6 +116,9 @@ function SceneGame3()
 			// click para comesar o game
 			if(this.button_start.clicked(mouse))
 				{
+					//som de click
+					click_btn.play();
+					
 					//--vai para o game3--
 					this.currentGameScene = this.GAMESCENE.LEVEL1;	
 					
@@ -126,6 +130,9 @@ function SceneGame3()
 			// vai para instrução do game
 			if(this.button_instrucao.clicked(mouse))
 				{
+					//som de click
+					click_btn.play();
+					
 					this.currentGameScene = this.GAMESCENE.INSTRUCTION; 	
 				}
 				
@@ -133,17 +140,19 @@ function SceneGame3()
 				// click para volta para o menu inicial do portal
 				if(this.button_voltar.clicked(mouse))
 				{
+					//som de click
+					click_btn.play();
+				
 					//--pause/stop na musica de intro do jogo 3-- 
 					this.intro_musica.pause();
 					
 					//--vai para o menu inicial do portal--
 					currentScene = SCENE.MENU;
 					
-					//--play musica do menu inicial--
+					//--play na musica do menu inicial--
 					musica.play();
 				}
 				
-		
 			break;
 			case this.GAMESCENE.LEVEL1:
 				//this.currentGameScene = this.GAMESCENE.THEEND;
@@ -163,8 +172,6 @@ function SceneGame3()
 		}	
 	}
 
-	
-
 	  this.key_down=function(key)
     {
 		this.leve1.key_down(key);	    	
@@ -174,16 +181,5 @@ function SceneGame3()
     {		
 		this.leve1.key_up(key);
     }; 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

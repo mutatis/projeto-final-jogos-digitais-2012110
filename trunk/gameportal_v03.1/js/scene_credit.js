@@ -37,6 +37,8 @@ function SceneCredit()
    	{
    		if(this.button_back.clicked(mouse))
     	{
+			//som de click
+			click_btn.play();
     		currentScene = SCENE.MENU;
     	}
    	};
