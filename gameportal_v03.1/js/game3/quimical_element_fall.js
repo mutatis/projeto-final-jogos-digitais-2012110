@@ -1,5 +1,14 @@
 function QuimicalElement(file, size_x, size_y, points, life)
 {
+
+	//----------- efeito sonoro 1----------
+	this.song_fx = new Audio();
+	this.song_fx.src = "sounds/game3/item comum133280__fins__game-pick-up-object.wav";
+	this.song_fx.load();
+	this.song_fx.loop = false;
+	this.song_fx.volume = 0.6;
+
+	
 	this.img = new Image();
 	this.img.src = file;
 	
@@ -12,16 +21,13 @@ function QuimicalElement(file, size_x, size_y, points, life)
     this.velocity_x =  0;//Math.floor((Math.random()*10)+1);
     this.velocity_y =  Math.floor((Math.random()*10)+1);
     this.velocity_MAX = 15;
-    
-    
-    
+        
     // pontos do char
 	this.points = points;
 	// vidas do char 
 	this.life  = life;
     
-   
-   
+  
     this.update=function()
     {    	
     	this.position_x += this.velocity_x;	
@@ -61,6 +67,4 @@ function QuimicalElement(file, size_x, size_y, points, life)
     }
 
 
-
- 
  }

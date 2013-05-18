@@ -6,7 +6,6 @@ function SceneGame3()
 	this.gameOver = new Game3SceneGameOver();
 	this.instruction = new Game3SceneInstruction();
 	
-	
 	this.GAMESCENE = { INTRO: 0, LEVEL1: 1, THEEND: 2, GAMEOVER: 3, INSTRUCTION:4 };
 	
 	this.currentGameScene = this.GAMESCENE.INTRO; 
@@ -16,6 +15,22 @@ function SceneGame3()
 	this.button_start = new Button_2("imgs/game3/but_play.jpg", 178, 64, 311, 150);
 	this.button_voltar = new Button_2("imgs/game3/but_voltar.jpg", 178, 64, 311,290);
 	this.button_instrucao = new Button_2("imgs/game3/but_instru.jpg", 178, 64, 311, 220);
+	
+	
+	//----------- intro musica----------
+	this.intro_musica = new Audio();
+	this.intro_musica.src = "sounds/game3/tela de iniciar Move Forward.mp3";
+	this.intro_musica.load();
+	this.intro_musica.loop = true;
+	this.intro_musica.volume = 0.6;
+	
+	//----------- level1 musica----------
+	this.level1_musica = new Audio();
+	this.level1_musica.src = "sounds/game3/em jogoPixel Peeker Polka - faster.mp3";
+	this.level1_musica.load();
+	this.level1_musica.loop = true;
+	this.level1_musica.volume = 0.6;
+
 	
 	
 	this.update=function()
@@ -47,22 +62,29 @@ function SceneGame3()
 		{
 			case this.GAMESCENE.INTRO:
 			
+				this.intro.draw();
+				
 				// desenha botão 
 				this.button_voltar.draw();
 				this.button_instrucao.draw();
 				this.button_start.draw();
-			
-				this.intro.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME3 INTRO", 20, 20);
+						
+				//-----------musica----------
+				// play na musica quando ela esta na tela de intro
+				this.intro_musica.play();
+
 			break;
 			case this.GAMESCENE.LEVEL1:
+			
 				this.leve1.draw();
-				//screen.font = "20px Comic Sans MS";
-				//screen.fillStyle="#000000";
-				//screen.fillText("GAME3 LEVEL1", 20, 20);
+				
+				//-----------musica----------
+				// play na musica quando ela esta na tela do lvel 1
+				this.level1_musica.play();
+				
+
 			break;
+			
 			case this.GAMESCENE.INSTRUCTION:
 				this.instruction.draw();
 				screen.font = "20px Comic Sans MS";
@@ -89,16 +111,18 @@ function SceneGame3()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				//this.currentGameScene = this.GAMESCENE.LEVEL1;
-
-				// click para comesar o game
+			
+			// click para comesar o game
 			if(this.button_start.clicked(mouse))
 				{
-					// vai para o game
+					//--vai para o game3--
 					this.currentGameScene = this.GAMESCENE.LEVEL1;	
+					
+					//--pause/stop na musica do catch-- 
+					this.intro_musica.pause();
 				}
 			
-			
+
 			// vai para instrução do game
 			if(this.button_instrucao.clicked(mouse))
 				{
@@ -109,11 +133,14 @@ function SceneGame3()
 				// click para volta para o menu inicial do portal
 				if(this.button_voltar.clicked(mouse))
 				{
-					// vai para o menu inicial do portal
+					//--pause/stop na musica de intro do jogo 3-- 
+					this.intro_musica.pause();
+					
+					//--vai para o menu inicial do portal--
 					currentScene = SCENE.MENU;
 					
-					// aumenta o volume da musica do menu inicial
-					musica.volume = 0.09;	
+					//--play musica do menu inicial--
+					musica.play();
 				}
 				
 		
@@ -132,13 +159,6 @@ function SceneGame3()
 			case this.GAMESCENE.INSTRUCTION:
 				this.currentGameScene = this.GAMESCENE.INTRO;
 			break;
-			
-			
-			
-			
-			
-			
-			
 			
 		}	
 	}
