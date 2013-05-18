@@ -8,7 +8,7 @@ function Game3SceneLevel1()
 
 	//----------- efeito sonoro 1----------
 	this.song_fx = new Audio();
-	this.song_fx.src = "sounds/game3/item comum133280__fins__game-pick-up-object.wav";
+	this.song_fx.src = "sounds/game3/item comum.mp3";
 	this.song_fx.load();
 	this.song_fx.loop = false;
 	this.song_fx.volume = 0.6;
@@ -81,8 +81,9 @@ function Game3SceneLevel1()
 				}			
 			
 			// game over
-			if (this.player1.life == 3)
-			{
+			if (this.player1.life <= 0)
+			{		
+				//this.player1.life = 3;
 				//this.currentGameScene = this.GAMESCENE.INTRO; 
 			}
 			
@@ -108,7 +109,7 @@ function Game3SceneLevel1()
 			// desenha os posntos, vida e etc...
 			screen.font="27px Comic Sans";
 			screen.fillStyle="#E6F4E9";
-			screen.fillText("lives: " + this.player1.life,20,28);
+			screen.fillText("Lives: " + this.player1.life,20,28);
 			screen.fillText("Pegue os: gases nobres",291,28);
 			screen.fillText("Points: "+ this.player1.points,639,28);
 			

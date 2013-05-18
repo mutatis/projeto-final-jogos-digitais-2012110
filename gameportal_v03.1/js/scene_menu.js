@@ -9,6 +9,14 @@ var musica = new Audio();
 	musica.volume = 0.6;
 	//--PLAY MUSICA--
 	musica.play();
+	
+//-----------Click nos botões ----------
+var click_btn = new Audio();
+	click_btn.src = "sounds/Botão.wav";
+	click_btn.load();
+	click_btn.loop = false;
+	click_btn.volume = 0.6;
+
 
 function SceneMenu()
 {
@@ -73,34 +81,45 @@ function SceneMenu()
     	
     	if(this.button_credit.clicked(mouse))
     	{
+			//som de click
+			click_btn.play();
     		currentScene = SCENE.CREDIT;		
     	}
     	
     	if(this.button_game_1.clicked(mouse))
     	{
+			//som de click
+			click_btn.play();
     		currentScene = SCENE.GAME1;		
     	}
 
 		if(this.button_game_2.clicked(mouse))
     	{
+			//som de click
+			click_btn.play();
     		currentScene = SCENE.GAME2;		
     	}
     	
     	if(this.button_game_3.clicked(mouse))
     	{
+			//som de click
+			click_btn.play();
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
-			
     		currentScene = SCENE.GAME3;		
     	}
     	
     	if(this.button_game_4.clicked(mouse))
     	{
+			//som de click
+			click_btn.play();
     		currentScene = SCENE.GAME4;		
     	}
     	
     	if(this.button_game_5.clicked(mouse))
     	{
+			//som de click
+			click_btn.play();
     		currentScene = SCENE.GAME5;		
     	}
     	
