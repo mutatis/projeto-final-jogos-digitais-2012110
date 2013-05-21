@@ -56,6 +56,16 @@
 		<script src="js/game3/game_3_scene_the_end.js"></script>
 		<script src="js/game3/game_3_scene_instruction.js"></script>
 		
+		<script src = "js/fundo.js"></script>
+		<script src = "js/intro.js"></script>
+		<script src = "js/personagem.js"></script>
+		<script src = "js/creditos.js"></script>
+		<script src = "js/TUTORIAL.js"></script>
+		<script src = "js/point.js"></script>
+		<script src = "js/inicio.js"></script>
+		<script src = "js/fundo_i.js"></script>
+		<script src = "js/botao.js"></script>
+		
 		
 		
 		
@@ -63,13 +73,45 @@
    </head>
         
    <body>
+   
+   <div style = "display:none">
+	<video id="video1" nocontrols>
+  	<source src="2.mp4" type='video/mp4'>
+  	<source src="1.ogg" type='video/ogg'>
+   	</video>	
+  	</div>
+   
    <canvas width="800" height="600" id="main" style="border:1px solid #000000;"></canvas>
+   
    </body>
         
    	<script> 
-        
+   	
+   	var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+	if (!is_chrome)//!?
+	{
+		document.write("<h2><br/>VOCE TEM QUE USAR O <a href='http://www.google.com/intl/pt-BR/chrome/browser/'>GOOGLE CHROME</a></h2>");
+		
+	}
+	else
+	{  
+		      
    	var canvas = document.getElementById("main");
    	var screen = canvas.getContext("2d");
+   	
+   	var playingVideo = false;
+				
+		//var video1 = document.getElementsByTagName("video1");
+		var video1 = document.getElementById("video1");
+
+		
+		function EndVideo()
+		{
+			
+			playingVideo = false;
+			currentScene = SCENE.INTRO;
+				
+		}
    	
    	var SCREENWIDTH = 800;
    	var SCREENHEIGHT = 600;
@@ -100,9 +142,19 @@
 	
 	var game10 = new SceneGame10();
 	
-	var SCENE = { MENU: 0, GAME1: 1, GAME2: 2, GAME3: 3, GAME4: 4, GAME5: 5, GAME6: 6, GAME7: 7, GAME8: 8, GAME9: 9, GAME10: 10, CREDIT: 11}
+	var intro = new SCENEIntro();
+				
+		var credito = new SCENECreditos();
+		
+		var tutorial = new SCENETutorial();
+		
+		var point = new SCENEPoint();
+		
+		var play = new Inicio(); 
+			
+	var SCENE = { MENU: 0, GAME1: 1, GAME2: 2, GAME3: 3, GAME4: 4, GAME5: 5, GAME6: 6, GAME7: 7, GAME8: 8, GAME9: 9, GAME10: 10, CREDIT: 11, INTRO :12, CREDITOS :13, TUTORIAL:14, VIDEO:15, PLAY: 5}
 	
-	var currentScene = SCENE.MENU;
+	var currentScene = SCENE.PLAY;
 	
 	load();
 
@@ -143,8 +195,38 @@
 		}
 			
 		switch(currentScene)
-		{	
-			case SCENE.MENU:
+		{	case SCENE.INTRO:
+
+				{//abre case SCENE.INTRO
+					
+					intro.update();	
+
+				}//fecha case SCENE.INTRO
+				break;
+				
+				case SCENE.CREDITOS:
+				{//abre case SCENE.CREDITOS 
+					
+					credito.update();
+
+				}//fecha case SCENE.CREDITOS
+				break;
+			
+				case SCENE.POINT:
+				{//abre case SCENE.POINT
+
+					point.update();
+					
+				}//fecha case SCENE.LEVEL01
+				break;
+
+				case SCENE.TUTORIAL:
+				{//abre case SCENE.TUTORIAL
+
+					tutorial.update();
+					
+				}//fecha case SCENE.TUTORIAL
+				break;			case SCENE.MENU:
 			{
 				menu.update();	
 			}
@@ -213,6 +295,12 @@
 
 	function draw()
 	{
+		if(playingVideo)
+			{
+				screen.drawImage(video1,0,0,SCREENWIDTH,SCREENHEIGHT);
+				return;
+			}
+				
 		clear();
 		
 		if(paused)
@@ -224,6 +312,50 @@
 
 		switch(currentScene)
 		{	
+			
+			case SCENE.PLAY:
+				{					
+					play.draw();
+				}
+				break;
+				case SCENE.VIDEO:
+				{	
+					video1.play();
+					playingVideo = true;
+					document.getElementById('video1').addEventListener('ended',EndVideo,false);
+				}
+				break;
+				case SCENE.INTRO:
+				{//abre case SCENE.INTRO
+					
+					intro.draw();
+				
+				}//fecha case SCENE.INTRO
+				break;
+
+				case SCENE.CREDITOS:
+				{//abre case SCENE.CREDITOS
+
+					credito.draw();
+				
+				}//fecha case SCENE.CREDITOS
+				break;
+
+				case SCENE.POINT:
+				{//abre case SCENE.POINT
+					
+					point.draw();
+
+				}//fecha case SCENE.POINT
+				break;
+
+				case SCENE.TUTORIAL:
+				{//abre case SCENE.TUTORIAL
+					
+					tutorial.draw();
+
+				}//fecha case SCENE.TUTORIAL
+				break;
 			case SCENE.MENU:
 			{
 				menu.draw();	
@@ -303,7 +435,37 @@
 	function key_down(key)
 	{
 		switch(currentScene)
-		{
+		{	
+			case SCENE.INTRO:
+				{//abre case SCENE.INTRO
+					
+					intro.key_down(key);
+	
+				}//fecha case SCENE.INTRO
+				break;
+
+				case SCENE.CREDITOS:
+				{//abre case SCENE.CREDITOS
+
+					credito.key_down(key);
+				}//fecha SCENE.CREDITOS
+				break;
+
+				case SCENE.POINT:
+				{//abre case SCENE.POINT
+					
+					point.key_down(key);
+
+				}//fecha case SCENE.POINT
+				break;
+
+				case SCENE.TUTORIAL:
+				{//abre case SCENE.TUTORIAL
+
+					tutorial.key_down(key);
+
+				}//fecha case SCENE.TUTORIAL
+				break;
 			case SCENE.MENU:
 			{
 				menu.key_down(key);	
@@ -371,7 +533,38 @@
 	function key_up(key)
 	{
 		switch(currentScene)
-		{			
+		{	
+			case SCENE.INTRO:
+				{//abre case SCENE.INTRO
+
+					intro.key_up(key);
+
+				}//fecha case SCENE.INTRO
+				break;
+		
+				case SCENE.CREDITOS:
+				{//abre case SCENE.CREDITOS
+
+					credito.key_up(key);
+		
+				}//fecha case SCENE.CREDITOS
+				break;
+
+				case SCENE.POINT:
+				{//abre case SCENE.POINT
+
+					point.key_up(key);
+
+				}//fecha case SCENE.POINT
+				break;
+
+				case SCENE.TUTORIAL:
+				{//abre case SCENE.TUTORIAL
+
+					tutorial.key_up(key);
+				
+				}//fecha case SCENE.TUTORIAL
+				break;		
 			case SCENE.MENU:
 			{
 				menu.key_up(key);	
@@ -449,6 +642,42 @@
 	{
 		switch(currentScene)
 		{
+			case SCENE.PLAY:
+				{
+					play.mouse_down(mouse);	
+				}
+
+				case SCENE.INTRO:
+				{//abre case SCENE.INTRO
+					
+					intro.mouse_down(mouse);
+				
+				}//fecha case SCENE.INTRO
+				break;
+				
+				case SCENE.CREDITOS:
+				{//abre case SCENE.CREDITOS
+
+					credito.mouse_down(mouse);
+				
+				}//fecha case SCENE.CREDITOS
+				break;
+
+				case SCENE.POINT:
+				{//abre case SCENE.POINT
+
+					point.mouse_down(mouse);
+				
+				}
+				break;
+
+				case SCENE.TUTORIAL:
+				{//abre case SCENE.TUTORIAL
+					
+					tutorial.mouse_down(mouse);
+
+				}//fecha case SCENE.TUTORIAL
+				break;
 			case SCENE.MENU:
 			{
 				menu.mouse_down(mouse);	
@@ -530,6 +759,7 @@
 		}
 	}
 
+	}
 
 </script>
 
