@@ -19,8 +19,7 @@ function Game3SceneLevel1()
 	this.song_fx.load();
 	this.song_fx.loop = false;
 	this.song_fx.volume = 0.6;
-	
-	
+		
 	this.Lista_coisas_caindo = new Array();	
 		
 	this.criarObjetos=function()
@@ -29,6 +28,7 @@ function Game3SceneLevel1()
 		// Elmentos caindo-----------------(file, size_x, size_y,pontos,vida)
 		// ganha 1 vida
 		this.star = new QuimicalElement("imgs/game3/Star.png", 47, 48,+10, +1);
+		
 		// ganha
 		this.helio = new QuimicalElement("imgs/game3/He.png", 47, 48,+10, 0);
 		this.argon = new QuimicalElement("imgs/game3/Ar.png", 47, 48,+10, 0);
@@ -56,8 +56,6 @@ function Game3SceneLevel1()
 	}
 	
 	this.criarObjetos();
-
-
 
 	this.update=function()
 		{
@@ -87,13 +85,11 @@ function Game3SceneLevel1()
 					
 					if(this.Lista_coisas_caindo[i].position_y > SCREENHEIGHT)		
 					{
-						//this.player1.life -= 1;
 						this.Lista_coisas_caindo[i].voltar();
 					}							
 				}		
 				
-					
-			
+								
 			// GAME OVER
 			if (this.player1.life <= 0)
 			{	
@@ -103,8 +99,7 @@ function Game3SceneLevel1()
 				
 				game3.currentGameScene = game3.GAMESCENE.GAMEOVER; 
 			}
-			
-			
+						
 			// GAME WIM
 			if (this.player1.points >= 50)
 			{
@@ -119,12 +114,10 @@ function Game3SceneLevel1()
 		} // fecha update
 	
 	this.draw=function()
-		{  		
-	
+		{  			
 			//background.
 			this.fundo_level1.draw();
-				
-				
+								
 			// desenha o personagem na tela.
 			screen.drawImage(this.player1.img, this.player1.position_x, this.player1.position_y);	
 			
@@ -133,15 +126,13 @@ function Game3SceneLevel1()
 			{
 				screen.drawImage(this.Lista_coisas_caindo[i].img, this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y);
 			}
-					
-					
+										
 			// desenha os posntos, vida e etc...
 			screen.font="27px Comic Sans";
 			screen.fillStyle="#E6F4E9";
 			screen.fillText("Lives: " + this.player1.life,20,28);
-			screen.fillText("Pegue os: gases nobres",291,28);
-			screen.fillText("Points: "+ this.player1.points,639,28);
-			
+			screen.fillText("Pick up: noble gases",291,28);
+			screen.fillText("Points: "+ this.player1.points,639,28);			
 		};
 
 		
@@ -158,11 +149,5 @@ function Game3SceneLevel1()
     }; 
 		
 		
-		
-		
-		
-		
-		
-		
 	
-}
+};
