@@ -17,30 +17,28 @@ function SceneGame3()
 		{
 			case this.GAMESCENE.INTRO:
 				this.intro.update();
-	
 				//-----------musica----------
 				//this.intro.intro_musica.play();
 			break;
+			
 			case this.GAMESCENE.LEVEL1:
-				this.leve1.update();	
-				
+				this.leve1.update();			
 				//-----------musica----------
 				//this.leve1.level1_musica.play();
 			break;
+			
 			case this.GAMESCENE.THEEND:
-			
 				// pause musica lvl 1
-				this.leve1.level1_musica.pause();
-			
+				this.leve1.level1_musica.pause();			
 				//theEnd.update();
 			break;
-			case this.GAMESCENE.GAMEOVER:
 			
+			case this.GAMESCENE.GAMEOVER:			
 				// pause musica lvl 1
-				this.leve1.level1_musica.pause();
-				
+				this.leve1.level1_musica.pause();				
 				this.gameOver.update();
 			break;
+			
 			case this.GAMESCENE.INSTRUCTION:
 			//
 			break;
@@ -51,39 +49,24 @@ function SceneGame3()
 	{			
 		switch(this.currentGameScene)
 		{
-			case this.GAMESCENE.INTRO:
-			
+			case this.GAMESCENE.INTRO:			
 				this.intro.draw();
-
 			break;
+			
 			case this.GAMESCENE.LEVEL1:		
 				this.leve1.draw();
 			break;
 			
 			case this.GAMESCENE.INSTRUCTION:
 				this.instruction.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME3 INSTRUCTION", 20, 20);
 			break;
-			case this.GAMESCENE.THEEND:
 			
-				this.theEnd.draw();
-				
-				
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME3 THEEND", 20, 20);
+			case this.GAMESCENE.THEEND:			
+				this.theEnd.draw();	
 			break;
-			case this.GAMESCENE.GAMEOVER:
 			
-			
-				this.gameOver.draw();
-				
-				
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME3 GAMEOVER", 20, 20);
+			case this.GAMESCENE.GAMEOVER:					
+				this.gameOver.draw();				
 			break;
 		}
 	}
@@ -92,28 +75,24 @@ function SceneGame3()
    	{
 		switch(this.currentGameScene)
 		{
-			case this.GAMESCENE.INTRO:
-			
-			this.intro.mouse_down(mouse);
-			
+			case this.GAMESCENE.INTRO:			
+				this.intro.mouse_down(mouse);			
 			break;
 			
 			case this.GAMESCENE.LEVEL1:
 				//this.currentGameScene = this.GAMESCENE.THEEND;			
 			break;
 			
-			case this.GAMESCENE.THEEND:
-												
-				this.currentGameScene = this.GAMESCENE.INTRO;		
-				
+			case this.GAMESCENE.THEEND:	
+				this.theEnd.mouse_down(mouse);					
 			break;
-			case this.GAMESCENE.GAMEOVER:
-			    // vai para a tela de intro
-				this.currentGameScene = this.GAMESCENE.INTRO;
+			
+			case this.GAMESCENE.GAMEOVER:			
+				this.gameOver.mouse_down(mouse);	
 			break;
 			
 			case this.GAMESCENE.INSTRUCTION:
-				this.currentGameScene = this.GAMESCENE.INTRO;
+				this.instruction.mouse_down(mouse);	
 			break;
 			
 		}	
