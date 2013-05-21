@@ -7,8 +7,7 @@ var musica = new Audio();
 	musica.load();
 	musica.loop = true;
 	musica.volume = 0.6;
-	//--PLAY MUSICA--
-	musica.play();
+
 	
 //-----------Click nos botões ----------
 var click_btn = new Audio();
@@ -28,29 +27,30 @@ function SceneMenu()
 	this.background.src="imgs/background.png";
 	this.loaded = false;		
     
-    this.button_credit = new Button("imgs/button_credit.png", 295, 82);
-    this.button_credit.position_x = 500;
-    this.button_credit.position_y = 500;
+	//-------------------------------file, size_x, size_y
+    this.button_credit = new Button("imgs/button_credit.png", 209, 75);
+    this.button_credit.position_x = 27;
+    this.button_credit.position_y = 506;
     
-    this.button_game_1 = new Button("imgs/button_game_1.png", 295, 82);
-    this.button_game_1.position_x = 500;
-    this.button_game_1.position_y = 400;
+    this.button_game_1 = new Button("imgs/button_game_1.png", 209, 75);
+    this.button_game_1.position_x = 27;
+    this.button_game_1.position_y = 411;
     
-    this.button_game_2 = new Button("imgs/button_game_2.png", 295, 82);
-    this.button_game_2.position_x = 500;
-    this.button_game_2.position_y = 300;
+    this.button_game_2 = new Button("imgs/button_game_2.png", 209, 75);
+    this.button_game_2.position_x = 27;
+    this.button_game_2.position_y = 316;
         
-    this.button_game_3 = new Button("imgs/button_game_3.png", 295, 82);
-    this.button_game_3.position_x = 500;
-    this.button_game_3.position_y = 200;
+    this.button_game_3 = new Button("imgs/button_game_3.png", 209, 75);
+    this.button_game_3.position_x = 27;
+    this.button_game_3.position_y = 222;
     
-    this.button_game_4 = new Button("imgs/button_game_4.png", 295, 82);
-    this.button_game_4.position_x = 500;
-    this.button_game_4.position_y = 100;
+    this.button_game_4 = new Button("imgs/button_game_4.png", 209, 75);
+    this.button_game_4.position_x = 27;
+    this.button_game_4.position_y = 123;
     
-    this.button_game_5 = new Button("imgs/button_game_5.png", 295, 82);
-    this.button_game_5.position_x = 500;
-    this.button_game_5.position_y = 000;
+    this.button_game_5 = new Button("imgs/button_game_5.png", 209, 75);
+    this.button_game_5.position_x = 27;
+    this.button_game_5.position_y = 25;
     
 	this.update=function()
    	{
@@ -59,8 +59,11 @@ function SceneMenu()
    
    	this.draw=function()
 	{
-		//screen.drawImage(this.background, 0, 0);
 		
+		//--PLAY MUSICA--
+		musica.play();
+		
+
 		// img de fundo
 		this.fundo_level1.draw();
 		
