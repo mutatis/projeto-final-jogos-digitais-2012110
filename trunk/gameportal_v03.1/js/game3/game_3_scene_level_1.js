@@ -5,7 +5,14 @@ function Game3SceneLevel1()
 
 	// --personagem-- 	
 	this.player1 = new Pallete();
-
+	
+	//----------- level1 musica----------
+	this.level1_musica = new Audio();
+	this.level1_musica.src = "sounds/game3/em jogoPixel Peeker Polka - faster.mp3";
+	this.level1_musica.load();
+	this.level1_musica.loop = true;
+	this.level1_musica.volume = 0.6;
+	
 	//----------- efeito sonoro 1----------
 	this.song_fx = new Audio();
 	this.song_fx.src = "sounds/game3/item comum.mp3";
@@ -54,6 +61,12 @@ function Game3SceneLevel1()
 
 	this.update=function()
 		{
+		
+			//-----------musica----------
+			// play na musica quando ela esta na tela do lvel 1
+			this.level1_musica.play();
+		
+		
 			// --personagem-- 	
 			this.player1.update();
 				
@@ -65,7 +78,6 @@ function Game3SceneLevel1()
 					if(Collide(this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y, this.Lista_coisas_caindo[i].size_x, 							this.Lista_coisas_caindo[i].size_y,
 					this.player1.position_x, this.player1.position_y, this.player1.size_x, this.player1.size_y))
 					{	
-
 						this.song_fx.play();
 						
 						this.Lista_coisas_caindo[i].voltar();
@@ -78,16 +90,33 @@ function Game3SceneLevel1()
 						//this.player1.life -= 1;
 						this.Lista_coisas_caindo[i].voltar();
 					}							
-				}			
+				}		
+				
+					
 			
-			// game over
+			// GAME OVER
 			if (this.player1.life <= 0)
-			{		
-				//this.player1.life = 3;
-				//this.currentGameScene = this.GAMESCENE.INTRO; 
+			{	
+				//reset life end points of player
+				this.player1.life = 3;
+				this.player1.points = 0;
+				
+				game3.currentGameScene = game3.GAMESCENE.GAMEOVER; 
 			}
 			
-		}
+			
+			// GAME WIM
+			if (this.player1.points >= 50)
+			{
+				//reset life end points of player
+				this.player1.life = 3;
+				this.player1.points = 0;
+						
+				game3.currentGameScene = game3.GAMESCENE.THEEND
+			}
+			
+			
+		} // fecha update
 	
 	this.draw=function()
 		{  		
