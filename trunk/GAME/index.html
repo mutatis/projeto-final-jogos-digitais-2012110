@@ -6,7 +6,7 @@
 	
 		<title>
 		
-			JOGOxzgf vbcxv
+			JOGO
 		
 		</title>
 		
@@ -32,13 +32,18 @@
   	</div>
 	<canvas width="800" height="600" id="main" style="border:3px solid #000000;"></canvas>
 	
-	
-	
 	<script>
+	
+	var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+	if (!is_chrome)//!?
+	{
+		document.write("<h2><br/>VOCE TEM QUE USAR O <a href='http://www.google.com/intl/pt-BR/chrome/browser/'>GOOGLE CHROME</a></h2>");
+		
+	}else{
 	
 		var canvas = document.getElementById("main");
 		var screen = canvas.getContext("2d");
-		
+				
 		var playingVideo = false;
 				
 		var video1 = document.getElementsByTagName("video1");
@@ -56,7 +61,7 @@
 		SCREEN_HEIGHT = 600;
 		
 		var intro = new SCENEIntro();
-		
+				
 		var credito = new SCENECreditos();
 		
 		var tutorial = new SCENETutorial();
@@ -367,6 +372,7 @@
 
 			}//fecha else
 		}//fecha Collide
+	}
 
 window.addEventListener('keydown', key_down, true);
 window.addEventListener('keyup', key_up, true);
