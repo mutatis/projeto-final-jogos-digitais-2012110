@@ -8,6 +8,10 @@ function Button(file, size_x, size_y)
     this.size_y = size_y;
     this.position_x = 0;
     this.position_y = 0;
+    this.position_x_src = 0;
+    this.position_y_src = 0;
+    
+    this.visible = true;
 
 	this.image.onload = function()
 	{
@@ -21,7 +25,9 @@ function Button(file, size_x, size_y)
     
     this.draw=function()
     {  	
-    	screen.drawImage(this.image, this.position_x, this.position_y)
+    	if(this.visible)
+    	screen.drawImage(this.image, this.position_x_src, this.position_y_src, this.size_x, this.size_y, this.position_x, this.position_y,  this.size_x, this.size_y)
+    	
     };
     
     this.clicked = function(mouse)

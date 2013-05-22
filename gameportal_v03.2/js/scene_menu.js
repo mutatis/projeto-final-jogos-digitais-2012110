@@ -28,27 +28,27 @@ function SceneMenu()
 	this.loaded = false;		
     
 	//-------------------------------file, size_x, size_y
-    this.button_credit = new Button("imgs/button_credit.png", 209, 75);
+    this.button_credit = new Button("imgs/anim_button_credit.png", 209, 75);
     this.button_credit.position_x = 27;
     this.button_credit.position_y = 506;
     
-    this.button_game_1 = new Button("imgs/button_game_1.png", 209, 75);
+    this.button_game_1 = new Button("imgs/anim_button_game_1.png", 209, 75);
     this.button_game_1.position_x = 27;
     this.button_game_1.position_y = 411;
     
-    this.button_game_2 = new Button("imgs/button_game_2.png", 209, 75);
+    this.button_game_2 = new Button("imgs/anim_button_game_2.png", 209, 75);
     this.button_game_2.position_x = 27;
     this.button_game_2.position_y = 316;
         
-    this.button_game_3 = new Button("imgs/button_game_3.png", 209, 75);
+    this.button_game_3 = new Button("imgs/anim_button_game_3.png", 209, 75);
     this.button_game_3.position_x = 27;
     this.button_game_3.position_y = 222;
     
-    this.button_game_4 = new Button("imgs/button_game_4.png", 209, 75);
+    this.button_game_4 = new Button("imgs/anim_button_game_4.png", 209, 75);
     this.button_game_4.position_x = 27;
     this.button_game_4.position_y = 123;
     
-    this.button_game_5 = new Button("imgs/button_game_5.png", 209, 75);
+    this.button_game_5 = new Button("imgs/anim_button_game_5.png", 209, 75);
     this.button_game_5.position_x = 27;
     this.button_game_5.position_y = 25;
     
@@ -67,10 +67,6 @@ function SceneMenu()
 		// img de fundo
 		this.fundo_level1.draw();
 		
-		screen.font = "20px Comic Sans MS";
-		screen.fillStyle="#000000";
-		screen.fillText("MENU", 20, 20);
-		
 		this.button_credit.draw();
 		this.button_game_1.draw();
 		this.button_game_2.draw();
@@ -88,6 +84,7 @@ function SceneMenu()
 			click_btn.play();
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
+			this.button_credit.position_x_src = 0; //Volta ao Frame Inicial da Animacao do botao;
     		currentScene = SCENE.CREDIT;		
     	}
     	
@@ -97,6 +94,7 @@ function SceneMenu()
 			click_btn.play();
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
+			this.button_game_1.position_x_src = 0; //Volta ao Frame Inicial da Animacao do botao;
     		currentScene = SCENE.GAME1;		
     	}
 
@@ -106,6 +104,7 @@ function SceneMenu()
 			click_btn.play();
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
+			this.button_game_2.position_x_src = 0; //Volta ao Frame Inicial da Animacao do botao;
     		currentScene = SCENE.GAME2;		
     	}
     	
@@ -115,6 +114,7 @@ function SceneMenu()
 			click_btn.play();
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
+			this.button_game_3.position_x_src = 0; //Volta ao Frame Inicial da Animacao do botao;
     		currentScene = SCENE.GAME3;		
     	}
     	
@@ -124,6 +124,7 @@ function SceneMenu()
 			click_btn.play();
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
+			this.button_game_4.position_x_src = 0; //Volta ao Frame Inicial da Animacao do botao;
     		currentScene = SCENE.GAME4;		
     	}
     	
@@ -133,6 +134,7 @@ function SceneMenu()
 			click_btn.play();
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
+			this.button_game_5.position_x_src = 0; //Volta ao Frame Inicial da Animacao do botao;
     		currentScene = SCENE.GAME5;		
     	}
     	
@@ -145,8 +147,78 @@ function SceneMenu()
    	
    	this.mouse_up=function(mouse)
   	{
-  		console.log("INTRO mouse X " + mouse.x + " mouse Y " + mouse.y );
+  		
   	};
+  
+  	this.mouse_move=function(mouse) //Animacao dos botoes;
+  	{
+  		console.log("MENU mouse X " + mouse.x + " mouse Y " + mouse.y ); 
+  		
+  		if(this.button_game_5.clicked(mouse)) 
+    	{
+  			this.button_game_5.position_x_src = this.button_game_5.size_x; //Quando o Mouse Passa por cima do Botao, o Botao passa para o segundo Frame;
+  		
+  		}
+  		else
+  		{
+  			this.button_game_5.position_x_src = 0;	//Quando nao esta em cima do botao, volta ao primeiro frame;
+  		}
+  		
+  		
+  		if(this.button_game_4.clicked(mouse)) 
+    	{
+  			this.button_game_4.position_x_src = this.button_game_4.size_x; //Quando o Mouse Passa por cima do Botao, o Botao passa para o segundo Frame;
+  		
+  		}
+  		else
+  		{
+  			this.button_game_4.position_x_src = 0;	//Quando nao esta em cima do botao, volta ao primeiro frame;
+  		}
+  		
+  		
+  		if(this.button_game_3.clicked(mouse)) 
+    	{
+  			this.button_game_3.position_x_src = this.button_game_3.size_x; //Quando o Mouse Passa por cima do Botao, o Botao passa para o segundo Frame;  		
+  		}
+  		else
+  		{
+  			this.button_game_3.position_x_src = 0;	//Quando nao esta em cima do botao, volta ao primeiro frame;
+  		}
+  		
+  		
+  		if(this.button_game_2.clicked(mouse)) 
+    	{
+  			this.button_game_2.position_x_src = this.button_game_2.size_x; //Quando o Mouse Passa por cima do Botao, o Botao passa para o segundo Frame;
+  		
+  		}
+  		else
+  		{
+  			this.button_game_2.position_x_src = 0;	//Quando nao esta em cima do botao, volta ao primeiro frame;
+  		}
+  		
+  		
+  		if(this.button_game_1.clicked(mouse)) 
+    	{
+  			this.button_game_1.position_x_src = this.button_game_1.size_x; //Quando o Mouse Passa por cima do Botao, o Botao passa para o segundo Frame;
+  		
+  		}
+  		else
+  		{
+  			this.button_game_1.position_x_src = 0;	//Quando nao esta em cima do botao, volta ao primeiro frame;
+  		}
+  		
+  		
+  		if(this.button_credit.clicked(mouse)) 
+    	{
+  			this.button_credit.position_x_src = this.button_credit.size_x; //Quando o Mouse Passa por cima do Botao, o Botao passa para o segundo Frame;  		
+  		}
+  		else
+  		{
+  			this.button_credit.position_x_src = 0;	//Quando nao esta em cima do botao, volta ao primeiro frame;
+  		}
+		
+  	};
+  
   
   	this.key_up=function(key)
   	{

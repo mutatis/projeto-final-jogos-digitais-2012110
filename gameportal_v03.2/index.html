@@ -456,7 +456,14 @@
 	}
 	function mouse_move(mouse)
 	{
-
+		switch(currentScene)
+		{			
+			case SCENE.MENU:
+			{
+				menu.mouse_move(mouse);	
+			}
+			break;
+		}
 	}
 
 	function mouse_up(mouse)
