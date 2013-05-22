@@ -1,10 +1,11 @@
 function Game3SceneGameOver()
 {
 	//file, size_x, size_y, pos_x, pos_y
-	this.fundo = new img_cenario("imgs/game3/YOU_LOSE2.png",800, 600, 0, 0);
+	this.fundo = new img_cenario("imgs/game_over.jpg",800, 600, 0, 0);
 
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
-	this.voltar_btn = new Button_2("imgs/game3/inst_btn.png", 172, 52, 650, 10);
+	this.voltar_btn = new Button_2("imgs/Menu.png", 175, 77, 607, 518);
+	this.restart_btn = new Button_2("imgs/Rgame.png", 175, 77,12, 518);
 
 	this.update=function()
 		{
@@ -16,7 +17,9 @@ function Game3SceneGameOver()
 			// img de fundo
 			this.fundo.draw();
 			
-			this.voltar_btn.draw();			
+			this.voltar_btn.draw();	
+			
+			this.restart_btn.draw();						
 		};
 	    
 	this.mouse_down=function(mouse)
@@ -26,6 +29,14 @@ function Game3SceneGameOver()
 					game3.currentGameScene = game3.GAMESCENE.INTRO; 
 					//som de click
 					click_btn.play();
+				};
+					
+			if(this.restart_btn.clicked(mouse))
+				{	
+					game3.currentGameScene = game3.GAMESCENE.LEVEL1; 
+					//som de click
+					click_btn.play();
 				};		
-		};	
-};
+		};//mouse	
+		
+};//function

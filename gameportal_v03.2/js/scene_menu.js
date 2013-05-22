@@ -86,6 +86,8 @@ function SceneMenu()
     	{
 			//som de click
 			click_btn.play();
+			//--stop na musica do menu inicial do portal--
+			musica.pause();
     		currentScene = SCENE.CREDIT;		
     	}
     	
@@ -93,6 +95,8 @@ function SceneMenu()
     	{
 			//som de click
 			click_btn.play();
+			//--stop na musica do menu inicial do portal--
+			musica.pause();
     		currentScene = SCENE.GAME1;		
     	}
 
@@ -100,6 +104,8 @@ function SceneMenu()
     	{
 			//som de click
 			click_btn.play();
+			//--stop na musica do menu inicial do portal--
+			musica.pause();
     		currentScene = SCENE.GAME2;		
     	}
     	
@@ -116,6 +122,8 @@ function SceneMenu()
     	{
 			//som de click
 			click_btn.play();
+			//--stop na musica do menu inicial do portal--
+			musica.pause();
     		currentScene = SCENE.GAME4;		
     	}
     	
@@ -123,6 +131,8 @@ function SceneMenu()
     	{
 			//som de click
 			click_btn.play();
+			//--stop na musica do menu inicial do portal--
+			musica.pause();
     		currentScene = SCENE.GAME5;		
     	}
     	
