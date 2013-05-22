@@ -1,11 +1,13 @@
 function SceneGame2()
 {		
-	this.intro = new Game1SceneIntro();
-	this.leve1 = new Game1SceneLevel1();
-	this.theEnd = new Game1SceneTheEnd();
-	this.gameOver = new Game1SceneGameOver();
+	this.intro = new Game2SceneIntro();
+	this.leve1 = new Game2SceneLevel1();
+	this.theEnd = new Game2SceneTheEnd();
+	this.gameOver = new Game2SceneGameOver();
+	this.instruction = new Game2SceneInstruction();
 	
-	this.GAMESCENE = { INTRO: 0, LEVEL1: 1, THEEND: 2, GAMEOVER: 3};
+	
+	this.GAMESCENE = { INTRO: 0, LEVEL1: 1, THEEND: 2, GAMEOVER: 3, INSTRUCTION: 4};
 	
 	this.currentGameScene = this.GAMESCENE.INTRO; 
 	
@@ -14,16 +16,19 @@ function SceneGame2()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				//intro.update();
+				this.intro.update();
 			break;
 			case this.GAMESCENE.LEVEL1:
-				//level1.update();
+				this.leve1.update();
 			break;
 			case this.GAMESCENE.THEEND:
-				//theEnd.update();
+				this.theEnd.update();
 			break;
 			case this.GAMESCENE.GAMEOVER:
-				//gameOver.update();
+				this.gameOver.update();
+			break;
+			case this.GAMESCENE.INSTRUCTION:
+				this.instruction.update();
 			break;
 		}
 	}
@@ -33,28 +38,19 @@ function SceneGame2()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				//intro.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME2 INTRO", 20, 20);
+				this.intro.draw();
 			break;
 			case this.GAMESCENE.LEVEL1:
-				//level1.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME2 LEVEL1", 20, 20);
+				this.leve1.draw();
 			break;
 			case this.GAMESCENE.THEEND:
-				//theEnd.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME2 THEEND", 20, 20);
+				this.theEnd.draw();
 			break;
 			case this.GAMESCENE.GAMEOVER:
-				//gameOver.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME2 GAMEOVER", 20, 20);
+				this.gameOver.draw();
+			break;
+				case this.GAMESCENE.INSTRUCTION:
+				this.instruction.draw();
 			break;
 		}
 	}
@@ -64,19 +60,41 @@ function SceneGame2()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				this.currentGameScene = this.GAMESCENE.LEVEL1;
+				this.intro.mouse_down(mouse);	
 			break;
 			case this.GAMESCENE.LEVEL1:
-				this.currentGameScene = this.GAMESCENE.THEEND;
+				//this.currentGameScene = this.GAMESCENE.THEEND;
+				this.leve1.mouse_down(mouse);	
 			break;
 			case this.GAMESCENE.THEEND:
 				this.currentGameScene = this.GAMESCENE.GAMEOVER;
+				this.theEnd.mouse_down(mouse);	
 			break;
 			case this.GAMESCENE.GAMEOVER:
 				this.currentGameScene = this.GAMESCENE.INTRO;
 				currentScene = SCENE.MENU;
+				this.gameOver.mouse_down(mouse);	
+			break;
+			case this.GAMESCENE.INSTRUCTION:
+				//this.currentGameScene = this.GAMESCENE.INTRO;
+				//currentScene = SCENE.MENU;
+				this.instruction.mouse_down(mouse);	
 			break;
 		}	
 	}
+	
+				
+	this.key_down=function(key)
+    {
+		this.leve1.key_down(key);	    	
+    };
+    
+    this.key_up=function(key)
+    {		
+		this.leve1.key_up(key);
+    }; 
+    
+    		
+
 
 }
