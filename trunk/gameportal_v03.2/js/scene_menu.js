@@ -152,7 +152,7 @@ function SceneMenu()
   
   	this.mouse_move=function(mouse) //Animacao dos botoes;
   	{
-  		console.log("MENU mouse X " + mouse.x + " mouse Y " + mouse.y ); 
+  		//console.log("MENU mouse X " + mouse.x + " mouse Y " + mouse.y ); 
   		
   		if(this.button_game_5.clicked(mouse)) 
     	{
