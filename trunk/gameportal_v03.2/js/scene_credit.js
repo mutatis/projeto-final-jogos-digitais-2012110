@@ -9,9 +9,9 @@ function SceneCredit()
 	this.background.src="imgs/background.png";
 	this.loaded = false;		
 	
-    this.button_back = new Button("imgs/button_back.png", 70, 70);
-    this.button_back.position_x = 500;
-    this.button_back.position_y = 500;
+    this.button_back = new Button ("imgs/anim_button_back.png", 209, 75);
+    this.button_back.position_x = 27;
+    this.button_back.position_y = 506;
     
 	this.update=function()
    	{
@@ -24,11 +24,7 @@ function SceneCredit()
 		
 		// desenha img
    		this.fundo.draw();
-		
-   		screen.font = "20px Comic Sans MS";
-		screen.fillStyle="#000000";
-		screen.fillText("CREDIT", 20, 20);
-   		
+		   		
    		this.button_back.draw();
    	};
    
@@ -37,8 +33,8 @@ function SceneCredit()
    	{
    		if(this.button_back.clicked(mouse))
     	{
-			//som de click
-			click_btn.play();
+    		click_btn.play();
+    		this.button_back.position_x_src = 0
     		currentScene = SCENE.MENU;
     	}
    	};
@@ -48,5 +44,21 @@ function SceneCredit()
    	{
    		
    	};
-   
+   	
+   	
+   	this.mouse_move=function(mouse) //Animacao dos botoes;
+  	{
+  		//console.log("CREDITS mouse X " + mouse.x + " mouse Y " + mouse.y ); 
+  		
+  		if(this.button_back.clicked(mouse))
+    	{
+  			this.button_back.position_x_src = this.button_back.size_x; //Quando o Mouse Passa por cima do Botao, o Botao passa para o segundo Frame;
+  		
+  		}
+  		else
+  		{
+  			this.button_back.position_x_src = 0; //Quando nao esta em cima do botao, volta ao primeiro frame;
+  		}
+  		
+  	}	  		  	
 }
