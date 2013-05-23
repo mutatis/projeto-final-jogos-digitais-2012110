@@ -197,7 +197,7 @@ function Game2SceneLevel1()
 			cenoura_list[i].position_x = plataform_list[0].position_x+50;
 			cenoura_list[i].position_y = plataform_list[0].position_y-35;	
 			
-			if(cenoura_list[i].position_y < -10)
+			if(cenoura_list[i].position_y > 560)
 			{
 				cenoura_list[i].visible = true;
 			}
@@ -231,7 +231,7 @@ function Game2SceneLevel1()
 			alface_list[i].position_x = plataform_list[3].position_x+35;
 			alface_list[i].position_y = plataform_list[3].position_y-30;	
 			
-		if(alface_list[i].position_y < -10)
+		if(alface_list[i].position_y < -30 )
 		{
 			alface_list[i].visible = true;
 		}
@@ -376,8 +376,9 @@ function Game2SceneLevel1()
 			screen.fillStyle="#FFFFFF";
 			screen.fillText("Pontos: " + this.player.points, 40, 60);		
 			screen.fillText("Tempo: "+this.tempoAux, 40, 40);	
-				
-		
+			
+			
+	
 		
 		
     };//fecha o draw
