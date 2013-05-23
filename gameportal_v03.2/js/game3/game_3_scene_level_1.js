@@ -18,7 +18,7 @@ function Game3SceneLevel1()
 	this.musica_gamewin.src = "sounds/Tela de Venceu.wav";
 	this.musica_gamewin.load();
 	this.musica_gamewin.loop = false;
-	this.musica_gamewin.volume = 0.6;
+	this.musica_gamewin.volume = 1;
 		
 		
 	//-----------musica_gameOver----------
@@ -26,7 +26,7 @@ function Game3SceneLevel1()
 	this.musica_gameOver.src = "sounds/Tela de Perdeu.wav";
 	this.musica_gameOver.load();
 	this.musica_gameOver.loop = false;
-	this.musica_gameOver.volume = 0.6;
+	this.musica_gameOver.volume = 1;
 	
 	//----------- efeito sonoro 1----------
 	this.song_fx = new Audio();
@@ -118,7 +118,7 @@ function Game3SceneLevel1()
 			}
 						
 			// GAME WIM
-			if (this.player1.points >= 50)
+			if (this.player1.points >= 300)
 			{
 				//reset life end points of player
 				this.player1.life = 3;
