@@ -92,8 +92,6 @@ function Game2Player(file, size_x, size_y, position_x, position_y, velocity_x, v
 		   	
     }
 	
- 
-	
     this.move=function()
     {
     	if(this.right)
@@ -108,48 +106,24 @@ function Game2Player(file, size_x, size_y, position_x, position_y, velocity_x, v
     		this.position_x_dst -= this.velocity_x;
 			this.image.src = ("imgs/game2/bunny2.png")
 		
-    	}
-	
-    	
-    	//if(this.up)
-    	//{
-    	//	this.position_y_dst -= this.velocity_y;
-    	//}
-    	//if(this.down)
-    	//{
-    	//	this.position_y_dst += this.velocity_y;
-    	//}
+    	}	
     }
     
     this.keepInScreen=function()
     {
-    	//saida pela esquerda
+    
     	if(this.position_x_dst < 0)
     	{
     		this.position_x_dst = 0;
-    	}
-    	
-    	//saida por cima
-    	//if(this.position_y_dst < 0)
-    	//{
-    	//	this.position_y_dst = 0;
-    	//}
-    	
-    	//saida pela esquerda
+    	}   
+    
     	if(this.position_x_dst > SCREENWIDTH - this.size_x_dst*this.scale_x)
     	{
     		this.position_x_dst = SCREENWIDTH - this.size_x_dst*this.scale_x;
-    	}
-    	
-    	//saida por baixo
-    	//if(this.position_y_dst > SCREENHEIGHT - this.size_y_dst*this.scale_y)
-    	//{
-    	//	this.position_y_dst = SCREENHEIGHT - this.size_y_dst*this.scale_y;
-    	//}
+    	}    
     }
-
-    
-    this.draw=function()
+	
+	this.draw=function()
     {			
         if(this.visible)
         screen.drawImage(this.image,
@@ -178,8 +152,7 @@ function Game2Player(file, size_x, size_y, position_x, position_y, velocity_x, v
 			this.acumulated_delta_time += this.delta_time;
 		}
 		
-		this.last_draw_time = Date.now();
-		
+		this.last_draw_time = Date.now();	
 		
     };
     

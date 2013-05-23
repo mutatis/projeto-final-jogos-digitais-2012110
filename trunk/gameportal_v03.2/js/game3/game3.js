@@ -34,7 +34,7 @@ function SceneGame3()
 			break;
 			
 			case this.GAMESCENE.INSTRUCTION:
-			//
+			
 			break;
 		}
 	}

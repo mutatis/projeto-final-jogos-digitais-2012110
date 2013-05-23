@@ -18,7 +18,7 @@ function Game2Platform(file, size_x, size_y, pos_x, pos_y, vel_x, vel_y)
     {    	
     	this.position_x += this.velocity_x;	
 
-    	this.position_y += this.velocity_y;	
+  	  	this.position_y += this.velocity_y;	
     			
     	if(this.position_y < 0)
 		{
@@ -26,7 +26,7 @@ function Game2Platform(file, size_x, size_y, pos_x, pos_y, vel_x, vel_y)
 			
 		}
 		
-		if(this.position_y < -10)//colocar o tamano da plataforma
+		if(this.position_y < -10)//colocar o tamanho da plataforma
 		{
 			this.position_y = 600;//colocar o tamanho da tela
 			this.position_x = Math.floor((Math.random()*(SCREENWIDTH-this.size_x)));
@@ -43,4 +43,4 @@ function Game2Platform(file, size_x, size_y, pos_x, pos_y, vel_x, vel_y)
 
 
  
- }
+}

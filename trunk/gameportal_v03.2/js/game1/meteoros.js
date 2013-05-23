@@ -20,7 +20,7 @@ function Meteor (file, size_x, size_y, points)
    		
    		if(this.position_y > SCREENHEIGHT)
 
-   		// quando ultrapasar o limite da tela chama "function voltar"
+   		// quando ultrapassar o limite da tela chama "function voltar"
 		if(this.position_y > SCREENHEIGHT)
     	{
     		this.voltar();

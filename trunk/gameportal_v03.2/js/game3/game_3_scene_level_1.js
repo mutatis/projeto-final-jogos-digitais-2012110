@@ -73,36 +73,38 @@ function Game3SceneLevel1()
 	this.criarObjetos();
 
 	this.update=function()
-		{
+	{
 		
-			//-----------musica----------
-			// play na musica quando ela esta na tela do lvel 1
-			this.level1_musica.play();
+		//-----------musica----------
+		// play na musica quando ela esta na tela do lvel 1
+		this.level1_musica.play();
 		
 		
-			// --personagem-- 	
-			this.player1.update();
+		// --personagem-- 	
+		this.player1.update();
 				
 
-			for(var i = 0; i < this.Lista_coisas_caindo.length; i++)
-				{
-					this.Lista_coisas_caindo[i].update();
+		for(var i = 0; i < this.Lista_coisas_caindo.length; i++)
+		{
+			this.Lista_coisas_caindo[i].update();
 					
-					if(Collide(this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y, this.Lista_coisas_caindo[i].size_x, 							this.Lista_coisas_caindo[i].size_y,
-					this.player1.position_x, this.player1.position_y, this.player1.size_x, this.player1.size_y))
-					{	
-						this.song_fx.play();
+			if(Collide(this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y, this.Lista_coisas_caindo[i].size_x, 
+				this.Lista_coisas_caindo[i].size_y,
+				this.player1.position_x, this.player1.position_y, 
+				this.player1.size_x, this.player1.size_y))
+			{	
+				this.song_fx.play();
 						
-						this.Lista_coisas_caindo[i].voltar();
-						this.player1.life += this.Lista_coisas_caindo[i].life;
-						this.player1.points += this.Lista_coisas_caindo[i].points;	
-					}
+				this.Lista_coisas_caindo[i].voltar();
+				this.player1.life += this.Lista_coisas_caindo[i].life;
+				this.player1.points += this.Lista_coisas_caindo[i].points;	
+			}
 					
-					if(this.Lista_coisas_caindo[i].position_y > SCREENHEIGHT)		
-					{
-						this.Lista_coisas_caindo[i].voltar();
-					}							
-				}		
+				if(this.Lista_coisas_caindo[i].position_y > SCREENHEIGHT)		
+				{
+					this.Lista_coisas_caindo[i].voltar();
+				}							
+		}		
 				
 								
 			// GAME OVER
@@ -128,7 +130,7 @@ function Game3SceneLevel1()
 			
 		} // fecha update
 	
-	this.draw=function()
+		this.draw=function()
 		{  			
 			//background.
 			this.fundo_level1.draw();

@@ -18,7 +18,7 @@ function QuimicalElement(file, size_x, size_y, points, life)
     this.size_y = size_y;
     this.position_x = Math.floor((Math.random()*SCREENWIDTH));
     this.position_y = -this.size_y;
-    this.velocity_x =  0;//Math.floor((Math.random()*10)+1);
+    this.velocity_x =  0;
     this.velocity_y =  Math.floor((Math.random()*10)+1);
     this.velocity_MAX = 15;
         
@@ -36,7 +36,7 @@ function QuimicalElement(file, size_x, size_y, points, life)
     			
     	if(this.position_y < 0)
 		{
-			//this.visible = false;	
+			
 		}
 		
 		

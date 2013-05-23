@@ -8,35 +8,35 @@ function Game4SceneGameOver()
 	this.restart_btn = new Button_2("imgs/Rgame.png", 175, 77,12, 518);
 
 	this.update=function()
-		{
+	{
 	
-		};
+	};
 	
 	this.draw=function()
-		{  		
-			// img de fundo
-			this.fundo.draw();
+	{  		
+		// img de fundo
+		this.fundo.draw();
 			
-			this.voltar_btn.draw();	
+		this.voltar_btn.draw();	
 			
-			this.restart_btn.draw();						
-		};
+		this.restart_btn.draw();						
+	};
 	    
 	this.mouse_down=function(mouse)
-		{
-			if(this.voltar_btn.clicked(mouse))
-				{	
-					game4.currentGameScene = game4.GAMESCENE.INTRO; 
-					//som de click
-					click_btn.play();
-				};
+	{
+		if(this.voltar_btn.clicked(mouse))
+		{	
+			game4.currentGameScene = game4.GAMESCENE.INTRO; 
+			//som de click
+			click_btn.play();
+		};
 					
 			if(this.restart_btn.clicked(mouse))
-				{	
-					game4.currentGameScene = game4.GAMESCENE.LEVEL1; 
-					//som de click
-					click_btn.play();
-				};		
-		};//mouse	
+			{	
+				game4.currentGameScene = game4.GAMESCENE.LEVEL1; 
+				//som de click
+				click_btn.play();
+			};		
+	};//mouse	
 		
 };//function
