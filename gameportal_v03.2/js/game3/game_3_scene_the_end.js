@@ -6,10 +6,11 @@ function Game3SceneTheEnd()
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
 	this.voltar_btn = new Button_2("imgs/Menuwin.png", 175, 77, 607, 518);
 	this.restart_btn = new Button_2("imgs/Rgamewin.png", 175, 77,12, 518);
-		
+	
+	
 	this.update=function()
 		{
-	
+			
 		};
 	
 	this.draw=function()

@@ -13,6 +13,21 @@ function Game3SceneLevel1()
 	this.level1_musica.loop = true;
 	this.level1_musica.volume = 0.6;
 	
+	//-----------musica_gameWin----------
+	this.musica_gamewin = new Audio();
+	this.musica_gamewin.src = "sounds/Tela de Venceu.wav";
+	this.musica_gamewin.load();
+	this.musica_gamewin.loop = false;
+	this.musica_gamewin.volume = 0.6;
+		
+		
+	//-----------musica_gameOver----------
+	this.musica_gameOver = new Audio();
+	this.musica_gameOver.src = "sounds/Tela de Perdeu.wav";
+	this.musica_gameOver.load();
+	this.musica_gameOver.loop = false;
+	this.musica_gameOver.volume = 0.6;
+	
 	//----------- efeito sonoro 1----------
 	this.song_fx = new Audio();
 	this.song_fx.src = "sounds/game3/item comum.mp3";
@@ -36,7 +51,7 @@ function Game3SceneLevel1()
 		this.criptonio = new QuimicalElement("imgs/game3/Kr.png", 47, 48,+10, 0);
 		
 		//perde
-		this.ferro = new QuimicalElement("imgs/game3/Fe.png", 47, 48,-50,-2);
+		this.ferro = new QuimicalElement("imgs/game3/Fe.png", 47, 48,-50,-1);
 		this.sodio = new QuimicalElement("imgs/game3/Na.png", 47, 48,-25,-1);
 		this.oxigenio = new QuimicalElement("imgs/game3/O.png", 47, 48,-10,-1);
 		this.hidrogenio = new QuimicalElement("imgs/game3/H.png", 47, 48,-10,-1);
@@ -95,8 +110,8 @@ function Game3SceneLevel1()
 			{	
 				//reset life end points of player
 				this.player1.life = 3;
-				this.player1.points = 0;
-				
+				this.player1.points = 0;				
+				this.musica_gameOver.play();				
 				game3.currentGameScene = game3.GAMESCENE.GAMEOVER; 
 			}
 						
@@ -105,8 +120,8 @@ function Game3SceneLevel1()
 			{
 				//reset life end points of player
 				this.player1.life = 3;
-				this.player1.points = 0;
-						
+				this.player1.points = 0;	
+				this.musica_gamewin.play();
 				game3.currentGameScene = game3.GAMESCENE.THEEND
 			}
 			

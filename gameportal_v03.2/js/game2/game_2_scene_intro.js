@@ -5,7 +5,7 @@ function Game2SceneIntro()
 
 	//----------- intro musica----------
 	this.intro_musica = new Audio();
-	this.intro_musica.src = "sounds/game2/tela de iniciar Move Forward.mp3";
+	this.intro_musica.src = "sounds/game3/tela de iniciar Move Forward.mp3";
 	this.intro_musica.load();
 	this.intro_musica.loop = true;
 	this.intro_musica.volume = 0.6;	
