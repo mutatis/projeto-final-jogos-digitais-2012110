@@ -109,7 +109,7 @@
 	var game4 = new SceneGame4();
 	
 	var game5 = new SceneGame5();
-	
+	/*
 	var game6 = new SceneGame6();
 
 	var game7 = new SceneGame7();
@@ -119,8 +119,8 @@
 	var game9 = new SceneGame9();
 	
 	var game10 = new SceneGame10();
-	
-	var SCENE = { MENU: 0, GAME1: 1, GAME2: 2, GAME3: 3, GAME4: 4, GAME5: 5, GAME6: 6, GAME7: 7, GAME8: 8, GAME9: 9, GAME10: 10, CREDIT: 11}
+	*/
+	var SCENE = { MENU: 0, GAME1: 1, GAME2: 2, GAME3: 3, GAME4: 4, GAME5: 5 /* ,GAME6: 6, GAME7: 7, GAME8: 8, GAME9: 9, GAME10: 10, CREDIT: 11*/}
 	
 	var currentScene = SCENE.MENU;
 	
@@ -199,6 +199,7 @@
 				game5.update();
 			}
 			break;
+			/*
 			case SCENE.GAME6:
 			{
 				game6.update();
@@ -224,7 +225,7 @@
 				game10.update();
 			}
 			break;
-	
+			*/
 			
 		}
 		
@@ -279,6 +280,7 @@
 				game5.draw();
 			}
 			break;
+			/*
 			case SCENE.GAME6:
 			{
 				game6.draw();
@@ -304,7 +306,7 @@
 				game10.draw();
 			}
 			break;
-
+			*/
 		}
 
 	}
@@ -359,6 +361,7 @@
 				game5.key_down(key);
 			}
 			break;
+			/*
 			case SCENE.GAME6:
 			{
 				game6.key_down(key);
@@ -384,7 +387,7 @@
 				game10.key_down(key);
 			}
 			break;
-
+			*/
 		}
 	}
 
@@ -427,6 +430,7 @@
 				game5.key_up(key);
 			}
 			break;
+			/*
 			case SCENE.GAME6:
 			{
 				game6.key_up(key);
@@ -452,6 +456,7 @@
 				game10.key_up(key);
 			}
 			break;
+			*/
 		}
 	}
 	function mouse_move(mouse)
@@ -511,6 +516,7 @@
 				game5.mouse_down(mouse);
 			}
 			break;
+			/*
 			case SCENE.GAME6:
 			{
 				game6.mouse_down(mouse);
@@ -536,7 +542,7 @@
 				game10.mouse_down(mouse);
 			}
 			break;
-
+			*/
 
 		}
 	}

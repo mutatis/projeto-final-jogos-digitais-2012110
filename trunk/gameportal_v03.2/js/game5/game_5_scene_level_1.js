@@ -1,7 +1,7 @@
 function Game5SceneLevel1()
 {
 	//file, size_x, size_y, pos_x, pos_y
-	this.fundo_level1 = new img_cenario("imgs/game3/fundo.jpg",800, 600, 0, 0);
+	this.fundo_level1 = new img_cenario("imgs/game5/img_intro.jpg",800, 600, 0, 0);
 
 	// --personagem-- 	
 	this.player1 = new Pallete();

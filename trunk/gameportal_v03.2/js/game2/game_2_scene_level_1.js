@@ -2,7 +2,7 @@ function Game2SceneLevel1()
 {
 	this.background = new Game2Background("imgs/game2/game_bg.png");
 	
-	//file, size_x, size_y, position_x, position_y
+	//------------------------------------------------file, size_x, size_y, position_x, position_y
 	this.player = new Game2Player("imgs/game2/bunny.png", 74, 83, (SCREENWIDTH-74)/2, 0, 3, 3, 1, 1);
 	
 	//file, size_x, size_y, pos_x, pos_y, vel_x, vel_y
@@ -86,10 +86,7 @@ this.gametime=function()
 	}
 	
 this.update=function()
-{
-	
-	
-			
+{			
 	this.gametime();
 	
 	this.background.update();
@@ -120,9 +117,14 @@ this.update=function()
 			{
 				if(snake_list[i].visible)
 				{
+				// quando encostar na cobrinha da game over
 				game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
 				snake_list[i].visible = false;
-				
+				this.player.points = 0;
+				this.tempoAux = 0;
+				this.tempoSeg = 0;
+				this.player.position_y_dst = 0;
+				this.player.position_x_dst = (SCREENWIDTH-74)/2;
 				}
 			}
 			
@@ -136,12 +138,16 @@ this.update=function()
 		//FAZ O JOGADOR MORRER ao sair da tela por cima ou por baixo
 	   	if(this.player.position_y_dst > 605 | this.player.position_y_dst < -90)
     	{	
-    		game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
-    		this.player.velocity_y = 0;
+    		this.player.points = 0;		
+			this.player.velocity_y = 0;
     		this.player.velocity_x = 0;
-    		this.player.position_y_dst = 610;
+    		this.player.position_y_dst = 0;
+			this.player.position_x_dst = (SCREENWIDTH-74)/2;
     		this.player.right = false
     		this.player.left = false
+			this.tempoAux = 0;
+			this.tempoSeg = 0;
+			game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
     	}
 		
 	
@@ -244,7 +250,13 @@ this.update=function()
 
 			else if(this.player.points > 200)
 			{
-				game2.currentGameScene = game2.GAMESCENE.THEEND;
+				// GAME WIN 
+				this.player.position_y_dst = 0;
+				this.player.position_x_dst = (SCREENWIDTH-74)/2;
+				this.player.points = 0;	
+				this.tempoAux = 0;
+				this.tempoSeg = 0;
+				game2.currentGameScene = game2.GAMESCENE.THEEND;	
 			}	
 			
 			
