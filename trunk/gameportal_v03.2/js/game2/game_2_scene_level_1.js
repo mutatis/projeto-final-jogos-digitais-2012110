@@ -16,6 +16,30 @@ function Game2SceneLevel1()
 	this.tempoAux = 0;
 	this.tempoSeg = 0;
 
+	//----------- level1 musica----------
+	this.level1_musica = new Audio();
+	this.level1_musica.src = "sounds/game2/em jogo Wallpaper.mp3";
+	this.level1_musica.load();
+	this.level1_musica.loop = true;
+	this.level1_musica.volume = 0.6;
+
+	//-----------musica_gameWin----------
+	this.musica_gamewin = new Audio();
+	this.musica_gamewin.src = "sounds/Tela de Venceu.wav";
+	this.musica_gamewin.load();
+	this.musica_gamewin.loop = false;
+	this.musica_gamewin.volume = 0.6;
+		
+		
+	//-----------musica_gameOver----------
+	this.musica_gameOver = new Audio();
+	this.musica_gameOver.src = "sounds/Tela de Perdeu.wav";
+	this.musica_gameOver.load();
+	this.musica_gameOver.loop = false;
+	this.musica_gameOver.volume = 0.6;
+	
+	
+
 //cobra1 = new Mob ("Image/cobrazz.png", 73, 15, 200, 200);
 		
 function Plataform_Object()
@@ -87,6 +111,12 @@ this.gametime=function()
 	
 this.update=function()
 {			
+
+	//-----------musica----------
+	// play na musica quando ela esta na tela do lvel 1
+	this.level1_musica.play();
+
+
 	this.gametime();
 	
 	this.background.update();
@@ -125,6 +155,8 @@ this.update=function()
 				this.tempoSeg = 0;
 				this.player.position_y_dst = 0;
 				this.player.position_x_dst = (SCREENWIDTH-74)/2;
+				this.musica_gameOver.play();
+				game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
 				}
 			}
 			
@@ -147,6 +179,7 @@ this.update=function()
     		this.player.left = false
 			this.tempoAux = 0;
 			this.tempoSeg = 0;
+			this.musica_gameOver.play();
 			game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
     	}
 		
@@ -256,7 +289,8 @@ this.update=function()
 				this.player.points = 0;	
 				this.tempoAux = 0;
 				this.tempoSeg = 0;
-				game2.currentGameScene = game2.GAMESCENE.THEEND;	
+				game2.currentGameScene = game2.GAMESCENE.THEEND;
+				this.musica_gamewin.play();
 			}	
 			
 			

@@ -23,9 +23,11 @@ function SceneGame2()
 			break;
 			case this.GAMESCENE.THEEND:
 				this.theEnd.update();
+				this.leve1.level1_musica.pause();
 			break;
 			case this.GAMESCENE.GAMEOVER:
 				this.gameOver.update();
+				this.leve1.level1_musica.pause();
 			break;
 			case this.GAMESCENE.INSTRUCTION:
 				this.instruction.update();

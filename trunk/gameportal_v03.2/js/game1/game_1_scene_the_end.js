@@ -2,7 +2,7 @@ function Game1SceneTheEnd()
 {
 	    
 	//file, size_x, size_y, pos_x, pos_y
-	this.fundo = new img_cenario("imgs/game1/Fimganhou.png",800, 600, 0, 0);
+	this.fundo = new img_cenario("imgs/capa-do-jogo-venceuwin.png",800, 600, 0, 0);
 
 
 	this.update=function()

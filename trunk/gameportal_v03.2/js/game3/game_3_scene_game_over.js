@@ -6,9 +6,11 @@ function Game3SceneGameOver()
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
 	this.voltar_btn = new Button_2("imgs/Menu.png", 175, 77, 607, 518);
 	this.restart_btn = new Button_2("imgs/Rgame.png", 175, 77,12, 518);
-
+	
+	
 	this.update=function()
 		{
+	
 	
 		};
 	
@@ -19,7 +21,8 @@ function Game3SceneGameOver()
 			
 			this.voltar_btn.draw();	
 			
-			this.restart_btn.draw();						
+			this.restart_btn.draw();
+
 		};
 	    
 	this.mouse_down=function(mouse)
@@ -35,7 +38,7 @@ function Game3SceneGameOver()
 				{	
 					game3.currentGameScene = game3.GAMESCENE.LEVEL1; 
 					//som de click
-					click_btn.play();
+					click_btn.play();					
 				};		
 		};//mouse	
 		
