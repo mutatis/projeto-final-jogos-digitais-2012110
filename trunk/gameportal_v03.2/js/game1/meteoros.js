@@ -18,8 +18,7 @@ function Meteor (file, size_x, size_y, points)
    		
    		this.position_y += this.velocity_y;
    		
-   		if(this.position_y > SCREENHEIGHT)
-
+   		
    		// quando ultrapassar o limite da tela chama "function voltar"
 		if(this.position_y > SCREENHEIGHT)
     	{
@@ -78,6 +77,7 @@ function Meteor (file, size_x, size_y, points)
 		this.position_y = -this.size_y;
 		this.position_x = Math.floor((Math.random()*(SCREENWIDTH - this.size_x))); 
 		this.velocity_y = Math.floor((Math.random()*10)+1);
+		this.visible = true;
     } 
     
     
