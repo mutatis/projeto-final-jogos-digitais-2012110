@@ -45,17 +45,17 @@ function Game2SceneLevel1()
 	this.song_fx.loop = false;
 	this.song_fx.volume = 0.3;
 
-//cobra1 = new Mob ("Image/cobrazz.png", 73, 15, 200, 200);
+	//cobra1 = new Mob ("Image/cobrazz.png", 73, 15, 200, 200);
 		
-function Plataform_Object()
-{
+	function Plataform_Object()
+	{
 
-	var a0 = new Game2Platform("imgs/game2/barzz.png", 117, 16, (SCREENWIDTH-74)/2, 200, 0, -1);
-	var a1 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 300, 0, -2);
-	var a2 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 400, 0, -2);
-	var a3 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 500, 0, -2);
-	var a4 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 600, 0, -2);
-	var a5 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 700, 0, -2); //SCREENWIDTH-58
+		var a0 = new Game2Platform("imgs/game2/barzz.png", 117, 16, (SCREENWIDTH-74)/2, 200, 0, -1);
+		var a1 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 300, 0, 		-2);
+		var a2 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 400, 0, 		-2);
+		var a3 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 500, 0, 		-2);
+		var a4 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 600, 0, 		-2);
+		var a5 = new Game2Platform("imgs/game2/barzz.png", 117, 16, Math.floor((Math.random()*(SCREENWIDTH-117))+1), 700, 0, 		-2); //SCREENWIDTH-58
    
 		plataform_list.push(a0);
 		plataform_list.push(a1);
@@ -63,50 +63,50 @@ function Plataform_Object()
 		plataform_list.push(a3);
 		plataform_list.push(a4);
 		plataform_list.push(a5);
-}
+	}
 
-Plataform_Object();
+	Plataform_Object();
 
-function Cenoura_Object()
-{
-var b0 = new Game2Item ("imgs/game2/cenoura.png", 17, 34, 0, 0, 0, -2); 
-	cenoura_list.push(b0);	
-}	
+	function Cenoura_Object()
+	{
+		var b0 = new Game2Item ("imgs/game2/cenoura.png", 17, 34, 0, 0, 0, -2); 
+		cenoura_list.push(b0);	
+	}	
 
-Cenoura_Object();
+	Cenoura_Object();
 
-function Alface_Object()
-{
-var c0 = new Game2Item ("imgs/game2/alface.png", 47, 31, 0, 0, 0, -2); 
-	alface_list.push(c0);	
-}	
+	function Alface_Object()
+	{
+		var c0 = new Game2Item ("imgs/game2/alface.png", 47, 31, 0, 0, 0, -2); 
+		alface_list.push(c0);	
+	}	
 
-Alface_Object();
+	Alface_Object();
 
-function Snake_Object()
-{
-var d0 = new Game2Mob ("imgs/game2/cobra.png", 91, 17, 0, 0);
-var d1 = new Game2Mob ("imgs/game2/cobra.png", 91, 17, 0, 0);
+	function Snake_Object()
+	{
+		var d0 = new Game2Mob ("imgs/game2/cobra.png", 91, 17, 0, 0);
+		var d1 = new Game2Mob ("imgs/game2/cobra.png", 91, 17, 0, 0);
 
-	snake_list.push(d0);	
-	snake_list.push(d1);
-}	
+		snake_list.push(d0);	
+		snake_list.push(d1);
+	}	
 
-Snake_Object();
-
-
+	Snake_Object();
 
 
 
 
-this.gametime=function()
+
+
+	this.gametime=function()
 	{
 		this.tempoSeg++;
 		if (this.tempoSeg >= 1000)
-			{
-				this.tempoSeg= 0;
-				this.tempoAux = this.tempoAux + 1;
-			}
+		{
+			this.tempoSeg= 0;
+			this.tempoAux = this.tempoAux + 1;
+		}
 		    else
 		    {			
 				this.tempoSeg+=1000/30;
@@ -114,65 +114,65 @@ this.gametime=function()
 	
 	}
 	
-this.update=function()
-{			
+	this.update=function()
+	{			
 
-	//-----------musica----------
-	// play na musica quando ela esta na tela do lvel 1
-	this.level1_musica.play();
+		//-----------musica----------
+		// play na musica quando ela esta na tela do lvel 1
+		this.level1_musica.play();
 
 
-	this.gametime();
+		this.gametime();
 	
-	this.background.update();
+		this.background.update();
 	
-	this.player.update();    	
+		this.player.update();    	
 	
-	for(var i = 0; i < snake_list.length ; i++)
-	{
-		snake_list[0].position_x_dst = plataform_list[2].position_x;
-		snake_list[0].position_y_dst = plataform_list[2].position_y-20;
+		for(var i = 0; i < snake_list.length ; i++)
+		{
+			snake_list[0].position_x_dst = plataform_list[2].position_x;
+			snake_list[0].position_y_dst = plataform_list[2].position_y-20;
 		
-		snake_list[1].position_x_dst = plataform_list[4].position_x;
-		snake_list[1].position_y_dst = plataform_list[4].position_y-20;
-		
-		
+			snake_list[1].position_x_dst = plataform_list[4].position_x;
+			snake_list[1].position_y_dst = plataform_list[4].position_y-20;
 		
 		
-		if(Collide(
-				this.player.position_x_dst, 
-    			this.player.position_y_dst, 
-    			(this.player.size_x_dst)*this.player.scale_x, 
-    			(this.player.size_y_dst)*this.player.scale_y, 
-				snake_list[i].position_x_dst,
-				snake_list[i].position_y_dst,
-				snake_list[i].size_x_dst*this.player.scale_x,
-				snake_list[i].size_y_dst*this.player.scale_y
-			))
+		
+		
+			if(Collide(
+					this.player.position_x_dst, 
+    				this.player.position_y_dst, 
+    				(this.player.size_x_dst)*this.player.scale_x, 
+    				(this.player.size_y_dst)*this.player.scale_y, 
+					snake_list[i].position_x_dst,
+					snake_list[i].position_y_dst,
+					snake_list[i].size_x_dst*this.player.scale_x,
+					snake_list[i].size_y_dst*this.player.scale_y
+				))
 			{
 				if(snake_list[i].visible)
 				{
-				// quando encostar na cobrinha da game over
-				snake_list[i].visible = false;
-				this.player.points = 0;
-				this.tempoAux = 0;
-				this.tempoSeg = 0;
-				this.player.position_y_dst = 0;
-				this.player.position_x_dst = (SCREENWIDTH-74)/2;
-				this.musica_gameOver.play();
-				//quando encostar em objetos
-				this.song_fx.play();
-				// GAME OVER
-				game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
+					// quando encostar na cobrinha da game over
+					snake_list[i].visible = false;
+					this.player.points = 0;
+					this.tempoAux = 0;
+					this.tempoSeg = 0;
+					this.player.position_y_dst = 0;
+					this.player.position_x_dst = (SCREENWIDTH-74)/2;
+					this.musica_gameOver.play();
+					//quando encostar em objetos
+					this.song_fx.play();
+					// GAME OVER
+					game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
 				}
 			}
 			
 			if(snake_list[i].position_y_dst < -10)
-		{
-			snake_list[i].visible = true;
-		}
+			{
+				snake_list[i].visible = true;
+			}
 		
-	}	
+		}	
 
 		//FAZ O JOGADOR MORRER ao sair da tela por cima ou por baixo
 	   	if(this.player.position_y_dst > 605 | this.player.position_y_dst < -90)
@@ -188,7 +188,7 @@ this.update=function()
 			this.tempoSeg = 0;
 			this.musica_gameOver.play();
 			game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
-    	}
+   		}
 		
 	
 		//FAZ O JOGADOR PEGAR AS CENOURAS, faz pontos e elas somem
@@ -197,10 +197,10 @@ this.update=function()
 			cenoura_list[i].position_x = plataform_list[0].position_x+50;
 			cenoura_list[i].position_y = plataform_list[0].position_y-35;	
 			
-		if(cenoura_list[i].position_y < -10)
-		{
-			cenoura_list[i].visible = true;
-		}
+			if(cenoura_list[i].position_y < -10)
+			{
+				cenoura_list[i].visible = true;
+			}
 
 				if(Collide(
 				this.player.position_x_dst,
@@ -213,16 +213,16 @@ this.update=function()
 				cenoura_list[i].size_y
 
 			))
-			{
-				if(cenoura_list[i].visible)
 				{
-				this.player.points +=10;
-				cenoura_list[i].visible = false;
-				//quando encostar em objetos
-				this.song_fx.play();
+					if(cenoura_list[i].visible)
+					{
+						this.player.points +=10;
+						cenoura_list[i].visible = false;
+						//quando encostar em objetos
+						this.song_fx.play();
 				
+					}
 				}
-			}
 		}
 	
 		//FAZ TODOS OS ALFACES ficarem na plataforma 3
@@ -246,16 +246,16 @@ this.update=function()
 				alface_list[i].size_x,
 				alface_list[i].size_y
 			))
-			{
-				if(alface_list[i].visible)
 				{
-				this.player.points +=20;
-				alface_list[i].visible = false;
-				//quando encostar em objetos
-				this.song_fx.play();
+					if(alface_list[i].visible)
+					{
+						this.player.points +=20;
+						alface_list[i].visible = false;
+						//quando encostar em objetos
+						this.song_fx.play();
 				
+					}
 				}
-			}
 		}	
 		
 		
@@ -265,9 +265,7 @@ this.update=function()
 		{	
 			
 			plataform_list[i].update();				
-			
-		
-			
+				
 			if(this.player.points <= 30)
 			{
 				plataform_list[i].velocity_y = -2;
@@ -323,7 +321,7 @@ this.update=function()
 			}
 			
 		}
-};
+	};//fecha o update
     	
 	
     this.draw=function()
@@ -369,8 +367,6 @@ this.update=function()
 		}	
 		
 		
-		//	screen.drawImage(cobra_list[i].img, cobra_list[i].position_x, cobra_list[i].position_y);		
-		
 		for(var i = 0; i < plataform_list.length ; i++)
 		{
 			screen.drawImage(plataform_list[i].img, plataform_list[i].position_x, plataform_list[i].position_y);		
@@ -384,7 +380,7 @@ this.update=function()
 		
 		
 		
-    };
+    };//fecha o draw
         
     this.mouse_down=function(mouse)
     {

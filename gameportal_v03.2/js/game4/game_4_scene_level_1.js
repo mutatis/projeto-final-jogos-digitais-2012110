@@ -58,36 +58,42 @@ function Game4SceneLevel1()
 	this.criarObjetos();
 
 	this.update=function()
-		{
+	{
 		
-			//-----------musica----------
-			// play na musica quando ela esta na tela do lvel 1
-			this.level1_musica.play();
+		//-----------musica----------
+		// play na musica quando ela esta na tela do lvel 1
+		this.level1_musica.play();
 		
 		
-			// --personagem-- 	
-			this.player1.update();
+		// --personagem-- 	
+		this.player1.update();
 				
 
-			for(var i = 0; i < this.Lista_coisas_caindo.length; i++)
-				{
-					this.Lista_coisas_caindo[i].update();
+		for(var i = 0; i < this.Lista_coisas_caindo.length; i++)
+		{
+			this.Lista_coisas_caindo[i].update();
 					
-					if(Collide(this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y, this.Lista_coisas_caindo[i].size_x, 							this.Lista_coisas_caindo[i].size_y,
-					this.player1.position_x, this.player1.position_y, this.player1.size_x, this.player1.size_y))
-					{	
-						this.song_fx.play();
+			if(Collide(this.Lista_coisas_caindo[i].position_x, 
+			this.Lista_coisas_caindo[i].position_y, 
+			this.Lista_coisas_caindo[i].size_x, 							
+			this.Lista_coisas_caindo[i].size_y,
+			this.player1.position_x, 
+			this.player1.position_y, 
+			this.player1.size_x, 
+			this.player1.size_y))
+			{	
+				this.song_fx.play();
 						
-						this.Lista_coisas_caindo[i].voltar();
-						this.player1.life += this.Lista_coisas_caindo[i].life;
-						this.player1.points += this.Lista_coisas_caindo[i].points;	
-					}
+				this.Lista_coisas_caindo[i].voltar();
+				this.player1.life += this.Lista_coisas_caindo[i].life;
+				this.player1.points += this.Lista_coisas_caindo[i].points;	
+			}
 					
-					if(this.Lista_coisas_caindo[i].position_y > SCREENHEIGHT)		
-					{
-						this.Lista_coisas_caindo[i].voltar();
-					}							
-				}		
+				if(this.Lista_coisas_caindo[i].position_y > SCREENHEIGHT)		
+				{
+					this.Lista_coisas_caindo[i].voltar();
+				}							
+		}		
 				
 								
 			// GAME OVER
@@ -114,26 +120,26 @@ function Game4SceneLevel1()
 		} // fecha update
 	
 	this.draw=function()
-		{  			
-			//background.
-			this.fundo_level1.draw();
+	{  			
+		//background.
+		this.fundo_level1.draw();
 								
-			// desenha o personagem na tela.
-			screen.drawImage(this.player1.img, this.player1.position_x, this.player1.position_y);	
+		// desenha o personagem na tela.
+		screen.drawImage(this.player1.img, this.player1.position_x, this.player1.position_y);	
 			
-			// desenha os elementos químicos
-			for(var i = 0; i < this.Lista_coisas_caindo.length; i++)
-			{
-				screen.drawImage(this.Lista_coisas_caindo[i].img, this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y);
-			}
+		// desenha os elementos químicos
+		for(var i = 0; i < this.Lista_coisas_caindo.length; i++)
+		{
+			screen.drawImage(this.Lista_coisas_caindo[i].img, this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y);
+		}
 										
-			// desenha os posntos, vida e etc...
-			screen.font="27px Comic Sans";
-			screen.fillStyle="#E6F4E9";
-			screen.fillText("Lives: " + this.player1.life,20,28);
-			screen.fillText("Pick up: noble gases",291,28);
-			screen.fillText("Points: "+ this.player1.points,639,28);			
-		};
+		// desenha os posntos, vida e etc...
+		screen.font="27px Comic Sans";
+		screen.fillStyle="#E6F4E9";
+		screen.fillText("Lives: " + this.player1.life,20,28);
+		screen.fillText("Pick up: noble gases",291,28);
+		screen.fillText("Points: "+ this.player1.points,639,28);			
+	};
 
 		
 	this.key_down=function(key)

@@ -21,7 +21,7 @@ function Game2Background(source)
     this.velocity_MAX = 15;
     
     this.update=function()
-    {
+	{
     
     	
     	this.position_x += this.velocity_x;
@@ -33,7 +33,7 @@ function Game2Background(source)
     		this.position_y = SCREENHEIGHT - this.size_y;
     	}
     	
-    };
+	};
     
     this.draw=function()
     {

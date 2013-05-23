@@ -43,13 +43,13 @@ function Game2SceneInstruction()
 		};
 		
 	this.mouse_down=function(mouse)
-		{
+	{
 			if(this.voltar_btn.clicked(mouse))
-					{	
-						game2.currentGameScene = game2.GAMESCENE.INTRO; 
-						//som de click
-						click_btn.play();						
-					};
-		};
+			{	
+				game2.currentGameScene = game2.GAMESCENE.INTRO; 
+				//som de click
+				click_btn.play();						
+			};
+	};
 				
 };

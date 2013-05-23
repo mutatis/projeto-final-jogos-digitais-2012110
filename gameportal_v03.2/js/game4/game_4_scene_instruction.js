@@ -8,27 +8,27 @@ function Game4SceneInstruction()
 	
 	
 	this.update=function()
-		{
+	{
 	
-		};
+	};
 	
 	this.draw=function()
-		{  		
-			// img de fundo
-			this.fundo.draw();
+	{  		
+		// img de fundo
+		this.fundo.draw();
 			
-			//--Botão--
-			this.voltar_btn.draw();
-		};
+		//--Botão--
+		this.voltar_btn.draw();
+	};
 		
 	this.mouse_down=function(mouse)
-		{
-			if(this.voltar_btn.clicked(mouse))
-					{	
-						game4.currentGameScene = game4.GAMESCENE.INTRO; 
-						//som de click
-						click_btn.play();						
-					};
+	{
+		if(this.voltar_btn.clicked(mouse))
+		{	
+			game4.currentGameScene = game4.GAMESCENE.INTRO; 
+			//som de click
+			click_btn.play();						
 		};
+	};
 				
 };

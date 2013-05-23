@@ -18,19 +18,19 @@ function SceneGame4()
 			case this.GAMESCENE.INTRO:
 				this.intro.update();
 				//-----------musica----------
-				//this.intro.intro_musica.play();
+				
 			break;
 			
 			case this.GAMESCENE.LEVEL1:
 				this.leve1.update();			
 				//-----------musica----------
-				//this.leve1.level1_musica.play();
+				
 			break;
 			
 			case this.GAMESCENE.THEEND:
 				// pause musica lvl 1
 				this.leve1.level1_musica.pause();			
-				//theEnd.update();
+				
 			break;
 			
 			case this.GAMESCENE.GAMEOVER:			
@@ -80,7 +80,7 @@ function SceneGame4()
 			break;
 			
 			case this.GAMESCENE.LEVEL1:
-				//this.currentGameScene = this.GAMESCENE.THEEND;			
+							
 			break;
 			
 			case this.GAMESCENE.THEEND:	

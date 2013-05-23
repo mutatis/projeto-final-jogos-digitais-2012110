@@ -16,52 +16,52 @@ function Game2SceneIntro()
 	this.button_voltar = new Button_2("imgs/game2/return.png", 148, 60, 323,474);
 		
 	this.update=function()
-		{
-			//-----------musica----------
-			this.intro_musica.play();
-		}
+	{
+		//-----------musica----------
+		this.intro_musica.play();
+	}
 	
 	this.draw=function()
-		{  		
-			// img de fundo
-			this.fundo.draw();	
+	{  		
+		// img de fundo
+		this.fundo.draw();	
 		
-			// desenha botão 
-			this.button_voltar.draw();
-			this.button_instrucao.draw();
-			this.button_start.draw();
-		};
+		// desenha botão 
+		this.button_voltar.draw();
+		this.button_instrucao.draw();
+		this.button_start.draw();
+	};
 		
 		
 		
 	this.mouse_down=function(mouse)
    	{
 		
-			// click para comesar o game
-			if(this.button_start.clicked(mouse))
-				{
-					//som de click
-					click_btn.play();
+		// click para começar o game
+		if(this.button_start.clicked(mouse))
+		{
+			//som de click
+			click_btn.play();
 					
-					//--pause/stop na musica do catch-- 
-					this.intro_musica.pause();
+			//--pause/stop na musica do catch-- 
+			this.intro_musica.pause();
 					
-					//--vai para o game2--
-					game2.currentGameScene = game2.GAMESCENE.LEVEL1
-				}
+			//--vai para o game2--
+			game2.currentGameScene = game2.GAMESCENE.LEVEL1
+		}
 			
 
 			// vai para instrução do game
 			if(this.button_instrucao.clicked(mouse))
-				{
-					//som de click
-					click_btn.play();
+			{
+				//som de click
+				click_btn.play();
 					
-					game2.currentGameScene = game2.GAMESCENE.INSTRUCTION; 	
-				}
+				game2.currentGameScene = game2.GAMESCENE.INSTRUCTION; 	
+			}
 				
 				
-				// click para volta para o menu inicial do portal
+				// click para voltar para o menu inicial do portal
 				if(this.button_voltar.clicked(mouse))
 				{
 					//som de click
