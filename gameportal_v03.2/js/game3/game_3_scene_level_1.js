@@ -116,7 +116,7 @@ function Game3SceneLevel1()
 			}
 						
 			// GAME WIM
-			if (this.player1.points >= 300)
+			if (this.player1.points >= 50)
 			{
 				//reset life end points of player
 				this.player1.life = 3;
