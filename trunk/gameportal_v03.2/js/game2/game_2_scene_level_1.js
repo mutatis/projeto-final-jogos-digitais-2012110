@@ -21,7 +21,7 @@ function Game2SceneLevel1()
 	this.level1_musica.src = "sounds/game2/em jogo Wallpaper.mp3";
 	this.level1_musica.load();
 	this.level1_musica.loop = true;
-	this.level1_musica.volume = 0.6;
+	this.level1_musica.volume = 1;
 
 	//-----------musica_gameWin----------
 	this.musica_gamewin = new Audio();
@@ -38,7 +38,12 @@ function Game2SceneLevel1()
 	this.musica_gameOver.loop = false;
 	this.musica_gameOver.volume = 0.6;
 	
-	
+	//----------- efeito sonoro 1----------
+	this.song_fx = new Audio();
+	this.song_fx.src = "sounds/game3/item comum.mp3";
+	this.song_fx.load();
+	this.song_fx.loop = false;
+	this.song_fx.volume = 0.3;
 
 //cobra1 = new Mob ("Image/cobrazz.png", 73, 15, 200, 200);
 		
@@ -148,7 +153,6 @@ this.update=function()
 				if(snake_list[i].visible)
 				{
 				// quando encostar na cobrinha da game over
-				game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
 				snake_list[i].visible = false;
 				this.player.points = 0;
 				this.tempoAux = 0;
@@ -156,6 +160,9 @@ this.update=function()
 				this.player.position_y_dst = 0;
 				this.player.position_x_dst = (SCREENWIDTH-74)/2;
 				this.musica_gameOver.play();
+				//quando encostar em objetos
+				this.song_fx.play();
+				// GAME OVER
 				game2.currentGameScene = game2.GAMESCENE.GAMEOVER;
 				}
 			}
@@ -204,12 +211,15 @@ this.update=function()
 				cenoura_list[i].position_y,
 				cenoura_list[i].size_x,
 				cenoura_list[i].size_y
+
 			))
 			{
 				if(cenoura_list[i].visible)
 				{
 				this.player.points +=10;
 				cenoura_list[i].visible = false;
+				//quando encostar em objetos
+				this.song_fx.play();
 				
 				}
 			}
@@ -241,6 +251,8 @@ this.update=function()
 				{
 				this.player.points +=20;
 				alface_list[i].visible = false;
+				//quando encostar em objetos
+				this.song_fx.play();
 				
 				}
 			}
