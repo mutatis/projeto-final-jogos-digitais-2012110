@@ -1,11 +1,13 @@
 function Game2SceneTheEnd()
 {
 	//file, size_x, size_y, pos_x, pos_y
-	this.fundo = new img_cenario("imgs/game3/YOU_WIN2.png",800, 600, 0, 0);
+	this.fundo = new img_cenario("imgs/capa-do-jogo-venceuwin.png",800, 600, 0, 0);
 
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
-	this.voltar_btn = new Button_2("imgs/game3/inst_btn.png", 172, 52, 650, 10);
-		
+	this.voltar_btn = new Button_2("imgs/Menuwin.png", 175, 77, 607, 518);
+	this.restart_btn = new Button_2("imgs/Rgamewin.png", 175, 77,12, 518);
+
+	
 	this.update=function()
 		{
 	
@@ -16,17 +18,27 @@ function Game2SceneTheEnd()
 			// img de fundo
 			this.fundo.draw();
 
-			this.voltar_btn.draw();				
+			this.voltar_btn.draw();	
+			
+			this.restart_btn.draw();				
 		};
 		
 	this.mouse_down=function(mouse)
 		{
 			if(this.voltar_btn.clicked(mouse))
 				{	
-					game3.currentGameScene = game3.GAMESCENE.INTRO;
+					game2.currentGameScene = game2.GAMESCENE.INTRO;
 					//som de click
 					click_btn.play();
-				};				
+				};	
+
+			if(this.restart_btn.clicked(mouse))
+				{	
+					game2.currentGameScene = game2.GAMESCENE.LEVEL1; 
+					//som de click
+					click_btn.play();
+				};	
+				
 		};
 	    
 };

@@ -67,16 +67,14 @@ function SceneGame2()
 				this.leve1.mouse_down(mouse);	
 			break;
 			case this.GAMESCENE.THEEND:
-				this.currentGameScene = this.GAMESCENE.GAMEOVER;
+				//this.currentGameScene = this.GAMESCENE.GAMEOVER;
 				this.theEnd.mouse_down(mouse);	
 			break;
 			case this.GAMESCENE.GAMEOVER:
-				this.currentGameScene = this.GAMESCENE.INTRO;
-				currentScene = SCENE.MENU;
+				//currentScene = SCENE.MENU;
 				this.gameOver.mouse_down(mouse);	
 			break;
 			case this.GAMESCENE.INSTRUCTION:
-				//this.currentGameScene = this.GAMESCENE.INTRO;
 				//currentScene = SCENE.MENU;
 				this.instruction.mouse_down(mouse);	
 			break;
