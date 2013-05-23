@@ -4,8 +4,9 @@ function SceneGame1()
 	this.level1 = new Game1SceneLevel1();
 	this.theEnd = new Game1SceneTheEnd();
 	this.gameOver = new Game1SceneGameOver();
+	this.instruction = new Game1SceneInstruction();
 	
-	this.GAMESCENE = { INTRO: 0, LEVEL1: 1, THEEND: 2, GAMEOVER: 3};
+	this.GAMESCENE = { INTRO: 0, LEVEL1: 1, THEEND: 2, GAMEOVER: 3,INSTRUCTION:4 };
 	
 	this.currentGameScene = this.GAMESCENE.INTRO; 
 	
@@ -25,6 +26,9 @@ function SceneGame1()
 			case this.GAMESCENE.GAMEOVER:
 				//gameOver.update();
 			break;
+			case this.GAMESCENE.INSTRUCTION:
+			//
+			break;
 		}
 	}
 
@@ -34,29 +38,22 @@ function SceneGame1()
 		{
 			case this.GAMESCENE.INTRO:
 				this.intro.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME1 INTRO", 20, 20);
 			break;
 			case this.GAMESCENE.LEVEL1:
 				
 				this.level1.draw();
-			
-				//screen.font = "20px Comic Sans MS";
-				//screen.fillStyle="#000000";
-				//screen.fillText("GAME1 LEVEL1", 20, 20);
+
 			break;
 			case this.GAMESCENE.THEEND:
 				this.theEnd.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME1 THEEND", 20, 20);
 			break;
 			case this.GAMESCENE.GAMEOVER:
 				this.gameOver.draw();
-				screen.font = "20px Comic Sans MS";
-				screen.fillStyle="#000000";
-				screen.fillText("GAME1 GAMEOVER", 20, 20);
+
+			break;
+			
+			case this.GAMESCENE.INSTRUCTION:
+				this.instruction.draw();
 			break;
 		}
 	}
@@ -66,18 +63,27 @@ function SceneGame1()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				this.currentGameScene = this.GAMESCENE.LEVEL1;
+				this.intro.mouse_down(mouse);
 			break;
+			
 			case this.GAMESCENE.LEVEL1:
 				this.level1.mouse_down(mouse);
+				//this.currentGameScene = this.GAMESCENE.THEEND;
 			break;
-			case this.GAMESCENE.THEEND:
-				//this.currentGameScene = this.GAMESCENE.GAMEOVER;
+			
+			case this.GAMESCENE.THEEND:						
+				this.theEnd.mouse_down(mouse);
 			break;
-			case this.GAMESCENE.GAMEOVER:
-				//this.currentGameScene = this.GAMESCENE.INTRO;
-				currentScene = SCENE.MENU;
+			
+			case this.GAMESCENE.GAMEOVER:			
+				this.gameOver.mouse_down(mouse);
 			break;
+			
+			case this.GAMESCENE.INSTRUCTION:
+				this.instruction.mouse_down(mouse);
+			break;
+			
+			
 		}	
 	}
 
