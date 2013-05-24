@@ -173,8 +173,7 @@ function Game3SceneLevel1()
 		
 		
 	this.mouse_down=function(mouse)
-		{
-		
+		{		
 		// click para sair do game
 		if(this.button_close.clicked(mouse))
 			{			
@@ -187,7 +186,7 @@ function Game3SceneLevel1()
 				//--vai para o game3--
 				game3.currentGameScene = game3.GAMESCENE.INTRO
 			}
-		}
+		};
 		
 	
 };
