@@ -6,7 +6,36 @@ function Game1SceneLevel1()
 	
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
 	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 3);	
-		
+	
+	//----------- level1 musica----------
+	this.level1_musica = new Audio();
+	this.level1_musica.src = "sounds/game2/menu_fall.mp3";
+	this.level1_musica.load();
+	this.level1_musica.loop = true;
+	this.level1_musica.volume = 1;
+	
+	//-----------musica_gameWin----------
+	this.musica_gamewin = new Audio();
+	this.musica_gamewin.src = "sounds/Tela de Venceu.wav";
+	this.musica_gamewin.load();
+	this.musica_gamewin.loop = false;
+	this.musica_gamewin.volume = 1;
+				
+	//-----------musica_gameOver----------
+	this.musica_gameOver = new Audio();
+	this.musica_gameOver.src = "sounds/Tela de Perdeu.wav";
+	this.musica_gameOver.load();
+	this.musica_gameOver.loop = false;
+	this.musica_gameOver.volume = 1;
+	
+	//----------- efeito sonoro 1----------
+	this.song_fx = new Audio();
+	this.song_fx.src = "sounds/game1/Explodindo.mp3";
+	this.song_fx.load();
+	this.song_fx.loop = false;
+	this.song_fx.volume = 0.6;
+
+	
 	this.meteoros = new Array();
 	
 	this.criarObjetos=function()
@@ -30,13 +59,20 @@ function Game1SceneLevel1()
 	this.milliSeconds = 0;
 
 	this.update=function()
-	{//abre update
+	{
+		
+		//-----------musica----------
+		// play na musica quando ela esta na tela do lvel 1
+		this.level1_musica.play();
+	
 		//tempoSeg++
 		
 		
 		//GAME WIN
 		if(this.points >= 10)
-			{			
+			{	
+				this.musica_gamewin.play();
+				this.level1_musica.pause();
 				game1.currentGameScene = game1.GAMESCENE.THEEND;
 				this.seconds = 60;
 				this.points = 0;
@@ -46,17 +82,13 @@ function Game1SceneLevel1()
 		//GAME OVER
 		if(this.seconds <= 0)
 			{			
+				this.musica_gameOver.play();
+				this.level1_musica.pause();
 				game1.currentGameScene = game1.GAMESCENE.GAMEOVER;
 				this.seconds = 60;
 				this.points = 0;
 			}
-		
-		 if(this.points > 30)
-		{
-			game1.currentGameScene = game1.GAMESCENE.THEEND;	
-			//this.points = 0;
-			//this.seconds = 60;
-		}			
+				
 		
 		for(var i = 0; i < this.meteoros.length; i++)
 		{
@@ -77,12 +109,13 @@ function Game1SceneLevel1()
 		
 		this.mouse_down=function(mouse)
    		{
-		
+							
 			// click para sair do game
 			if(this.button_close.clicked(mouse))
 				{			
 					this.seconds = 60;
 					this.points = 0;
+					this.level1_musica.pause();
 					//som de click
 					click_btn.play();					
 					//--pause/stop na musica do LVL 1-- 
@@ -114,13 +147,13 @@ function Game1SceneLevel1()
 							this.velocity_y = Math.floor((Math.random()*10)+1);
 							console.log("mouse X " + mouse.x + " mouse Y " + mouse.y );
 
-   			
+							
 	
    						}
    						else
    						{
    							this.points -= this.meteoros[i].points;
-   							
+   							this.song_fx.play();
 							this.position_y = -this.size_y;
 							this.position_x = Math.floor((Math.random()*(SCREENWIDTH - this.size_x))); 
 							this.velocity_y = Math.floor((Math.random()*10)+1);
@@ -153,17 +186,17 @@ function Game1SceneLevel1()
 		this.fundo.draw();
 		
 		for(var i = 0; i < this.meteoros.length; i++)
-		{
-			this.meteoros[i].draw();
-		}
+			{
+				this.meteoros[i].draw();
+			}
 	
-			// desenha o btn de fechar o lvl 1
-			this.button_close.draw();
+		// desenha o btn de fechar o lvl 1
+		this.button_close.draw();
 	
 		screen.font = "30px Comic Sans MS";
 		screen.fillStyle = "#000000";
 		screen.fillText("Pontos: " + this.points + " / " +
-		  this.pointsMax + "   Segundos: " + this.seconds, 40,	40);
+		this.pointsMax + "   Segundos: " + this.seconds, 40,	40);
 		//screen.fillText( this.alvo1.pontos + this.alvo2.pontos, 670, 550);
 
 	};//fecha draw
