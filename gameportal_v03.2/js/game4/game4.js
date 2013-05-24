@@ -16,21 +16,16 @@ function SceneGame4()
 		switch(this.currentGameScene)
 		{
 			case this.GAMESCENE.INTRO:
-				this.intro.update();
-				//-----------musica----------
-				
+				this.intro.update();				
 			break;
 			
 			case this.GAMESCENE.LEVEL1:
 				this.leve1.update();			
-				//-----------musica----------
-				
 			break;
 			
 			case this.GAMESCENE.THEEND:
 				// pause musica lvl 1
-				this.leve1.level1_musica.pause();			
-				
+				this.leve1.level1_musica.pause();							
 			break;
 			
 			case this.GAMESCENE.GAMEOVER:			
@@ -80,7 +75,7 @@ function SceneGame4()
 			break;
 			
 			case this.GAMESCENE.LEVEL1:
-							
+				this.leve1.mouse_down(mouse);			
 			break;
 			
 			case this.GAMESCENE.THEEND:	

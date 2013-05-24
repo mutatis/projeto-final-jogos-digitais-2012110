@@ -6,6 +6,9 @@ function Game4SceneLevel1()
 	// --personagem-- 	
 	this.nave1 = new Game4Player("imgs/game4/nave.png", 40, 50, 10, 200);
 	
+	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
+	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 3);	
+		
 	//----------- level1 musica----------
 	this.level1_musica = new Audio();
 	this.level1_musica.src = "sounds/game3/em jogoPixel Peeker Polka - faster.mp3";
@@ -37,18 +40,11 @@ function Game4SceneLevel1()
 	this.enemy1.update();
 	this.enemy2.update();
 	this.enemy3.update();	
- 
-		
-		//-----------musica----------
-		// play na musica quando ela esta na tela do lvel 1
-		this.level1_musica.play();
-		
-		
-
-			
-
-				
-								
+ 		
+	//-----------musica----------
+	// play na musica quando ela esta na tela do lvel 1
+	this.level1_musica.play();
+														
 			// GAME OVER
 			if (this.nave1.life <= 0)
 			{	
@@ -85,6 +81,9 @@ function Game4SceneLevel1()
 		this.enemy2.draw();
 		this.enemy3.draw();
 							
+		// desenha o btn de fechar o lvl 1
+		this.button_close.draw();					
+							
 		// desenha os posntos, vida e etc...
 		screen.font="27px Comic Sans";
 		screen.fillStyle="#E6F4E9";
@@ -104,7 +103,20 @@ function Game4SceneLevel1()
 		// aperta as setas  do teclado para mover o personagem
 		this.nave1.key_up(key);
     }; 
-		
-		
 	
+	this.mouse_down=function(mouse)
+		{		
+		// click para sair do game
+		if(this.button_close.clicked(mouse))
+			{			
+				this.nave1.life = 3;
+				this.nave1.points = 0;
+				//som de click
+				click_btn.play();					
+				//--pause/stop na musica do LVL 1-- 
+				this.level1_musica.pause();
+				//--vai para o game3--
+				game4.currentGameScene = game4.GAMESCENE.INTRO
+			}
+		};	
 };
