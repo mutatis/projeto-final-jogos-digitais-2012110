@@ -235,7 +235,7 @@ function Game2SceneLevel1()
 			alface_list[i].position_x = plataform_list[3].position_x+35;
 			alface_list[i].position_y = plataform_list[3].position_y-30;	
 			
-		if(alface_list[i].position_y < -30 )
+		if(alface_list[i].position_y > 560 )
 		{
 			alface_list[i].visible = true;
 		}
