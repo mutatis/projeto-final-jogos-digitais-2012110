@@ -4,6 +4,9 @@ function Game1SceneLevel1()
 	//file, size_x, size_y, pos_x, pos_y
 	this.fundo = new img_cenario("imgs/game1/FundoBackground.png",800, 600, 0, 0);
 	
+	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
+	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 3);	
+		
 	this.meteoros = new Array();
 	
 	this.criarObjetos=function()
@@ -32,19 +35,21 @@ function Game1SceneLevel1()
 		
 		
 		//GAME WIN
-		
-		
-		
+		if(this.points >= 10)
+			{			
+				game1.currentGameScene = game1.GAMESCENE.THEEND;
+				this.seconds = 60;
+				this.points = 0;
+			}		
 		
 		
 		//GAME OVER
-			if(this.seconds <= 0)
-		{
-			
-			game1.currentGameScene = game1.GAMESCENE.GAMEOVER;
-			this.seconds = 60;
-			this.points = 0;
-		}
+		if(this.seconds <= 0)
+			{			
+				game1.currentGameScene = game1.GAMESCENE.GAMEOVER;
+				this.seconds = 60;
+				this.points = 0;
+			}
 		
 		 if(this.points > 30)
 		{
@@ -72,6 +77,22 @@ function Game1SceneLevel1()
 		
 		this.mouse_down=function(mouse)
    		{
+		
+			// click para sair do game
+			if(this.button_close.clicked(mouse))
+				{			
+					this.seconds = 60;
+					this.points = 0;
+					//som de click
+					click_btn.play();					
+					//--pause/stop na musica do LVL 1-- 
+						//this.level1_musica.pause();
+					//--vai para o game3--
+					game1.currentGameScene = game1.GAMESCENE.INTRO
+				}
+		
+		
+		
    			for(var i = 0; i < this.meteoros.length; i++)
 			{
    				if(Collide(
@@ -117,11 +138,9 @@ function Game1SceneLevel1()
 							console.log("mouse X " + mouse.x + " mouse Y " + mouse.y );
 
 						} 
-					}
-					
-					
-			}
-   		};
+					}//fecha if (Collide)										
+			}//fecha for
+   		};// fecha mouse_down
 	};//fecha update
 		
 		
@@ -138,7 +157,10 @@ function Game1SceneLevel1()
 			this.meteoros[i].draw();
 		}
 	
-		screen.font = "50px Comic Sans MS";
+			// desenha o btn de fechar o lvl 1
+			this.button_close.draw();
+	
+		screen.font = "30px Comic Sans MS";
 		screen.fillStyle = "#000000";
 		screen.fillText("Pontos: " + this.points + " / " +
 		  this.pointsMax + "   Segundos: " + this.seconds, 40,	40);

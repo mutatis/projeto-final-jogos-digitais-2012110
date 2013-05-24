@@ -33,7 +33,9 @@ function Game1SceneInstruction()
 						click_btn.play();						
 					};
 			if(this.play_game_btn.clicked(mouse))
-					{	
+					{					
+						//--pause/stop na musica do catch-- 
+						game1.intro.intro_musica.pause();					
 						game1.currentGameScene = game1.GAMESCENE.LEVEL1; 
 						//som de click
 						click_btn.play();						
