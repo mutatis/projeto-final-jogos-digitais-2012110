@@ -5,7 +5,10 @@ function Game3SceneLevel1()
 
 	// --personagem-- 	
 	this.player1 = new Pallete();
-	
+
+	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
+	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 3);	
+		
 	//----------- level1 musica----------
 	this.level1_musica = new Audio();
 	this.level1_musica.src = "sounds/game3/em jogoPixel Peeker Polka - faster.mp3";
@@ -143,13 +146,16 @@ function Game3SceneLevel1()
 			{
 				screen.drawImage(this.Lista_coisas_caindo[i].img, this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y);
 			}
-										
+			
+			// desenha o btn de fechar o lvl 1
+			this.button_close.draw();
+			
 			// desenha os posntos, vida e etc...
 			screen.font="27px Comic Sans";
 			screen.fillStyle="#E6F4E9";
 			screen.fillText("Lives: " + this.player1.life,20,28);
 			screen.fillText("Pick up: noble gases",291,28);
-			screen.fillText("Points: "+ this.player1.points,639,28);			
+			screen.fillText("Points: "+ this.player1.points,603,28);			
 		};
 
 		
@@ -165,6 +171,23 @@ function Game3SceneLevel1()
 		this.player1.key_up(key);
     }; 
 		
+		
+	this.mouse_down=function(mouse)
+		{
+		
+		// click para sair do game
+		if(this.button_close.clicked(mouse))
+			{			
+				this.player1.life = 3;
+				this.player1.points = 0;
+				//som de click
+				click_btn.play();					
+				//--pause/stop na musica do LVL 1-- 
+				this.level1_musica.pause();
+				//--vai para o game3--
+				game3.currentGameScene = game3.GAMESCENE.INTRO
+			}
+		}
 		
 	
 };

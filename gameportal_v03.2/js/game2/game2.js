@@ -65,7 +65,6 @@
 					this.intro.mouse_down(mouse);	
 				break;
 				case this.GAMESCENE.LEVEL1:
-				
 					this.leve1.mouse_down(mouse);	
 				break;
 				case this.GAMESCENE.THEEND:

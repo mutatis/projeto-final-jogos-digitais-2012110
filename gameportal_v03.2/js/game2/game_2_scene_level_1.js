@@ -8,6 +8,10 @@ function Game2SceneLevel1()
 	//file, size_x, size_y, pos_x, pos_y, vel_x, vel_y
 	//this.platform1 = new Platform("Image/meteoro.png", 42, 19, 450, 400, 0, -1);
 
+	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
+	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 3);	
+	
+	
 	plataform_list = new Array();
 	cenoura_list = new Array();
 	alface_list = new Array();
@@ -373,19 +377,34 @@ function Game2SceneLevel1()
 		}	
 		
 			screen.font = "20px Comic Sans MS";
-			screen.fillStyle="#FFFFFF";
+			screen.fillStyle="#000000";
 			screen.fillText("Pontos: " + this.player.points, 40, 60);		
 			screen.fillText("Tempo: "+this.tempoAux, 40, 40);	
 			
 			
-	
+		// desenha o btn de fechar o lvl 1
+		this.button_close.draw();
 		
 		
     };//fecha o draw
         
     this.mouse_down=function(mouse)
     {
-		//console.log("LEVEL 01 mouse X " + mouse.x + " mouse Y " + mouse.y );
+		// click para sair do game
+		if(this.button_close.clicked(mouse))
+			{			
+				this.player.points = 0;	
+				this.tempoAux = 0;
+				this.tempoSeg = 0;
+				this.player.position_y_dst = 0;
+				this.player.position_x_dst = (SCREENWIDTH-74)/2;
+				//som de click
+				click_btn.play();					
+				//--pause/stop na musica do LVL 1-- 
+				this.level1_musica.pause();
+				//--vai para o game3--
+				game2.currentGameScene = game2.GAMESCENE.INTRO
+			}
     };
 
     this.mouse_up=function(mouse)
