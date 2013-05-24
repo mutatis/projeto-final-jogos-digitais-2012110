@@ -111,9 +111,13 @@ function Game3SceneLevel1()
 			//perde
 			this.sodio = new QuimicalElement("imgs/game3/Na.png", 47, 48,-25,-1);
 			this.carbono = new QuimicalElement("imgs/game3/C.png", 47, 48,-25,-1);
+			this.cloro = new QuimicalElement("imgs/game3/Cl.png", 47, 48,-25,-1);
+			this.mercurio = new QuimicalElement("imgs/game3/Hg.png", 47, 48,-25,-1);
 
 			this.Lista_coisas_caindo.push(this.sodio);
-			this.Lista_coisas_caindo.push(this.carbono);		
+			this.Lista_coisas_caindo.push(this.carbono);
+			this.Lista_coisas_caindo.push(this.cloro);
+			this.Lista_coisas_caindo.push(this.mercurio);				
 		};
 
 	
@@ -152,7 +156,7 @@ if ((this.player1.points >= 200)&&( this.cb1 == true) )
 	}
 
 						
-if ((this.player1.points >= 50)&&( this.cb3 == true) )
+if ((this.player1.points >= 30)&&( this.cb3 == true) )
 	{
 		this.criarObjetos3();
 		this.cb3 = false;
