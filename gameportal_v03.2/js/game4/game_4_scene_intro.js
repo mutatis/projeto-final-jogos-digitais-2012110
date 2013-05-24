@@ -1,7 +1,7 @@
 function Game4SceneIntro()
 {
 	//file, size_x, size_y, pos_x, pos_y
-	this.fundo = new img_cenario("imgs/game4/img_intro.jpg",800, 600, 0, 0);
+	this.fundo = new Game4Background("imgs/game4/intro_fundo.png", 600, 800, 0, 0);
 
 	//----------- intro musica----------
 	this.intro_musica = new Audio();
@@ -11,12 +11,17 @@ function Game4SceneIntro()
 	this.intro_musica.volume = 0.6;	
 
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
-	this.button_start = new Button_2("imgs/game3/but_play.png", 178, 64, 323, 326);
-	this.button_instrucao = new Button_2("imgs/game3/but_instru.png", 178, 64, 323, 399);
-	this.button_voltar = new Button_2("imgs/game3/but_voltar.png", 178, 64, 323,474);
-		
+	this.button_start = new Game4Button("imgs/game4/play1.png", 161, 66, 300, 250);
+    this.button_tuto = new Game4Button("imgs/game4/play_cre.png", 161, 66, 300, 350);
+	this.button_voltar = new Button_2("imgs/game2/return.png", 148, 60, 323,474);	
+	
+	this.titulo = new Game4Titulo_move("imgs/game4/titulo.png",663,111,60,100);
+	
+	
+	
 	this.update=function()
-	{
+	{	
+		this.titulo.update();
 		//-----------musica----------
 		this.intro_musica.play();
 	}
@@ -27,9 +32,10 @@ function Game4SceneIntro()
 		this.fundo.draw();	
 		
 		// desenha botão 
+		this.button_tuto.draw();
+        this.button_start.draw();
 		this.button_voltar.draw();
-		this.button_instrucao.draw();
-		this.button_start.draw();
+		this.titulo.draw();
 	};
 		
 		
@@ -52,7 +58,7 @@ function Game4SceneIntro()
 			
 
 			// vai para instrução do game
-			if(this.button_instrucao.clicked(mouse))
+			if(this.button_tuto.clicked(mouse))
 			{
 				//som de click
 				click_btn.play();

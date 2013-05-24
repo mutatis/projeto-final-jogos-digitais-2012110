@@ -1,10 +1,10 @@
 function Game4SceneInstruction()
 {
 	//file, size_x, size_y, pos_x, pos_y
-	this.fundo = new img_cenario("imgs/game3/INSTRUCTION.png",800, 600, 0, 0);
+	this.fundo = new img_cenario("imgs/game4/credt_fundo.png",800, 600, 0, 0);
 
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
-	this.voltar_btn = new Button_2("imgs/game3/inst_btn.png", 172, 52, 601, 529);
+	this.voltar_btn = new Button_2("imgs/game4/close.png", 50, 50, 585, 170);
 	
 	
 	this.update=function()
