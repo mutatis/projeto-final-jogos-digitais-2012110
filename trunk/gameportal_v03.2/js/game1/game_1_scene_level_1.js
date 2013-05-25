@@ -3,6 +3,8 @@ function Game1SceneLevel1()
 	//file, size_x, size_y, pos_x, pos_y
 	this.fundo = new img_cenario("imgs/game1/FundoBackground.png",800, 600, 0, 0);
 	
+	this.placar = new img_cenario("imgs/placar.png",800, 600, 0, 0);
+	
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
 	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 3);	
 	
@@ -185,6 +187,8 @@ function Game1SceneLevel1()
 	{//abre draw		
 		this.fundo.draw();
 		
+		this.placar.draw();
+		
 		for(var i = 0; i < this.meteoros.length; i++)
 			{
 				this.meteoros[i].draw();
@@ -193,10 +197,10 @@ function Game1SceneLevel1()
 		// desenha o btn de fechar o lvl 1
 		this.button_close.draw();
 	
-		screen.font = "27px Comic Sans MS";
-		screen.fillStyle = "#000000";
-		screen.fillText("Pontos: " + this.points + " / " +
-		this.pointsMax + "   Segundos: " + this.seconds, 40,40);
+		screen.font = "16px Comic Sans MS";
+		screen.fillStyle = "#ff3366";
+		screen.fillText("Pontos: " + this.points + " / " +this.pointsMax, 20,23); 
+		screen.fillText("Segundos: " + this.seconds, 20,43);
 	};//fecha draw
 		
 };// fecha function
