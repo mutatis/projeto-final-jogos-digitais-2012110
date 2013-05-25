@@ -1,6 +1,5 @@
 function Game1SceneLevel1()
 {
-
 	//file, size_x, size_y, pos_x, pos_y
 	this.fundo = new img_cenario("imgs/game1/FundoBackground.png",800, 600, 0, 0);
 	
@@ -34,12 +33,16 @@ function Game1SceneLevel1()
 	this.song_fx.load();
 	this.song_fx.loop = false;
 	this.song_fx.volume = 0.6;
+		
+	// interruptor para "criarObjetos"  no Update
+	this.cb1 = true; 
 	
-	this.secondsRes = 30;
+	//ferifica se o jogador ja perdeu ou ganhou e jogou novamente
+	this.segunda_vez = false;	
+			
 	this.points = 0;
-	//perde pontos quando clica na tela 
-	this.perder_pontos = 5;
 	this.pointsMax = 100;
+	this.secondsRes = 60;
 	this.seconds = this.secondsRes;
 	this.milliSeconds = 0;
 		
@@ -47,15 +50,13 @@ function Game1SceneLevel1()
 	
 	this.criarObjetos=function()
 	{
-		//---------------------------------------------------------------"this.perder_pontos" desconto nos pontos quando clica na tela 
-		this.meteoro1 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +1+this.perder_pontos);
-		this.meteoro2 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +1+this.perder_pontos);
-		this.meteoro3 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +1+this.perder_pontos);
-		this.meteoro4 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +1+this.perder_pontos);
-		
-		//---------------------------------------------------------------"this.perder_pontos" desconto nos pontos quando clica na tela 
-		this.meteoro5 = new Meteor ("imgs/game1/meteoro2.png", 50, 38, +2+this.perder_pontos);
-		this.meteoro6 = new Meteor ("imgs/game1/meteoro3.png", 50, 38, +5+this.perder_pontos);
+		this.meteoro1 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +3);
+		this.meteoro2 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +3);
+		this.meteoro3 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +3);
+		this.meteoro4 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +3);
+		 
+		this.meteoro5 = new Meteor ("imgs/game1/meteoro2.png", 50, 38, +4);
+		this.meteoro6 = new Meteor ("imgs/game1/meteoro3.png", 50, 38, +5);
 	
 		this.meteoros.push(this.meteoro1);
 		this.meteoros.push(this.meteoro2);
@@ -66,19 +67,33 @@ function Game1SceneLevel1()
 		this.meteoros.push(this.meteoro6);
 	};
 		
-	this.criarObjetos();
-
-
-	this.update=function()
+	// grupo de objetos  iniciais no jogo
+	if (this.segunda_vez == false)
+	{		
+		this.criarObjetos();
+	}
+	
+	
+	// cria os objetos para ele cairem quando o jogo acaba
+	this.re_criar_objetos=function ()
 	{
-						
+		if ( (this.segunda_vez == true) && (this.cb1 == true))
+			{
+						this.criarObjetos();
+						this.cb1 = false;			
+			};	
+	};
+	
+	
+	this.update=function()
+	{					
+		// cria os objetos para ele cairem quando o jogo acaba
+		this.re_criar_objetos();	
+
 		//-----------musica----------
 		// play na musica quando ela esta na tela do lvel 1
 		this.level1_musica.play();
-	
-		//tempoSeg++
-		
-		
+			
 		for(var i = 0; i < this.meteoros.length; i++)
 		{
 			this.meteoros[i].update();
@@ -95,7 +110,11 @@ function Game1SceneLevel1()
 		
 		//GAME WIN
 		if(this.points >= this.pointsMax )
-			{				
+			{	
+				this.cb1 = true; 
+				this.meteoros.length = 0;	
+				this.segunda_vez = true;
+			
 				this.musica_gamewin.play();
 				this.level1_musica.pause();
 				game1.currentGameScene = game1.GAMESCENE.THEEND;
@@ -105,26 +124,31 @@ function Game1SceneLevel1()
 		
 		
 		//GAME OVER
-		if(this.seconds <= 0)
-			{				
+		if ( (this.seconds <= 0) || (this.points <= - 50) )
+			{			
+				this.cb1 = true; 
+				this.meteoros.length = 0;	
+				this.segunda_vez = true;
+					
 				this.musica_gameOver.play();
 				this.level1_musica.pause();
 				game1.currentGameScene = game1.GAMESCENE.GAMEOVER;
 				this.seconds = this.secondsRes;
 				this.points = 0;
-			}
-								
-		//console.log(this.meteoros.length);
-		
-		this.fundo.update();
-
-		
-		this.mouse_down=function(mouse)
+			}								
+		//console.log(this.meteoros.length);		
+		this.fundo.update();				
+	};//fecha update
+	
+	this.mouse_down=function(mouse)
    		{							
 			// click para sair do game
 			if(this.button_close.clicked(mouse))
 				{
-									
+					this.cb1 = true; 
+					this.meteoros.length = 0;	
+					this.segunda_vez = true;
+					
 					this.seconds = this.secondsRes;
 					this.points = 0;
 					this.level1_musica.pause();
@@ -149,16 +173,13 @@ function Game1SceneLevel1()
    					this.meteoros[i].size_y))
    	 				{					
 						this.meteoros[i].mouse_down(mouse)	
-			
-						this.points += this.meteoros[i].points;															
+						// + pontos quando clica nos meteoros
+						this.points += this.meteoros[i].points;
+						this.song_fx.play();						
 					};					
-			}//fecha for
-						
-			this.points -= this.perder_pontos;
-			
+			}//fecha for			
    		};// fecha mouse_down
-	};//fecha update
-		
+	
 	
 	this.draw = function()
 	{//abre draw		

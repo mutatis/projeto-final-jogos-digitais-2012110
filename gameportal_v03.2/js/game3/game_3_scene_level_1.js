@@ -46,11 +46,9 @@ function Game3SceneLevel1()
 	this.cb5 = true;		
 	//ferifica se o jogador ja perdeu ou ganhou e jogou novamente
 	this.segunda_vez = false;	
-	
-				
+					
 	this.Lista_coisas_caindo = new Array();	
-	
-	
+		
 	this.criarObjetos1=function()
 		{		
 			// Elmentos caindo-----------------(file, size_x, size_y,pontos,vida)
@@ -254,9 +252,10 @@ if ((this.player1.points >= 150)&&( this.cb4 == true) )
 				game3.currentGameScene = game3.GAMESCENE.THEEND
 			};
 						
-		}; // fecha update
+	}; // fecha update
 	
-		this.draw=function()
+	
+	this.draw=function()
 		{  			
 			//background.
 			this.fundo_level1.draw();

@@ -1,5 +1,3 @@
-
-
 // --------------------------------variavel global--------------------------- 
 //-----------musica inicial ----------
 var musica = new Audio();
@@ -7,7 +5,6 @@ var musica = new Audio();
 	musica.load();
 	musica.loop = true;
 	musica.volume = 0.6;
-
 	
 //-----------Click nos botões ----------
 var click_btn = new Audio();
@@ -16,10 +13,8 @@ var click_btn = new Audio();
 	click_btn.loop = false;
 	click_btn.volume = 0.6;
 
-
 function SceneMenu()
 {
-
 	//file, size_x, size_y, pos_x, pos_y
 	this.fundo_level1 = new img_cenario("imgs/capa-do-jogo2.jpg",800, 600, 0, 0);
 
@@ -135,7 +130,7 @@ function SceneMenu()
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
 			this.button_game_5.position_x_src = 0; //Volta ao Frame Inicial da Animacao do botao;
-    		currentScene = SCENE.GAME5;		
+    		//currentScene = SCENE.GAME5;		
     	}
     	
     };

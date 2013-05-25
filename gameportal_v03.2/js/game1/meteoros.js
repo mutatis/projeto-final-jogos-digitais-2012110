@@ -21,17 +21,20 @@ function Meteor (file, size_x, size_y, points)
 		if(this.position_y > SCREENHEIGHT)
 			{
 				this.voltar();
-				game1.level1.points -= 1;
+				game1.level1.points -= 5;
 			};
 	
+		// saida pela direita
     	if(this.position_x > SCREENWIDTH)
 			{
-				this.voltar();
+				this.voltar();			
 			};  
-		
+
+			
+		// saida pela esquerda
 		if( this.position_x < 0 - this.size_x)
 			{
-				this.voltar();
+				this.voltar();				
 			};		
    };
       
