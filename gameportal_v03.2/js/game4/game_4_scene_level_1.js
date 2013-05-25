@@ -2,6 +2,8 @@ function Game4SceneLevel1()
 {
 	//file, size_x, size_y, pos_x, pos_y
 	this.fundo = new Game4Background("imgs/game4/fundo1.png", 600, 800, 0, 0);
+	
+	this.placar = new img_cenario("imgs/placar.png",800, 600, 0, 0);
 
 	// --personagem-- 	
 	this.nave1 = new Game4Player("imgs/game4/nave.png", 40, 50, 10, 200);
@@ -78,6 +80,8 @@ function Game4SceneLevel1()
 	{  			
 		//background.
 		this.fundo.draw();
+		
+		this.placar.draw();
 								
 		// desenha o personagem na tela.
 		this.nave1.draw();
@@ -94,10 +98,10 @@ function Game4SceneLevel1()
 		this.button_close.draw();					
 							
 		// desenha os posntos, vida e etc...
-		screen.font="27px Comic Sans";
-		screen.fillStyle="#E6F4E9";
-		screen.fillText("Lives: " + this.nave1.life,20,28);
-		screen.fillText("Points: "+ this.nave1.points,200,28);			
+		screen.font="16px Comic Sans MS";
+		screen.fillStyle="#ff3366";
+		screen.fillText("Lives: " + this.nave1.life,20,23);
+		screen.fillText("Points: "+ this.nave1.points,20,43);			
 	};
 
 		

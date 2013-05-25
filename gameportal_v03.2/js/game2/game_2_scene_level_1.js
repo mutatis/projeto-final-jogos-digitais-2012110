@@ -2,6 +2,8 @@ function Game2SceneLevel1()
 {
 	this.background = new Game2Background("imgs/game2/game_bg.png");
 	
+	this.placar = new img_cenario("imgs/placar.png",800, 600, 0, 0);
+	
 	//------------------------------------------------file, size_x, size_y, position_x, position_y
 	this.player = new Game2Player("imgs/game2/bunny.png", 74, 83, (SCREENWIDTH-74)/2, 0, 3, 3, 1, 1);
 	
@@ -98,11 +100,6 @@ function Game2SceneLevel1()
 
 	Snake_Object();
 
-
-
-
-
-
 	this.gametime=function()
 	{
 		this.tempoSeg++;
@@ -114,8 +111,7 @@ function Game2SceneLevel1()
 		    else
 		    {			
 				this.tempoSeg+=1000/30;
-			}	
-	
+			}		
 	}
 	
 	this.update=function()
@@ -333,6 +329,8 @@ function Game2SceneLevel1()
     		
 		this.background.draw();
 		
+		this.placar.draw();
+		
 		//cobra1.draw();
 		
 		this.player.draw();
@@ -376,10 +374,10 @@ function Game2SceneLevel1()
 			screen.drawImage(plataform_list[i].img, plataform_list[i].position_x, plataform_list[i].position_y);		
 		}	
 		
-			screen.font = "20px Comic Sans MS";
-			screen.fillStyle="#000000";
-			screen.fillText("Pontos: " + this.player.points, 40, 60);		
-			screen.fillText("Tempo: "+this.tempoAux, 40, 40);	
+			screen.font = "16px Comic Sans MS";
+			screen.fillStyle="#ff3366";
+			screen.fillText("Pontos: " + this.player.points, 20,23);		
+			screen.fillText("Tempo: "+this.tempoAux, 20,43);	
 			
 			
 		// desenha o btn de fechar o lvl 1
