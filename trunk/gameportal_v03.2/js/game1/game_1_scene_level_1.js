@@ -40,55 +40,41 @@ function Game1SceneLevel1()
 	
 	this.criarObjetos=function()
 	{
-		this.meteoro1 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, -1);
-		this.meteoro2 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, -1);
+		this.meteoro1 = new Meteor ("imgs/game1/meteoro2.png", 50, 38, -2);
+		this.meteoro2 = new Meteor ("imgs/game1/meteoro3.png", 50, 38, -5);
 		this.meteoro3 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, -1);
 		this.meteoro4 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, -1);
+		
+		this.meteoro5 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, -1);
+		this.meteoro6 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, -1);
+
 	
 		this.meteoros.push(this.meteoro1);
 		this.meteoros.push(this.meteoro2);
 		this.meteoros.push(this.meteoro3);
 		this.meteoros.push(this.meteoro4);
+		
+		this.meteoros.push(this.meteoro5);
+		this.meteoros.push(this.meteoro6);
+
 	}
 		
 	this.criarObjetos();
 
 	this.points = 0;
-	this.pointsMax = 10;
-	this.seconds = 60;
+	this.pointsMax = 100;
+	this.seconds = 30;
 	this.milliSeconds = 0;
 
 	this.update=function()
 	{
-		
+						
 		//-----------musica----------
 		// play na musica quando ela esta na tela do lvel 1
 		this.level1_musica.play();
 	
 		//tempoSeg++
 		
-		
-		//GAME WIN
-		if(this.points >= 10)
-			{	
-				this.musica_gamewin.play();
-				this.level1_musica.pause();
-				game1.currentGameScene = game1.GAMESCENE.THEEND;
-				this.seconds = 60;
-				this.points = 0;
-			}		
-		
-		
-		//GAME OVER
-		if(this.seconds <= 0)
-			{			
-				this.musica_gameOver.play();
-				this.level1_musica.pause();
-				game1.currentGameScene = game1.GAMESCENE.GAMEOVER;
-				this.seconds = 60;
-				this.points = 0;
-			}
-				
 		
 		for(var i = 0; i < this.meteoros.length; i++)
 		{
@@ -102,7 +88,29 @@ function Game1SceneLevel1()
 			this.seconds--;
 			this.milliSeconds -= 1000;
 		}
-					
+		
+		
+		//GAME WIN
+		if(this.points >= this.pointsMax )
+			{				
+				this.musica_gamewin.play();
+				this.level1_musica.pause();
+				game1.currentGameScene = game1.GAMESCENE.THEEND;
+				this.seconds = 60;
+				this.points = 0;
+			}		
+		
+		
+		//GAME OVER
+		if(this.seconds <= 0)
+			{				
+				this.musica_gameOver.play();
+				this.level1_musica.pause();
+				game1.currentGameScene = game1.GAMESCENE.GAMEOVER;
+				this.seconds = 60;
+				this.points = 0;
+			}
+								
 		//console.log(this.meteoros.length);
 		
 		this.fundo.update();
@@ -112,14 +120,15 @@ function Game1SceneLevel1()
 							
 			// click para sair do game
 			if(this.button_close.clicked(mouse))
-				{			
+				{
+									
 					this.seconds = 60;
 					this.points = 0;
 					this.level1_musica.pause();
 					//som de click
 					click_btn.play();					
 					//--pause/stop na musica do LVL 1-- 
-						//this.level1_musica.pause();
+						//this.level1_musica.pause();						
 					//--vai para o game3--
 					game1.currentGameScene = game1.GAMESCENE.INTRO
 				}
@@ -145,10 +154,7 @@ function Game1SceneLevel1()
    							this.position_y = -this.size_y;
 							this.position_x = Math.floor((Math.random()*(SCREENWIDTH - this.size_x))); 
 							this.velocity_y = Math.floor((Math.random()*10)+1);
-							console.log("mouse X " + mouse.x + " mouse Y " + mouse.y );
-
-							
-	
+							//console.log("mouse X " + mouse.x + " mouse Y " + mouse.y );							
    						}
    						else
    						{
@@ -157,9 +163,8 @@ function Game1SceneLevel1()
 							this.position_y = -this.size_y;
 							this.position_x = Math.floor((Math.random()*(SCREENWIDTH - this.size_x))); 
 							this.velocity_y = Math.floor((Math.random()*10)+1);
-							console.log("mouse X " + mouse.x + " mouse Y " + mouse.y );
-
-   						}
+							//console.log("mouse X " + mouse.x + " mouse Y " + mouse.y );
+   						};
 						
 						if(this.meteoros[i].visible)	
 						{	
