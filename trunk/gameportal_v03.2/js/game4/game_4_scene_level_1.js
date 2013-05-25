@@ -7,7 +7,13 @@ function Game4SceneLevel1()
 	this.nave1 = new Game4Player("imgs/game4/nave.png", 40, 50, 10, 200);
 	
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
-	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 3);	
+	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 10);	
+	
+	// estrela
+	this.star = new Game4Item ("imgs/game4/star.png", 20, 19, 400, 300, 0, 0); 
+	
+	// Vida
+	this.life = new Game4Item ("imgs/game4/life.png", 32, 34, 450, 350, 0, 0); 
 		
 	//----------- level1 musica----------
 	this.level1_musica = new Audio();
@@ -80,6 +86,9 @@ function Game4SceneLevel1()
 		this.enemy1.draw();
 		this.enemy2.draw();
 		this.enemy3.draw();
+							
+		this.star.draw();
+		this.life.draw();		
 							
 		// desenha o btn de fechar o lvl 1
 		this.button_close.draw();					
