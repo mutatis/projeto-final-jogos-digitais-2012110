@@ -10,8 +10,8 @@ function Meteor (file, size_x, size_y, points)
 	this.position_y = 0;
     this.velocity_x = Math.floor((Math.random()*10)-5);
     this.velocity_y = Math.floor((Math.random()*10)+5);
-    
    
+ 
    this.update=function()
    {
    		this.position_x += this.velocity_x;
@@ -22,13 +22,21 @@ function Meteor (file, size_x, size_y, points)
    		// quando ultrapasar o limite da tela chama "function voltar"
 		if(this.position_y > SCREENHEIGHT)
     	{
-    		this.voltar();
-    	}
-    	
-    	if(this.position_x > SCREENWIDTH && this.position_x < SCREENWIDTH )
+    		this.voltar();	
+    	};
+	
+    	if(this.position_x > SCREENWIDTH - this.size_x )
     	{
     		this.voltar();
-    	}    
+    	}  
+		
+		if( this.position_x < 0 /*- this.size_x*/ )
+    	{
+    		this.voltar();
+    	} 
+
+
+		
    };
    
    
@@ -73,7 +81,7 @@ function Meteor (file, size_x, size_y, points)
    
 	
 	this.voltar=function()
-   {   	
+   {   	 
 		this.position_y = -this.size_y;
 		this.position_x = Math.floor((Math.random()*(SCREENWIDTH - this.size_x))); 
 		this.velocity_y = Math.floor((Math.random()*10)+1);

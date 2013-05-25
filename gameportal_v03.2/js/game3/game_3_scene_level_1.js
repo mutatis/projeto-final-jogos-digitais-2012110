@@ -69,7 +69,7 @@ function Game3SceneLevel1()
 	
 	this.criarObjetos2=function()
 		{
-			// ganha
+			// ganha pontos
 			// Elmentos caindo-----------------(file, size_x, size_y,pontos,vida)
 			this.argon = new QuimicalElement("imgs/game3/Ar.png", 47, 48,+5, 0);
 			this.neon = new QuimicalElement("imgs/game3/Ne.png", 47, 48,+5, 0);
@@ -80,7 +80,7 @@ function Game3SceneLevel1()
 		
 	this.criarObjetos3=function()
 		{		
-			// ganha
+			// ganha pontos
 			// Elmentos caindo-----------------(file, size_x, size_y,pontos,vida)
 			this.helio = new QuimicalElement("imgs/game3/He.png", 47, 48,+5, 0);
 			this.criptonio = new QuimicalElement("imgs/game3/Kr.png", 47, 48,+5, 0);
@@ -92,7 +92,7 @@ function Game3SceneLevel1()
 	
 	this.criarObjetos4=function()
 		{
-			//perde
+			//perde pontos
 			this.oxigenio = new QuimicalElement("imgs/game3/O.png", 47, 48,-10,-1);
 			this.hidrogenio = new QuimicalElement("imgs/game3/H.png", 47, 48,-10,-1);
 			this.ferro = new QuimicalElement("imgs/game3/Fe.png", 47, 48,-50,-1);
@@ -108,7 +108,7 @@ function Game3SceneLevel1()
 		
 	this.criarObjetos5=function()
 		{		
-			//perde
+			//perde pontos
 			this.sodio = new QuimicalElement("imgs/game3/Na.png", 47, 48,-25,-1);
 			this.carbono = new QuimicalElement("imgs/game3/C.png", 47, 48,-25,-1);
 			this.cloro = new QuimicalElement("imgs/game3/Cl.png", 47, 48,-25,-1);
