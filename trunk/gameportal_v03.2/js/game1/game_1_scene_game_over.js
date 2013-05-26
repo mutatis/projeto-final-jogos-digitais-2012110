@@ -31,7 +31,7 @@ function Game1SceneGameOver()
 				{	
 					game1.currentGameScene = game1.GAMESCENE.INTRO; 
 					//som de click
-					click_btn.play();
+					click_btn.play();		
 				};
 					
 			if(this.restart_btn.clicked(mouse))
