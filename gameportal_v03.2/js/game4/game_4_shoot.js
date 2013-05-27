@@ -59,8 +59,7 @@ function Shoot(player_position_x, player_position_y, player_rotation)
     };
    
     this.draw=function()
-
-    {
+	{
     	if(this.visible)
 
     	screen.drawImage(this.img, this.position_x, this.position_y);

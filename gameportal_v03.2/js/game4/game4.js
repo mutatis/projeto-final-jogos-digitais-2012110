@@ -94,9 +94,9 @@ function SceneGame4()
 	}
 
 	  this.key_down=function(key)
-    {
-		this.leve1.key_down(key);	    	
-    };
+      {
+	  	this.leve1.key_down(key);	    	
+      };
     
     this.key_up=function(key)
     {		

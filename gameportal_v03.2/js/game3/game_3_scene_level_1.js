@@ -77,46 +77,46 @@ function Game3SceneLevel1()
 		};
 		
 	this.criarObjetos3=function()
-		{		
-			// ganha pontos
-			// Elmentos caindo-----------------(file, size_x, size_y,pontos,vida)
-			this.helio = new QuimicalElement("imgs/game3/He.png", 47, 48,+5, 0);
-			this.criptonio = new QuimicalElement("imgs/game3/Kr.png", 47, 48,+5, 0);
-			
-			this.Lista_coisas_caindo.push(this.helio);
-			this.Lista_coisas_caindo.push(this.criptonio);		
-		};
+	{		
+		// ganha pontos
+		// Elmentos caindo-----------------(file, size_x, size_y,pontos,vida)
+		this.helio = new QuimicalElement("imgs/game3/He.png", 47, 48,+5, 0);
+		this.criptonio = new QuimicalElement("imgs/game3/Kr.png", 47, 48,+5, 0);
+		
+		this.Lista_coisas_caindo.push(this.helio);
+		this.Lista_coisas_caindo.push(this.criptonio);		
+	};
 	
 	
 	this.criarObjetos4=function()
-		{
-			//perde pontos
-			this.oxigenio = new QuimicalElement("imgs/game3/O.png", 47, 48,-10,-1);
-			this.hidrogenio = new QuimicalElement("imgs/game3/H.png", 47, 48,-10,-1);
-			this.ferro = new QuimicalElement("imgs/game3/Fe.png", 47, 48,-50,-1);
-			this.aluminio = new QuimicalElement("imgs/game3/Al.png", 47, 48,-50,-1);
-			
-			this.Lista_coisas_caindo.push(this.oxigenio);
-			this.Lista_coisas_caindo.push(this.hidrogenio);
-			this.Lista_coisas_caindo.push(this.ferro);
-			this.Lista_coisas_caindo.push(this.aluminio);
+	{
+		//perde pontos
+		this.oxigenio = new QuimicalElement("imgs/game3/O.png", 47, 48,-10,-1);
+		this.hidrogenio = new QuimicalElement("imgs/game3/H.png", 47, 48,-10,-1);
+		this.ferro = new QuimicalElement("imgs/game3/Fe.png", 47, 48,-50,-1);
+		this.aluminio = new QuimicalElement("imgs/game3/Al.png", 47, 48,-50,-1);
+		
+		this.Lista_coisas_caindo.push(this.oxigenio);
+		this.Lista_coisas_caindo.push(this.hidrogenio);
+		this.Lista_coisas_caindo.push(this.ferro);
+		this.Lista_coisas_caindo.push(this.aluminio);
 	
-		};
+	};
 		
 		
 	this.criarObjetos5=function()
-		{		
-			//perde pontos
-			this.sodio = new QuimicalElement("imgs/game3/Na.png", 47, 48,-25,-1);
-			this.carbono = new QuimicalElement("imgs/game3/C.png", 47, 48,-25,-1);
-			this.cloro = new QuimicalElement("imgs/game3/Cl.png", 47, 48,-25,-1);
-			this.mercurio = new QuimicalElement("imgs/game3/Hg.png", 47, 48,-25,-1);
+	{		
+		//perde pontos
+		this.sodio = new QuimicalElement("imgs/game3/Na.png", 47, 48,-25,-1);
+		this.carbono = new QuimicalElement("imgs/game3/C.png", 47, 48,-25,-1);
+		this.cloro = new QuimicalElement("imgs/game3/Cl.png", 47, 48,-25,-1);
+		this.mercurio = new QuimicalElement("imgs/game3/Hg.png", 47, 48,-25,-1);
 
-			this.Lista_coisas_caindo.push(this.sodio);
-			this.Lista_coisas_caindo.push(this.carbono);
-			this.Lista_coisas_caindo.push(this.cloro);
-			this.Lista_coisas_caindo.push(this.mercurio);				
-		};
+		this.Lista_coisas_caindo.push(this.sodio);
+		this.Lista_coisas_caindo.push(this.carbono);
+		this.Lista_coisas_caindo.push(this.cloro);
+		this.Lista_coisas_caindo.push(this.mercurio);				
+	};
 
 	
 	// grupo de objetos  iniciais no jogo
@@ -127,26 +127,26 @@ function Game3SceneLevel1()
 	}
 
 	
-// cria os objetos para ele cairem quando o jogo acaba
-this.re_criar_objetos=function ()
-{
-	if (this.segunda_vez == true) 
+	// cria os objetos para ele cairem quando o jogo acaba
+	this.re_criar_objetos=function ()
+	{
+		if (this.segunda_vez == true) 
 		{
 			// grupo de objetos  iniciais no jogo
 			if ((this.player1.points == 0)&&( this.cb2 == true) )
-				{
-					this.criarObjetos2();
-					this.cb2 = false;
-				};	
+			{
+				this.criarObjetos2();
+				this.cb2 = false;
+			};	
 				
 			if ((this.player1.points == 0)&&( this.cb5 == true) )
-				{
-					this.criarObjetos5();
-					this.cb5 = false;
-				};
+			{
+				this.criarObjetos5();
+				this.cb5 = false;
+			};
 		}
 	
-if ((this.player1.points >= 200)&&( this.cb1 == true) )
+	if ((this.player1.points >= 200)&&( this.cb1 == true) )
 	{
 		// estrela, ganha pontos 
 		this.criarObjetos1();
@@ -154,20 +154,20 @@ if ((this.player1.points >= 200)&&( this.cb1 == true) )
 	}
 
 						
-if ((this.player1.points >= 30)&&( this.cb3 == true) )
+	if ((this.player1.points >= 30)&&( this.cb3 == true) )
 	{
 		this.criarObjetos3();
 		this.cb3 = false;
 	}
 
 						
-if ((this.player1.points >= 150)&&( this.cb4 == true) )
-		{
-			this.criarObjetos4();
-			this.cb4 = false;
-		}		
+	if ((this.player1.points >= 150)&&( this.cb4 == true) )
+	{
+		this.criarObjetos4();
+		this.cb4 = false;
+	}		
 		
-} // fecha function re_criar_objetos	
+	} // fecha function re_criar_objetos	
 	
 			
 	this.update=function()
@@ -251,23 +251,28 @@ if ((this.player1.points >= 150)&&( this.cb4 == true) )
 				// vai para a tela de GAME WIN
 				game3.currentGameScene = game3.GAMESCENE.THEEND
 			};
+			
+			if (this.player1.points < 0)
+			{
+				this.player1.points = 0;
+			};	
 						
 	}; // fecha update
 	
 	
 	this.draw=function()
-		{  			
-			//background.
-			this.fundo_level1.draw();
-								
-			// desenha o personagem na tela.
-			screen.drawImage(this.player1.img, this.player1.position_x, this.player1.position_y);	
+	{  			
+		//background.
+		this.fundo_level1.draw();
+							
+		// desenha o personagem na tela.
+		screen.drawImage(this.player1.img, this.player1.position_x, this.player1.position_y);	
 			
-			// desenha os elementos químicos
-			for(var i = 0; i < this.Lista_coisas_caindo.length; i++)
-			{
-				screen.drawImage(this.Lista_coisas_caindo[i].img, this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y);
-			}
+		// desenha os elementos químicos
+		for(var i = 0; i < this.Lista_coisas_caindo.length; i++)
+		{
+			screen.drawImage(this.Lista_coisas_caindo[i].img, this.Lista_coisas_caindo[i].position_x, this.Lista_coisas_caindo[i].position_y);
+		}
 			
 			// desenha o btn de fechar o lvl 1
 			this.button_close.draw();
@@ -278,7 +283,7 @@ if ((this.player1.points >= 150)&&( this.cb4 == true) )
 			screen.fillText("Lives: " + this.player1.life,20,28);
 			screen.fillText("Pick up: noble gases",291,28);
 			screen.fillText("Points: "+ this.player1.points,603,28);			
-		};
+	};
 
 		
 	this.key_down=function(key)
@@ -295,25 +300,25 @@ if ((this.player1.points >= 150)&&( this.cb4 == true) )
 		
 		
 	this.mouse_down=function(mouse)
-		{		
+	{		
 		// click para sair do game
 		if(this.button_close.clicked(mouse))
-			{	
+		{	
 
-				//reset life end points of player
-				this.player1.position_x = 400;		
-				this.player1.life = 3;
-				this.player1.points = 0;
-				//som de click
-				click_btn.play();					
-				//--pause/stop na musica do LVL 1-- 
-				this.level1_musica.pause();
-				//--vai para o game3--
-				game3.currentGameScene = game3.GAMESCENE.INTRO
-				
-				this.Lista_coisas_caindo.length = 0;
+			//reset life end points of player
+			this.player1.position_x = 400;		
+			this.player1.life = 3;
+			this.player1.points = 0;
+			//som de click
+			click_btn.play();					
+			//--pause/stop na musica do LVL 1-- 
+			this.level1_musica.pause();
+			//--vai para o game3--
+			game3.currentGameScene = game3.GAMESCENE.INTRO
 			
-				this.segunda_vez = true;	
+			this.Lista_coisas_caindo.length = 0;
+			
+			this.segunda_vez = true;	
 				
 				// reseta o interruptor para "criarObjetos (numero)"  no Loop	
 				this.cb1 = true; 

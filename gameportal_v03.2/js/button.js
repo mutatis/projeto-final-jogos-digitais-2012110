@@ -26,7 +26,14 @@ function Button(file, size_x, size_y)
     this.draw=function()
     {  	
     	if(this.visible)
-    	screen.drawImage(this.image, this.position_x_src, this.position_y_src, this.size_x, this.size_y, this.position_x, this.position_y,  this.size_x, this.size_y)
+    	screen.drawImage(this.image
+    	, this.position_x_src
+    	, this.position_y_src
+    	, this.size_x, this.size_y
+    	, this.position_x
+    	, this.position_y
+    	, this.size_x
+    	, this.size_y)
     	
     };
     

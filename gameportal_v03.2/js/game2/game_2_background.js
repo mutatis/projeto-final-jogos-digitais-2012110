@@ -22,8 +22,6 @@ function Game2Background(source)
     
     this.update=function()
 	{
-    
-    	
     	this.position_x += this.velocity_x;
     	
     	this.position_y += this.velocity_y;

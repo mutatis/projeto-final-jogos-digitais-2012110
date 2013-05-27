@@ -13,7 +13,7 @@
 	
 		this.update=function()
 		{			
-		switch(this.currentGameScene)
+			switch(this.currentGameScene)
 			{
 				case this.GAMESCENE.INTRO:
 					this.intro.update();
@@ -38,60 +38,60 @@
 	this.draw=function()
 	{			
 			switch(this.currentGameScene)
-				{
-					case this.GAMESCENE.INTRO:
-						this.intro.draw();
-					break;
-					case this.GAMESCENE.LEVEL1:
-						this.leve1.draw();
-					break;
-					case this.GAMESCENE.THEEND:
-						this.theEnd.draw();
-					break;
-					case this.GAMESCENE.GAMEOVER:
-						this.gameOver.draw();
-					break;
-					case this.GAMESCENE.INSTRUCTION:
-						this.instruction.draw();
-					break;
-				}
+			{
+				case this.GAMESCENE.INTRO:
+					this.intro.draw();
+				break;
+				case this.GAMESCENE.LEVEL1:
+					this.leve1.draw();
+				break;
+				case this.GAMESCENE.THEEND:
+					this.theEnd.draw();
+				break;
+				case this.GAMESCENE.GAMEOVER:
+					this.gameOver.draw();
+				break;
+				case this.GAMESCENE.INSTRUCTION:
+					this.instruction.draw();
+				break;
+			}
 	}
 	
 	this.mouse_down=function(mouse)
    	{
 		switch(this.currentGameScene)
-			{
-				case this.GAMESCENE.INTRO:
-					this.intro.mouse_down(mouse);	
-				break;
-				case this.GAMESCENE.LEVEL1:
-					this.leve1.mouse_down(mouse);	
-				break;
-				case this.GAMESCENE.THEEND:
-				
-					this.theEnd.mouse_down(mouse);	
-				break;
-				case this.GAMESCENE.GAMEOVER:
-				
-					this.gameOver.mouse_down(mouse);	
-				break;
-				case this.GAMESCENE.INSTRUCTION:
-				
-					this.instruction.mouse_down(mouse);	
-				break;
-			}	
+		{
+			case this.GAMESCENE.INTRO:
+				this.intro.mouse_down(mouse);	
+			break;
+			case this.GAMESCENE.LEVEL1:
+				this.leve1.mouse_down(mouse);	
+			break;
+			case this.GAMESCENE.THEEND:
+			
+				this.theEnd.mouse_down(mouse);	
+			break;
+			case this.GAMESCENE.GAMEOVER:
+			
+				this.gameOver.mouse_down(mouse);	
+			break;
+			case this.GAMESCENE.INSTRUCTION:
+			
+				this.instruction.mouse_down(mouse);	
+			break;
+		}	
 	}
 	
 				
 	this.key_down=function(key)
-    	{
-			this.leve1.key_down(key);	    	
-    	};
+    {
+		this.leve1.key_down(key);	    	
+    };
     
     this.key_up=function(key)
-    	{		
-			this.leve1.key_up(key);
-    	}; 
+    {		
+		this.leve1.key_up(key);
+    }; 
     
     		
 

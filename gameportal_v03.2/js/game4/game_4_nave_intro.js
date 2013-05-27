@@ -29,8 +29,8 @@ function Game4Nave_intro(file, tamanho_w, tamanho_h, posicao_x, posicao_y)
         this.setFPS = function(newFPS)
         {//abre setFPS
         
-                this.fps = newFPS;
-                this.time_per_frame = 1000/this.fps;
+           this.fps = newFPS;
+           this.time_per_frame = 1000/this.fps;
                 
         }//fecha setFPS
         
@@ -46,40 +46,33 @@ function Game4Nave_intro(file, tamanho_w, tamanho_h, posicao_x, posicao_y)
         this.draw = function()//funcao desenhar (draw)
         {//abre draw
                 
-                
-                //console.log("oioio");
-                
-                if(this.visible)
-                screen.drawImage(this.img,
-                                        this.tamanho_w_src*this.current_frame,
-                                        this.posicao_y_src,
-                                        this.tamanho_w_src,
-                                        this.tamanho_h_src,
-                                        this.posicao_x_dst,
-                                        this.posicao_y_dst,
-                                        this.tamanho_w_dst*this.scale_x,
-                                        this.tamanho_h_dst*this.scale_y);
+           if(this.visible)
+           screen.drawImage(this.img,
+           this.tamanho_w_src*this.current_frame,
+           this.posicao_y_src,
+           this.tamanho_w_src,
+           this.tamanho_h_src,
+           this.posicao_x_dst,
+           this.posicao_y_dst,
+           this.tamanho_w_dst*this.scale_x,
+           this.tamanho_h_dst*this.scale_y);
                                         
-                this.delta_time = Date.now() - this.last_draw_time;
+           this.delta_time = Date.now() - this.last_draw_time;
                 
-                if(this.acumulated_delta_time > this.time_per_frame)
-                {//abre if
-                        
-                        this.acumulated_delta_time = 0;
-                        this.current_frame++;
-                        if(this.current_frame >= this.frames)
-                        {//abre if
-                        
-                                this.current_frame = 0;
+           if(this.acumulated_delta_time > this.time_per_frame)
+           {//abre if
+           		this.acumulated_delta_time = 0;
+                this.current_frame++;
+                if(this.current_frame >= this.frames)
+                 {//abre if
+                 	this.current_frame = 0;
                                 
-                        }//fecha if
+                 }//fecha if
                         
-                }//fecha if
+           }//fecha if
                 else
                 {//abre else
-                
-                        this.acumulated_delta_time += this.delta_time;
-                        
+                	this.acumulated_delta_time += this.delta_time;
                 }//fecha if
                 
                 this.last_draw_time = Date.now();
