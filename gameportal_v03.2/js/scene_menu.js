@@ -11,7 +11,7 @@ var click_btn = new Audio();
 	click_btn.src = "sounds/Botão.wav";
 	click_btn.load();
 	click_btn.loop = false;
-	click_btn.volume = 0.6;
+	click_btn.volume = 1;
 
 function SceneMenu()
 {
