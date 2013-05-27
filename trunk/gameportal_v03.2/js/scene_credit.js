@@ -2,12 +2,7 @@ function SceneCredit()
 {
 
 	//--img de fundo----------------file, size_x, size_y, pos_x, pos_y
-	this.fundo = new img_cenario("imgs/credits.jpg",800, 600, 0, 0);
-	
-	
-	this.background = new Image();
-	this.background.src="imgs/background.png";
-	this.loaded = false;		
+	this.fundo = new img_cenario("imgs/credits.jpg",800, 600, 0, 0);		
 	
     this.button_back = new Button ("imgs/anim_button_back.png", 209, 75);
     this.button_back.position_x = 27;
@@ -20,8 +15,6 @@ function SceneCredit()
    
    	this.draw=function()
    	{
-   		//screen.drawImage(this.background, 0, 0);
-		
 		// desenha img
    		this.fundo.draw();
 		   		
