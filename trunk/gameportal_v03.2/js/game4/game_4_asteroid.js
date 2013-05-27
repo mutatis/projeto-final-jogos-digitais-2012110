@@ -35,26 +35,7 @@ function Game4Asteroid(file, size_x, size_y)
     	
     	//move the enemy
     	this.position_x -= this.velocity_x;	
-    	this.position_y += this.velocity_y;	
-		
-		/*
-			//enemy destruct or escape
-		   	if(this.position_x < -40) //|| destruct)
-			{
-				stats = true;
-			}
-						
-			
-			if(stats)
-			{
-				this.position_x = 850;
-				this.position_y = Math.floor((Math.random()*(600-size_y))+1);
-				stats = false;
-			}	
-				
-		*/
-    	
-		
+    	this.position_y += this.velocity_y;	    			
 	}
 
 

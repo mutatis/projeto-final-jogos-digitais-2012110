@@ -69,10 +69,6 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     
     this.update=function()
     {
-    	    	
-    	//this.move();
-    	
-    //	this.keepInScreen();
 		
 		this.AutoMove();
 		
@@ -85,7 +81,7 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     	//atirar
     	if(this.space_pressed)
     	{    		
-    		//player_position_x, player_position_y, player_velocity_x, player_velocity_y)
+    		
     		this.shoots.push(new Shoot(this.position_x_dst, this.position_y_dst, this.rotation));
     	}
     	
@@ -98,13 +94,6 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
 
 	
     };
-    
-	/*
-    this.fall=function()
-    {
-    	this.position_y_dst += this.velocity_y;
-    }
-    */
     
 	this.Move=function()
     {
@@ -126,33 +115,6 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     		this.position_y_dst += this.velocity_y;
     	}
     }
-    
-   /*this.keepInScreen=function()
-    {
-    	//saida pela esquerda
-    	if(this.position_x_dst < 0)
-    	{
-    		this.position_x_dst = 0;
-    	}
-    	
-    	//saida por cima
-    	if(this.position_y_dst < 0)
-    	{
-    		this.position_y_dst = 0;
-    	}
-    	
-    	//saida pela esquerda
-    	if(this.position_x_dst > SCREENWIDTH - this.size_x_dst*this.scale_x)
-    	{
-    		this.position_x_dst = SCREENWIDTH - this.size_x_dst*this.scale_x;
-    	}
-    	
-    	//saida por baixo
-    	if(this.position_y_dst > SCREENHEIGHT - this.size_y_dst*this.scale_y)
-    	{
-    		this.position_y_dst = SCREENHEIGHT - this.size_y_dst*this.scale_y;
-    	}
-    }*/
 
  	this.Accelerate=function()
 	{
@@ -192,13 +154,11 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
 			this.rotation -= this.rotateSpeed;
 		}
 		
-		//console.log(this.rotation);
 	}
 	
 	this.AutoMove=function()
 	{
 		
-		//console.log("AAAAAAAAAAAAAAAAA");
 		this.position_x_dst += this.velocity_x;
 		this.position_y_dst += this.velocity_y;
 	}
@@ -291,14 +251,14 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     
     this.key_down=function(key)
     {
-    		if(key.keyCode == 39)
-    		{
-    			this.right = true;
-    		}
-    		else if(key.keyCode == 37)
-    		{
-    			this.left = true;
-    		}
+    	if(key.keyCode == 39)
+    	{
+    		this.right = true;
+    	}
+    	else if(key.keyCode == 37)
+    	{
+    		this.left = true;
+    	}
     	
     		if(key.keyCode == 38)
     		{
@@ -322,28 +282,28 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     
     this.key_up=function(key)
     {
-    		if(key.keyCode == 39)
-    		{
-    			this.right = false;
-    		}
-    		else if(key.keyCode == 37)
-    		{
-    			this.left = false;
-    		}
+    	if(key.keyCode == 39)
+    	{
+    		this.right = false;
+    	}
+    	else if(key.keyCode == 37)
+    	{
+    		this.left = false;
+    	}
     	
-    		if(key.keyCode == 38)
-    		{
-    			this.up = false;
-    		}
-    		else if(key.keyCode == 40)
-    		{
-    			this.down = false;
-    		}
-    		
-    		if(key.keyCode == 32)
-    		{
-    			this.space_released = true;
-    		}
+    	if(key.keyCode == 38)
+    	{
+    		this.up = false;
+    	}
+    	else if(key.keyCode == 40)
+    	{
+    		this.down = false;
+    	}
+    	
+    	if(key.keyCode == 32)
+    	{
+    		this.space_released = true;
+    	}
     	  	
     }; 	
 

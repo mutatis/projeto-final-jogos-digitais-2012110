@@ -10,10 +10,10 @@ function Game2SceneInstruction()
 	
 	
 	this.update=function()
-		{
+	{
 			
-			this.player.position_x_dst += this.player.velocity_x;
-			this.player.position_y_dst += this.player.velocity_y;
+		this.player.position_x_dst += this.player.velocity_x;
+		this.player.position_y_dst += this.player.velocity_y;
 		
 		if(this.player.position_x_dst > 815)
 		{
@@ -32,24 +32,24 @@ function Game2SceneInstruction()
 		};
 	
 	this.draw=function()
-		{  		
-			// img de fundo
-			this.fundo.draw();
+	{  		
+		// img de fundo
+		this.fundo.draw();
 			
-			//--Botão--
-			this.voltar_btn.draw();
-			
-			this.player.draw();
-		};
+		//--Botão--
+		this.voltar_btn.draw();
+		
+		this.player.draw();
+	};
 		
 	this.mouse_down=function(mouse)
 	{
-			if(this.voltar_btn.clicked(mouse))
-			{	
-				game2.currentGameScene = game2.GAMESCENE.INTRO; 
-				//som de click
-				click_btn.play();						
-			};
+		if(this.voltar_btn.clicked(mouse))
+		{	
+			game2.currentGameScene = game2.GAMESCENE.INTRO; 
+			//som de click
+			click_btn.play();						
+		};
 	};
 				
 };

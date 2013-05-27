@@ -44,13 +44,12 @@ function Game4Titulo_move(file, tamanho_w, tamanho_h, posicao_x, posicao_y)
         }//fecha update
         
         this.draw = function()//funcao desenhar (draw)
-        {//abre draw
+        {
+        	//abre draw
+          	//console.log("oioio");
                 
-                
-                //console.log("oioio");
-                
-                if(this.visible)
-                screen.drawImage(this.img,
+            if(this.visible)
+              screen.drawImage(this.img,
                                         this.tamanho_w_src*this.current_frame,
                                         this.posicao_y_src,
                                         this.tamanho_w_src,
@@ -64,13 +63,11 @@ function Game4Titulo_move(file, tamanho_w, tamanho_h, posicao_x, posicao_y)
                 
                 if(this.acumulated_delta_time > this.time_per_frame)
                 {//abre if
-                        
-                        this.acumulated_delta_time = 0;
+                      	this.acumulated_delta_time = 0;
                         this.current_frame++;
                         if(this.current_frame >= this.frames)
                         {//abre if
-                        
-                                this.current_frame = 0;
+                        	this.current_frame = 0;
                                 
                         }//fecha if
                         
@@ -78,7 +75,7 @@ function Game4Titulo_move(file, tamanho_w, tamanho_h, posicao_x, posicao_y)
                 else
                 {//abre else
                 
-                        this.acumulated_delta_time += this.delta_time;
+                 	this.acumulated_delta_time += this.delta_time;
                         
                 }//fecha if
                 

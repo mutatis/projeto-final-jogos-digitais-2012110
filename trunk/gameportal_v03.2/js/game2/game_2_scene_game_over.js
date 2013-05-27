@@ -9,35 +9,35 @@ function Game2SceneGameOver()
 	
 	
 	this.update=function()
-		{
+	{
 	
-		};
+	};
 	
 	this.draw=function()
-		{  		
-			// img de fundo
-			this.fundo.draw();
+	{  		
+		// img de fundo
+		this.fundo.draw();
 			
-			this.voltar_btn.draw();	
+		this.voltar_btn.draw();	
 			
-			this.restart_btn.draw();		
-		};
+		this.restart_btn.draw();		
+	};
 	    
 	this.mouse_down=function(mouse)
-		{
-			if(this.voltar_btn.clicked(mouse))
-				{	
-					game2.currentGameScene = game2.GAMESCENE.INTRO; 
-					//som de click
-					click_btn.play();
-				};
+	{
+		if(this.voltar_btn.clicked(mouse))
+		{	
+			game2.currentGameScene = game2.GAMESCENE.INTRO; 
+			//som de click
+			click_btn.play();
+		};
 
 			if(this.restart_btn.clicked(mouse))
-				{	
-					game2.currentGameScene = game2.GAMESCENE.LEVEL1; 
-					//som de click
-					click_btn.play();
-				};	
+			{	
+				game2.currentGameScene = game2.GAMESCENE.LEVEL1; 
+				//som de click
+				click_btn.play();
+			};	
 								
-		};	
+	};	
 };

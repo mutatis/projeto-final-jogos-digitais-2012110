@@ -32,12 +32,9 @@ function Game1SceneIntro()
 			this.button_instrucao.draw();
 			this.button_start.draw();
 		};
-		
-		
-		
+			
 	this.mouse_down=function(mouse)
    	{
-		
 			// click para comesar o game
 			if(this.button_start.clicked(mouse))
 				{
@@ -51,15 +48,14 @@ function Game1SceneIntro()
 					game1.currentGameScene = game1.GAMESCENE.LEVEL1
 				}
 			
-
 			// vai para instrução do game
 			if(this.button_instrucao.clicked(mouse))
-				{
-					//som de click
-					click_btn.play();
+			{
+				//som de click
+				click_btn.play();
 					
-					game1.currentGameScene = game1.GAMESCENE.INSTRUCTION; 	
-				}
+				game1.currentGameScene = game1.GAMESCENE.INSTRUCTION; 	
+			}
 				
 				
 				// click para volta para o menu inicial do portal

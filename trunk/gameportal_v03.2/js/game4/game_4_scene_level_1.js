@@ -43,15 +43,14 @@ function Game4SceneLevel1()
 
 	this.update=function()
 	{
-		
-	this.nave1.update();
-	this.enemy1.update();
-	this.enemy2.update();
-	this.enemy3.update();	
+		this.nave1.update();
+		this.enemy1.update();
+		this.enemy2.update();
+		this.enemy3.update();	
  		
-	//-----------musica----------
-	// play na musica quando ela esta na tela do lvel 1
-	this.level1_musica.play();
+		//-----------musica----------
+		// play na musica quando ela esta na tela do lvel 1
+		this.level1_musica.play();
 														
 			// GAME OVER
 			if (this.nave1.life <= 0)
@@ -118,18 +117,18 @@ function Game4SceneLevel1()
     }; 
 	
 	this.mouse_down=function(mouse)
-		{		
+	{		
 		// click para sair do game
 		if(this.button_close.clicked(mouse))
-			{			
-				this.nave1.life = 3;
-				this.nave1.points = 0;
-				//som de click
-				click_btn.play();					
-				//--pause/stop na musica do LVL 1-- 
-				this.level1_musica.pause();
-				//--vai para o game3--
-				game4.currentGameScene = game4.GAMESCENE.INTRO
-			}
-		};	
+		{			
+			this.nave1.life = 3;
+			this.nave1.points = 0;
+			//som de click
+			click_btn.play();					
+			//--pause/stop na musica do LVL 1-- 
+			this.level1_musica.pause();
+			//--vai para o game3--
+			game4.currentGameScene = game4.GAMESCENE.INTRO
+		}
+	};	
 };

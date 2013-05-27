@@ -36,26 +36,20 @@ function Game4Enemy(file, size_x, size_y, velocity_x, velocity_y)
 
     	this.position_y += this.velocity_y;	
 		
-			//enemy destruct or escape
-		   	if(this.position_x < -40) //|| destruct)
-			{
-				stats = true;
-			}
+		//enemy destruct or escape
+		if(this.position_x < -40) //|| destruct)
+		{
+			stats = true;
+		}
 						
 			
-			if(stats)
-			{
-				this.position_x = 850;
-				this.position_y = Math.floor((Math.random()*(600-size_y))+1);
-				stats = false;
-			}	
-				
-
-    	
-
-
-
-
+		if(stats)
+		{
+			this.position_x = 850;
+			this.position_y = Math.floor((Math.random()*(600-size_y))+1);
+			stats = false;
+		}	
+				  	
     	//keep enemy in field
     	if(this.position_y < 0)
 		{

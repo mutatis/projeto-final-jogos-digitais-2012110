@@ -26,8 +26,7 @@ function Game2Item (file, size_x, size_y, pos_x, pos_y, vel_x, vel_y)
 
     	this.position_y += this.velocity_y;	
 		
-	
-	 };
+	};
     
 	this.draw=function()
     {

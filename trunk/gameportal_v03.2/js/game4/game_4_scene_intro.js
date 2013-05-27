@@ -5,7 +5,7 @@ function Game4SceneIntro()
 
 	//----------- intro musica----------
 	this.intro_musica = new Audio();
-	this.intro_musica.src = "sounds/game3/tela de iniciar Move Forward.mp3";
+	this.intro_musica.src = "sounds/game3/Long Timedd Coming.mp3";
 	this.intro_musica.load();
 	this.intro_musica.loop = true;
 	this.intro_musica.volume = 0.6;	
@@ -65,7 +65,6 @@ function Game4SceneIntro()
 					
 				game4.currentGameScene = game4.GAMESCENE.INSTRUCTION; 	
 			}
-				
 				
 				// click para volta para o menu inicial do portal
 				if(this.button_voltar.clicked(mouse))

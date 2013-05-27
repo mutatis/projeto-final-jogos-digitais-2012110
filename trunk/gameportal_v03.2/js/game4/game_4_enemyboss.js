@@ -32,38 +32,17 @@ function Game4EnemyBoss(file, size_x, size_y)
 	
     this.update=function()
     {
-	
-	
-    	if(this.visible)
+		if(this.visible)
 		{
     	this.position_x -= this.velocity_x;	
 		this.position_y += this.velocity_y;	
-			if(this.position_x == 580)
-			{
-				this.velocity_x = 0;
-			}
+		if(this.position_x == 580)
+		{
+			this.velocity_x = 0;
 		}
-		/*	//enemy destruct or escape
-		   	if(this.position_x < 0) //|| destruct)
-			{
-				stats = true;
-			}
-						
-			
-			if(stats)
-			{
-				this.position_x = 830;
-				this.position_y = Math.floor((Math.random()*(600-size_y))+1);
-				stats = false;
-			}	
-				
-
-    	*/
-
-
-
-
-    	//keep enemy in field
+	}
+		
+		//keep enemy in field
     	if(this.position_y < 0)
 		{
 			this.velocity_y *=-1;	
