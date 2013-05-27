@@ -16,11 +16,7 @@ var click_btn = new Audio();
 function SceneMenu()
 {
 	//file, size_x, size_y, pos_x, pos_y
-	this.fundo_level1 = new img_cenario("imgs/capa-do-jogo2.jpg",800, 600, 0, 0);
-
-	this.background = new Image();
-	this.background.src="imgs/background.png";
-	this.loaded = false;		
+	this.anifundo = new Anifundo("imgs/Anifundo.jpg",800, 600, 0, 0);		
     
 	//-------------------------------file, size_x, size_y
     this.button_credit = new Button("imgs/anim_button_credit.png", 209, 75);
@@ -60,7 +56,7 @@ function SceneMenu()
 		
 
 		// img de fundo
-		this.fundo_level1.draw();
+		this.anifundo.draw();
 		
 		this.button_credit.draw();
 		this.button_game_1.draw();
