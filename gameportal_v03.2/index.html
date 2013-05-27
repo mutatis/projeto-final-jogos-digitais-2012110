@@ -99,12 +99,19 @@
 		
    </head>
         
-   <body>
-   <canvas width="800" height="600" id="main" style="border:1px solid #000000;"></canvas>
+   <body style="background-image: url(imgs/padrao-fundo.png); background-repeat: repeat;">
+   <div id="Wrepper" style="width:800px; height:600px;">
+   <canvas width="800" height="600" id="main" style="border:1px solid #000000; "></canvas>
+    <iframe src="http://www.facebook.com/plugins/like.php?href=YOUR_URL"
+        scrolling="no" frameborder="0"
+        style="border:none; width:800px; height:100px; backgroun-color:#ffffff;"></iframe>
+        
+    </div>    
    </body>
         
    	<script> 
-        
+         
+       
    	var canvas = document.getElementById("main");
    	var screen = canvas.getContext("2d");
    	
