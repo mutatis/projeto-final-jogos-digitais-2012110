@@ -16,7 +16,12 @@ var click_btn = new Audio();
 function SceneMenu()
 {
 	//file, size_x, size_y, pos_x, pos_y
-	this.anifundo = new Anifundo("imgs/Anifundo.jpg",800, 600, 0, 0);		
+	this.anifundo = new Anifundo("imgs/Anifundo.jpg",800, 600, 0, 0);
+	
+	
+	//file, size_x, size_y, pos_x, pos_y
+	this.logo = new img_cenario("imgs/logo.png",800, 600, 0, 0);	
+			
     
 	//-------------------------------file, size_x, size_y
     this.button_credit = new Button("imgs/anim_button_credit.png", 209, 75);
@@ -50,20 +55,24 @@ function SceneMenu()
    
    	this.draw=function()
 	{
-		
+						
 		//--PLAY MUSICA--
 		musica.play();
 		
 
 		// img de fundo
 		this.anifundo.draw();
-		
+				
 		this.button_credit.draw();
 		this.button_game_1.draw();
 		this.button_game_2.draw();
 		this.button_game_3.draw();
 		this.button_game_4.draw();
 		this.button_game_5.draw();
+		
+		this.logo.draw();
+		
+		
 	};
    
    	this.mouse_down=function(mouse)
