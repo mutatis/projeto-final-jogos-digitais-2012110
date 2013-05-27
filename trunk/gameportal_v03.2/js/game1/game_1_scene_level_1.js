@@ -122,9 +122,12 @@ function Game1SceneLevel1()
 				this.points = 0;
 			}		
 		
-		
+		if(this.points <= 0)
+		{
+			this.points = 0;
+		}
 		//GAME OVER
-		if ( (this.seconds <= 0) || (this.points <= - 50) )
+		if ( (this.seconds <= 0) || (this.points = 0) )
 			{			
 				this.cb1 = true; 
 				this.meteoros.length = 0;	
