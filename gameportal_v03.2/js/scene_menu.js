@@ -1,7 +1,7 @@
 // --------------------------------variavel global--------------------------- 
 //-----------musica inicial ----------
 var musica = new Audio();
-	musica.src = "sounds/Kg-song.mp3";
+	musica.src = "sounds/Long Timedd Coming.mp3";
 	musica.load();
 	musica.loop = true;
 	musica.volume = 0.6;
