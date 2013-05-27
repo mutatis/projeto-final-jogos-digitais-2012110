@@ -146,7 +146,7 @@ function Game3SceneLevel1()
 			};
 		}
 	
-	if ((this.player1.points >= 200)&&( this.cb1 == true) )
+	if ((this.player1.points >= 80)&&( this.cb1 == true) )
 	{
 		// estrela, ganha pontos 
 		this.criarObjetos1();
