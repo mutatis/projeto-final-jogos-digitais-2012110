@@ -5,7 +5,7 @@ function Game4SceneIntro()
 
 	//----------- intro musica----------
 	this.intro_musica = new Audio();
-	this.intro_musica.src = "sounds/game3/Long Timedd Coming.mp3";
+	this.intro_musica.src = "sounds/game4/Long Timedd Coming.mp3";
 	this.intro_musica.load();
 	this.intro_musica.loop = true;
 	this.intro_musica.volume = 0.6;	
