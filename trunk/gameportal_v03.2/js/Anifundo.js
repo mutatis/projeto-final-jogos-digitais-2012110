@@ -26,7 +26,7 @@ function Anifundo(file, tamanho_w, tamanho_h, posicao_x, posicao_y)
         this.current_frame = 0;
         this.frames = 3;
         
-        this.fps = 2;//frames por segundo
+        this.fps = 8;//frames por segundo
         this.time_per_frame = 1000/this.fps;
         this.setFPS = function(newFPS)
         {//abre setFPS
