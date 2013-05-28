@@ -125,7 +125,7 @@ function SceneMenu()
 			//--stop na musica do menu inicial do portal--
 			musica.pause();
 			this.button_game_4.position_x_src = 0; //Volta ao Frame Inicial da Animacao do botao;
-    		currentScene = SCENE.GAME4;		
+    		//currentScene = SCENE.GAME4;		
     	}
     	
     	if(this.button_game_5.clicked(mouse))
