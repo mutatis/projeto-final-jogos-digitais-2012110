@@ -13,7 +13,7 @@ function Game4SceneIntro()
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
 	this.button_start = new Game4Button("imgs/game4/play1.png", 161, 66, 300, 250);
     this.button_tuto = new Game4Button("imgs/game4/play_cre.png", 161, 66, 300, 350);
-	this.button_voltar = new Button_2("imgs/game2/return.png", 148, 60, 323,474);	
+	this.button_voltar = new Button_2("imgs/game4/return.png", 161, 66, 300, 450);	
 	
 	this.titulo = new Game4Titulo_move("imgs/game4/titulo.png",663,111,60,100);
 	

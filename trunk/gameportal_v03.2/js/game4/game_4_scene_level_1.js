@@ -12,10 +12,15 @@ function Game4SceneLevel1()
 	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 10);	
 	
 	// estrela
-	this.star = new Game4Item ("imgs/game4/star.png", 20, 19, 400, 300, 0, 0); 
+	this.star = new Game4Item ("imgs/game4/star.png", 20, 19, 800, 0, -2, 0); 
 	
 	// Vida
-	this.life = new Game4Item ("imgs/game4/life.png", 32, 34, 450, 350, 0, 0); 
+	this.life = new Game4Item ("imgs/game4/life.png", 32, 34, 800, 0, -2, 0); 
+	
+	//Asteroid
+	this.asteroid = new Game4Asteroid ("imgs/game4/asteroid.png", 126, 91);
+	
+	this.points = 0;
 		
 	//----------- level1 musica----------
 	this.level1_musica = new Audio();
@@ -36,18 +41,32 @@ function Game4SceneLevel1()
 	this.enemy3 = new Game4EnemyBoss("imgs/game4/alvo3.png", 184, 133, 0, 0);
 		
 	// Boss	
-			if (this.nave1.points >= 100)
+			if (this.points >= 100)
 			{
 				this.enemy3.visible = true;
 			}
 
+
+ 		
+	
 	this.update=function()
 	{
 		this.nave1.update();
 		this.enemy1.update();
 		this.enemy2.update();
 		this.enemy3.update();	
- 		
+	this.asteroid.update();
+	this.life.update();
+	this.star.update();
+	
+	
+//if(Collide  (this.asteroid.position_x, this.asteroid.position_y, this.asteroid.size_x, this.asteroid.size_y,
+// 			 this.nave1.position_x + 15, this.nave1.position_y+20, 10, 10))
+//{
+//	console.log("colidiu")
+//}	
+	
+	
 		//-----------musica----------
 		// play na musica quando ela esta na tela do lvel 1
 		this.level1_musica.play();
@@ -75,6 +94,8 @@ function Game4SceneLevel1()
 			
 		} // fecha update
 	
+	
+	
 	this.draw=function()
 	{  			
 		//background.
@@ -91,16 +112,29 @@ function Game4SceneLevel1()
 		this.enemy3.draw();
 							
 		this.star.draw();
-		this.life.draw();		
+		this.life.draw();
+
+		this.asteroid.draw();	
 							
 		// desenha o btn de fechar o lvl 1
 		this.button_close.draw();					
 							
 		// desenha os posntos, vida e etc...
+
+		screen.font="27px Comic Sans";
+		screen.fillStyle="#E6F4E9";
+		screen.fillText("Lives: " + this.nave1.life,20,28);
+		screen.fillText("Points: "+ this.points,200,28);	
+		
+		//screen.fillText("Shoot: "+ this.nave1.shoots.position_x,200,200);	
+
+		
+
 		screen.font="16px Comic Sans MS";
 		screen.fillStyle="#ff3366";
 		screen.fillText("Lives: " + this.nave1.life,20,23);
 		screen.fillText("Points: "+ this.nave1.points,20,43);			
+
 	};
 
 		
