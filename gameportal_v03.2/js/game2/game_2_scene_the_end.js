@@ -17,9 +17,11 @@ function Game2SceneTheEnd()
 	{  		
 		// img de fundo
 		this.fundo.draw();
-
+		
+		// botão de voltar
 		this.voltar_btn.draw();	
 		
+		// botão de reiniciar
 		this.restart_btn.draw();				
 	};
 		
@@ -27,6 +29,7 @@ function Game2SceneTheEnd()
 	{
 		if(this.voltar_btn.clicked(mouse))
 		{	
+			// mudar de cena ao clickar o botão
 			game2.currentGameScene = game2.GAMESCENE.INTRO;
 			//som de click
 			click_btn.play();
@@ -34,6 +37,7 @@ function Game2SceneTheEnd()
 
 		if(this.restart_btn.clicked(mouse))
 		{	
+			// mudar de cena ao clickar o botão
 			game2.currentGameScene = game2.GAMESCENE.LEVEL1; 
 			//som de click
 			click_btn.play();

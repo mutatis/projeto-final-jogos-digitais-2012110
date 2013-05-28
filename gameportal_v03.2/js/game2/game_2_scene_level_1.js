@@ -1,7 +1,9 @@
 function Game2SceneLevel1()
 {
+	// Fundo
 	this.background = new Game2Background("imgs/game2/game_bg.png");
 	
+	// Placar que mostra pontos e tempo
 	this.placar = new img_cenario("imgs/placar.png",800, 600, 0, 0);
 	
 	//------------------------------------------------file, size_x, size_y, position_x, position_y
@@ -13,12 +15,13 @@ function Game2SceneLevel1()
 	//--Botão--------------------------------file, size_x, size_y, pos_x, pos_y
 	this.button_close = new Button_2("imgs/close_btn.png", 36, 36, 749, 3);	
 	
-	
+	// Listas de objetos
 	plataform_list = new Array();
 	cenoura_list = new Array();
 	alface_list = new Array();
 	snake_list = new Array();
 
+	// Variaveis de tempo
 	this.tempoAux = 0;
 	this.tempoSeg = 0;
 
@@ -51,8 +54,8 @@ function Game2SceneLevel1()
 	this.song_fx.loop = false;
 	this.song_fx.volume = 0.3;
 
-	//cobra1 = new Mob ("Image/cobrazz.png", 73, 15, 200, 200);
-		
+
+	// lista das plataformas	
 	function Plataform_Object()
 	{
 
@@ -73,6 +76,7 @@ function Game2SceneLevel1()
 
 	Plataform_Object();
 
+	// lista das cenouras	
 	function Cenoura_Object()
 	{
 		var b0 = new Game2Item ("imgs/game2/cenoura.png", 17, 34, 0, 0, 0, -2); 
@@ -81,6 +85,7 @@ function Game2SceneLevel1()
 
 	Cenoura_Object();
 
+	// lista das alfaces
 	function Alface_Object()
 	{
 		var c0 = new Game2Item ("imgs/game2/alface.png", 47, 31, 0, 0, 0, -2); 
@@ -89,6 +94,7 @@ function Game2SceneLevel1()
 
 	Alface_Object();
 
+	// lista das cobras
 	function Snake_Object()
 	{
 		var d0 = new Game2Mob ("imgs/game2/cobra.png", 91, 17, 0, 0);
@@ -100,6 +106,7 @@ function Game2SceneLevel1()
 
 	Snake_Object();
 
+	// função que conta e atualiza o tempo de jogo
 	this.gametime=function()
 	{
 		this.tempoSeg++;
@@ -121,7 +128,7 @@ function Game2SceneLevel1()
 		// play na musica quando ela esta na tela do lvel 1
 		this.level1_musica.play();
 
-
+		// Chama a atualização do tempo de jogo, do fundo e do jogador
 		this.gametime();
 	
 		this.background.update();
@@ -138,7 +145,7 @@ function Game2SceneLevel1()
 		
 		
 		
-		
+			// Teste de colisão
 			if(Collide(
 					this.player.position_x_dst, 
     				this.player.position_y_dst, 
