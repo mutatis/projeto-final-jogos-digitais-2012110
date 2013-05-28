@@ -6,7 +6,7 @@ function Game1SceneIntro()
 
 	//----------- intro musica----------
 	this.intro_musica = new Audio();
-	this.intro_musica.src = "sounds/game3/Introdução.mp3";
+	this.intro_musica.src = "sounds/game1/Intro.mp3";
 	this.intro_musica.load();
 	this.intro_musica.loop = true;
 	this.intro_musica.volume = 0.6;	
