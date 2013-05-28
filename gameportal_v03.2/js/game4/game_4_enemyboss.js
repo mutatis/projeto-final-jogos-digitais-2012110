@@ -4,7 +4,10 @@ function Game4EnemyBoss(file, size_x, size_y)
 	this.img = new Image();
 	this.img.src=file;
 	this.loaded = false;
-	this.visible = true;
+	this.visible = false;
+	
+	this.shoots2 = new Array();
+	
 	
 	this.img.onload = function()
 	{
@@ -24,6 +27,13 @@ function Game4EnemyBoss(file, size_x, size_y)
 	this.velocity_x = 2;
 	this.velocity_y = 0;
 	
+	this.shoot = false;
+
+	this.timetoshoot = 0;
+
+	this.chancetoshoot = Math.random();//20%?
+
+	
 	this.draw = function()
 	{	
 		if(this.visible = true)
@@ -40,6 +50,18 @@ function Game4EnemyBoss(file, size_x, size_y)
 		{
 			this.velocity_x = 0;
 		}
+		
+		this.timetoshoot++;
+   	
+   	if(Math.random()<0.02)
+   	{
+   	 this.shoots2.push(new Shoot2(this.position_x_dst, this.position_y_dst, this.rotation));
+   	}
+	
+		for(var i = 0; i < this.shoots2.length; i++)
+    	{
+    		this.shoots2[i].update();
+    	}
 	}
 		
 		//keep enemy in field

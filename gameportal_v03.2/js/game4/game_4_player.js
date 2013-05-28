@@ -24,7 +24,7 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     this.velocity_y = 0;
 	
     this.life = 3;
-	this.points = 0;
+	
 	
     this.speed = 0.09;//velocity, acceleration... TO DO cannot put vel higher then a certain maximum value
 	
@@ -76,6 +76,46 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
 		
 		this.Accelerate();
     	
+
+    	this.Boundaries();
+    	
+    	//atirar
+    	if(this.space_pressed)
+    	{    		
+    		//player_position_x, player_position_y, player_velocity_x, player_velocity_y)
+    		this.shoots.push(new Shoot(this.position_x_dst, this.position_y_dst, this.rotation));
+    	}
+    	
+    	for(var i = 0; i < this.shoots.length; i++)
+    	{
+    		this.shoots[i].update();
+				//level01.player.velocity_y = 2;
+		/*	if(Collide(
+					game4.asteroid.position_x, 
+    				game4.asteroid.position_y, 
+    				game4.asteroid.size_x,
+    				game4.asteroid.size_y, 
+					this.shoots[i].position_x_dst,
+					this.shoots[i].position_y_dst,
+					this.shoots[i].size_x,
+					this.shoots[i].size_y
+				))
+				{
+				console.log ("bateu")
+				}
+				
+				else
+				
+				{
+				console.log ("não bateu")
+				}
+			
+			
+			*/
+    	}
+				
+    	this.space_pressed = false;
+
     	this.Boundaries();
     	
     	//atirar
@@ -91,6 +131,7 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     	}
 				
     	this.space_pressed = false;
+
 
 	
     };
@@ -291,6 +332,16 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     		this.left = false;
     	}
     	
+
+    		if(key.keyCode == 38)
+    		{
+    			this.up = false;
+    		}
+    		else if(key.keyCode == 40)
+    		{
+    			this.down = false;
+    		}
+
     	if(key.keyCode == 38)
     	{
     		this.up = false;
@@ -304,6 +355,12 @@ function Game4Player(file, size_x, size_y, position_x, position_y)
     	{
     		this.space_released = true;
     	}
+
+    		
+    		if(key.keyCode == 32)
+    		{
+    			this.space_released = true;
+    		}
     	  	
     }; 	
 

@@ -13,6 +13,8 @@ function Shoot(player_position_x, player_position_y, player_rotation)
 	};
 
 	
+	//console.log(leve1.this.star.position_x);
+	
 	this.img.onload = function()
 	{
 		loaded = true; 
@@ -27,7 +29,8 @@ function Shoot(player_position_x, player_position_y, player_rotation)
     this.velocity_x = Math.cos(this.degreesToRadians(player_rotation)) * 5;
     this.velocity_y = Math.sin(this.degreesToRadians(player_rotation)) * 5;
     
-    console.log(this.velocity_x);
+  //  console.log(this.velocity_x);
+	console.log(this.position_x);
     
     this.update=function()
     {
@@ -55,15 +58,18 @@ function Shoot(player_position_x, player_position_y, player_rotation)
 			this.visible = false;	
 		}
 		//TO DO REMOVER O TIRO QD ELE NAO ESTIVER MAIS VISIVEL (ou saiu da tela ou bateu no inimigo)
+		
+
 	
     };
    
     this.draw=function()
 	{
+	//screen.fillText("shoot: "+ this.position_x,200,80);	
     	if(this.visible)
-
+		{
     	screen.drawImage(this.img, this.position_x, this.position_y);
-
+		}
     };
     
  }

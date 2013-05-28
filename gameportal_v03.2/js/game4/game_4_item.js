@@ -13,11 +13,12 @@ function Game4Item (file, size_x, size_y, pos_x, pos_y, vel_x, vel_y)
 	
 	this.size_x = size_x;
     this.size_y = size_y;
-    this.position_x = pos_x;//player_position_x - this.size_x /2;
-    this.position_y = pos_y;//player_position_y - this.size_y +10;
+    this.position_x = Math.floor((Math.random()*800)+500);
+    this.position_y = Math.floor((Math.random()*590));
     this.velocity_x =  vel_x;//Math.floor((Math.random()*10)+1);
-    this.velocity_y =  vel_y;//-Math.floor((Math.random()*10)+1)
+    this.velocity_y =  vel_y;//-this.visible = true;
     this.velocity_MAX = 15;
+	this.random = Math.floor((Math.random()*800)+800);
     
     this.update=function()
     {
@@ -26,14 +27,34 @@ function Game4Item (file, size_x, size_y, pos_x, pos_y, vel_x, vel_y)
 
     	this.position_y += this.velocity_y;	
 		
+		
+		
+		if(this.visible == false)
+		{
+		this.visible = true;
+		this.position_x = Math.floor((Math.random()*800)+this.random);
+		this.position_y = Math.floor((Math.random()*600))
+		}
+		
+		if(this.position_x <= -10)
+		{
+		this.visible = true;
+		this.position_x = Math.floor((Math.random()*800)+this.random);
+		this.position_y = Math.floor((Math.random()*600));
+		}
 	
 	 };
     
 	this.draw=function()
     {
     	if(this.visible)
+		{
     	screen.drawImage(this.img, this.position_x, this.position_y);
-    };
+		}
+		
+		
+	};
+	
 	
     this.mouse_down=function(mouse)
     {
