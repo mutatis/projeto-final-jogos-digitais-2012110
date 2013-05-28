@@ -1,5 +1,6 @@
 		function SceneGame2()
-	{		
+	{	
+		// Cenas
 		this.intro = new Game2SceneIntro();
 		this.leve1 = new Game2SceneLevel1();
 		this.theEnd = new Game2SceneTheEnd();
