@@ -52,13 +52,13 @@ function Game1SceneLevel1()
 	
 	this.criarObjetos=function()
 	{
-		this.meteoro1 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +3);
-		this.meteoro2 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +3);
-		this.meteoro3 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +3);
-		this.meteoro4 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +3);
+		this.meteoro1 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +10);
+		this.meteoro2 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +10);
+		this.meteoro3 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +10);
+		this.meteoro4 = new Meteor ("imgs/game1/meteoro1.png", 50, 38, +10);
 		 
-		this.meteoro5 = new Meteor ("imgs/game1/meteoro2.png", 50, 38, +4);
-		this.meteoro6 = new Meteor ("imgs/game1/meteoro3.png", 50, 38, +5);
+		this.meteoro5 = new Meteor ("imgs/game1/meteoro2.png", 50, 38, +10);
+		this.meteoro6 = new Meteor ("imgs/game1/meteoro3.png", 50, 38, +20);
 	
 		this.meteoros.push(this.meteoro1);
 		this.meteoros.push(this.meteoro2);
