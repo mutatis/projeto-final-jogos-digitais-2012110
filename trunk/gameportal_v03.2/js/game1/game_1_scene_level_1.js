@@ -121,11 +121,6 @@ function Game1SceneLevel1()
 				this.seconds = this.secondsRes;
 				this.points = 0;
 			}		
-		
-		if(this.points <= 0)
-		{
-			this.points = 0;
-		}
 		//GAME OVER
 		if ( (this.seconds <= 0) || (this.points = 0) )
 			{			
