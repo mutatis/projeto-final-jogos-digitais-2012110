@@ -10,7 +10,7 @@ function Game1SceneLevel1()
 	
 	//----------- level1 musica----------
 	this.level1_musica = new Audio();
-	this.level1_musica.src = "sounds/game2/menu_fall.mp3";
+	this.level1_musica.src = "sounds/game1/Durante Jogo.mp3";
 	this.level1_musica.load();
 	this.level1_musica.loop = true;
 	this.level1_musica.volume = 1;
